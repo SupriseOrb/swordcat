@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
+	<RootPaths>
+		<ProjectRoot>C:\Users\krisc\Documents\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\krisc\Documents\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\krisc\Documents\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\krisc\Documents\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\main</ObjectPath>
+			<ShortName>main</ShortName>
+			<Path>main.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3157003241" Name="test" ObjectPath="\Events\Default Work Unit\test"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="462586578" Language="SFX">
+					<ShortName>grab_coin.wav</ShortName>
+					<Path>SFX\grab_coin_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
