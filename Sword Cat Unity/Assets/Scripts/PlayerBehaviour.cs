@@ -8,12 +8,18 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] Vector3 m_direction;
 
     private Rigidbody rb;
-    [SerializeField] private Camera cam;
+    private Camera cam;
+
+    private SwordHolster leftHolster;
+    private SwordHolster rightHolster;
 
     void Awake()
     {
         rb = this.transform.GetComponent<Rigidbody>();
         cam = Camera.main;
+
+        leftHolster = this.transform.GetChild(1).GetComponent<SwordHolster>();
+        rightHolster = this.transform.GetChild(2).GetComponent<SwordHolster>();
     }
 
     // Start is called before the first frame update
@@ -25,10 +31,15 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-
         LookForward();
 
+        m_direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+
+        if (Input.GetKey(KeyCode.Mouse0))
+            FireLeft();
+
+        if (Input.GetKey(KeyCode.Mouse1))
+            FireRight();
     }
 
     void FixedUpdate()
@@ -56,4 +67,23 @@ public class PlayerBehaviour : MonoBehaviour
         //Debug.Log(camY);
         rb.MoveRotation(Quaternion.Euler(currentX, camY, currentZ));
     }
+
+    void FireLeft()
+    {
+        Debug.Log("Fired left");
+        if (!leftHolster.IsSwordLaunched())
+        {
+            leftHolster.LaunchSword();
+        }
+    }
+
+    void FireRight()
+    {
+        Debug.Log("Fired left");
+        if (!rightHolster.IsSwordLaunched())
+        {
+            rightHolster.LaunchSword();
+        }
+    }
+
 }
