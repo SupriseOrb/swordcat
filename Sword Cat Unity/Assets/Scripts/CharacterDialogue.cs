@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +12,8 @@ public class CharacterDialogue : MonoBehaviour
 
     [SerializeField] GameObject dialogueUI;
 
-    [SerializeField] Text uiName;
-    [SerializeField] Text uiDialogue;
+    [SerializeField] TextMeshProUGUI uiName;
+    [SerializeField] TextMeshProUGUI uiDialogue;
 
     string characterName;
     JToken script;
@@ -44,42 +45,19 @@ public class CharacterDialogue : MonoBehaviour
 
         foreach (string line in dialogue)
         {
-            MatchCollection matches = Regex.Matches(line, @"<\/?([\w]+?)(?:\=#?[\w]+?)?>");
-
-            string raw = Regex.Replace(line, @"<\/?([\w]+?)(?:\=#?[\w]+?)?>", "");
-            
-            for (int i = 0; i < raw.Length; i++)
+            for (int i = 0; i < line.Length; i++)
             {
-                List<string> formatters = new List<string>();
-                string formatted = raw.Substring(0, i + 1);
-                
-                foreach (Match match in matches)
+                while (i < line.Length && line[i] == '<')
                 {
-                    if (match.Index <= formatted.Length)
+                    while (i < line.Length && line[i] != '>')
                     {
-                        formatted = formatted.Insert(match.Index, match.Value);
+                        i++;
+                    }
 
-                        if (match.Value.StartsWith("</"))
-                        {
-                            formatters.RemoveAt(0);
-                        }
-                        else
-                        {
-                            formatters.Insert(0, match.Groups[1].Value);
-                        }
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    i++;
                 }
 
-                foreach (string close in formatters)
-                {
-                    formatted += $"</{close}>";
-                }
-
-                uiDialogue.text = formatted;
+                uiDialogue.text = line.Substring(0, Mathf.Min(i + 1, line.Length));
 
                 yield return null;
                 if (!Input.GetButton("Fire1"))
@@ -93,6 +71,8 @@ public class CharacterDialogue : MonoBehaviour
         }
 
         dialogueUI.SetActive(false);
+        uiName.text = "";
+        uiDialogue.text = "";
     }
 
     // Start is called before the first frame update
