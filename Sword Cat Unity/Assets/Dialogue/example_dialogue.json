@@ -29,11 +29,11 @@
 		],
 
 		"test": [
-			["Number 15: Burger king foot lettuce.",
-			"The last thing you'd want in your Burger King burger is someone's foot fungus.",
-			"But as it turns out, that might be what you get.",
-			"A 4channer uploaded a photo anonymously to the site showcasing his feet in a plastic bin of lettuce.",
-			"With the statement: \"This is the lettuce you eat at Burger King.\"",
+			["Number 15: <b>Burger king foot <color=#00ff00>lettuce.</color></b>",
+			"The last thing you'd wan<i>t in <b>your</b> <color=#ff0000>Bur<b>ger</b></color> Kin</i>g <color=#ff0000>burger</color> is someone's foot fungus.",
+			"<b>But as <i>it turns out</i>, that</b> might be what <i>you</i> get.",
+			"A <size=50>4channer</size> uploaded a photo anonymously to the site showcasing his <color=#0000ff>feet</color> in a plastic bin of lettuce.",
+			"With the statement: <b>\"This is the lettuce you eat at Burger King.\"</b>",
 			"Admittedly, he had shoes on. But that's even worse.",
 			"The post went live at 11:38 PM on July 16, and a mere 20 minutes later, the Burger King in question was alerted to the rogue employee.",
 			"At least, I hope he's rogue.",

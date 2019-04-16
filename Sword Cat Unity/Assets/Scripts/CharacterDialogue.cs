@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,9 +44,42 @@ public class CharacterDialogue : MonoBehaviour
 
         foreach (string line in dialogue)
         {
-            for (int i = 0; i < line.Length; i++)
+            MatchCollection matches = Regex.Matches(line, @"<\/?([\w]+?)(?:\=#?[\w]+?)?>");
+
+            string raw = Regex.Replace(line, @"<\/?([\w]+?)(?:\=#?[\w]+?)?>", "");
+            
+            for (int i = 0; i < raw.Length; i++)
             {
-                uiDialogue.text = line.Substring(0, i + 1);
+                List<string> formatters = new List<string>();
+                string formatted = raw.Substring(0, i + 1);
+                
+                foreach (Match match in matches)
+                {
+                    if (match.Index <= formatted.Length)
+                    {
+                        formatted = formatted.Insert(match.Index, match.Value);
+
+                        if (match.Value.StartsWith("</"))
+                        {
+                            formatters.RemoveAt(0);
+                        }
+                        else
+                        {
+                            formatters.Insert(0, match.Groups[1].Value);
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
+                foreach (string close in formatters)
+                {
+                    formatted += $"</{close}>";
+                }
+
+                uiDialogue.text = formatted;
 
                 yield return null;
                 if (!Input.GetButton("Fire1"))
