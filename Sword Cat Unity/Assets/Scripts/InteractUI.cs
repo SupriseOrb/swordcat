@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-/*
-Changes the UI based on the state of SwordCat's wings
- */
+/*Changes the UI based on the state of SwordCat's wings*/
 public class InteractUI : MonoBehaviour
 {
     /*UI elements for the wings*/
     [SerializeField]private Image leftWing;
     [SerializeField]private Image rightWing;
     /*In charge of manipulating cooldowns of the wings and update the UI*/
-    [SerializeField]private float wingCooldown = 5f;
+    [SerializeField]private GameObject leftSwordHolsterObject;
+    [SerializeField]private GameObject rightSwordHolsterObject;
+    private float leftSwordHolsterCooldown;
+    private float rightSwordHolsterCooldown;
     private float leftWingCooldown;
     private float rightWingCooldown;
     private TMP_Text leftWingUIText;
@@ -26,30 +27,33 @@ public class InteractUI : MonoBehaviour
         rightWingCooldown = 0;
         leftWingUIText = leftWing.GetComponentInChildren<TMP_Text>();
         rightWingUIText = rightWing.GetComponentInChildren<TMP_Text>();
+        leftSwordHolsterCooldown = leftSwordHolsterObject.GetComponent<SwordHolster>().swordDespawnTime;
+        rightSwordHolsterCooldown = rightSwordHolsterObject.GetComponent<SwordHolster>().swordDespawnTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //left wing used
+        //left wing controller
         if (Input.GetMouseButtonDown(0) && (leftWingCooldown == 0))
         {
             UsedWing(leftWing);
-            SetWingCooldown("L", wingCooldown);
+            SetWingCooldown("L", leftSwordHolsterCooldown);
         }   
-        //right wing used
-        else if (Input.GetMouseButtonDown(1))
+        //right wing controller
+        else if (Input.GetMouseButtonDown(1) && (rightWingCooldown == 0))
         {
             UsedWing(rightWing);
-            SetWingCooldown("R", wingCooldown);
+            SetWingCooldown("R", rightSwordHolsterCooldown);
         }
 
     }
 
     void FixedUpdate()
     {
-        //count down the cooldown
-        if (OnCooldown(leftWingCooldown))
+        //LEFT WING
+        //count down the cooldown, showing the float by 2 decimals
+        if (IsOnCooldown(leftWingCooldown))
         {
             leftWingCooldown -= Time.fixedDeltaTime;
             leftWingUIText.text = string.Format("{0:0.00}", leftWingCooldown);
@@ -62,8 +66,9 @@ public class InteractUI : MonoBehaviour
             leftWingUIText.text = "";
         }
 
-        //count down the cooldown
-        if (OnCooldown(rightWingCooldown))
+        //RIGHT WING
+        //count down the cooldown, showing the float by 2 decimals
+        if (IsOnCooldown(rightWingCooldown))
         {
             rightWingCooldown -= Time.fixedDeltaTime;
             rightWingUIText.text = string.Format("{0:0.00}", rightWingCooldown);
@@ -106,9 +111,10 @@ public class InteractUI : MonoBehaviour
             return;
     }
 
-    /*checks if the wing is on cooldown.*/
-    bool OnCooldown(float wingTime)
+    /*checks if the wing is on cooldown.
+    we compare by 0.1 rather than 0, as a slight delay for the swords to come back*/
+    bool IsOnCooldown(float wingTime)
     {
-        return (wingTime > 0.5);
+        return (wingTime > 0.1);
     }
 }
