@@ -1,0 +1,45 @@
+{
+	"name": "Dark Ittai",
+
+	"quest": {
+		"type": "fetch",
+		"fetch": {
+			"red": 1,
+			"orange": 2
+		}
+	},
+
+	scripts: {
+		"quest": [
+			["I need a bit of help.", "Would you mind getting me 10 red tumbleyarn?"]
+		],
+		
+		"accept": [
+			["Thanks Sword Cat!", "I'll be waiting here for the tumbleyarn."]
+		],
+		
+		"decline": [
+			["Oh you're busy?", "Sorry for asking then.", "Come talk to me again if you want to help out."]
+		],
+		
+		"incomplete": [
+			["How's the tumbleyarn collection going?", "Don't worry, take your time."]
+		],
+		
+		"complete": [
+			["Is that the tumbleyarn I requested?", "Thanks a lot Sword Cat!", "I'm grateful that you've went out of your way to gather this for me."]
+		],
+		
+		"idle": [
+			["How are you doing Sword Cat?"],
+			["Lovely day isn't it?"],
+			["I'm tired.", "I think I should take a nap."]
+		],
+
+		"test": [
+			["<b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>Number 15: <b>Burger king foot <color=#00ff00>lettuce.</color></b>",
+			"The last thing you'd wan<i>t in <b>your</b> <color=#ff0000>Bur<b>ger</b></color> Kin</i>g <color=#ff0000>burger</color> is someone's foot fungus.",
+			"<b>But as <i>it turns out</i>, that</b> might be what <i>you</i> get."]
+		]
+	}
+}

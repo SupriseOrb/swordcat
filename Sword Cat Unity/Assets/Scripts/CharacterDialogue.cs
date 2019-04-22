@@ -4,45 +4,33 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CharacterDialogue : MonoBehaviour
 {
-    [SerializeField] TextAsset dialogueScript;
-
-    [SerializeField] GameObject dialogueUI;
+    [SerializeField] UIManager uiManager;
 
     [SerializeField] TextMeshProUGUI uiName;
     [SerializeField] TextMeshProUGUI uiDialogue;
 
-    string characterName;
-    JToken script;
-    
-    void Awake()
+    [SerializeField] Button yesButton;
+    [SerializeField] Button noButton;
+
+    public bool yesSelected { get; private set; } = false;
+    public bool noSelected { get; private set; } = false;
+
+    void OnEnable()
     {
-        JObject jObj = JObject.Parse(dialogueScript.text);
-        characterName = jObj["name"].Value<string>();
-        script = jObj["scripts"];
+        yesButton.onClick.AddListener(() => yesSelected = true);
+        noButton.onClick.AddListener(() => noSelected = true);
+        yesButton.gameObject.SetActive(false);
+        noButton.gameObject.SetActive(false);
     }
 
-    public void RunDialogue(string key)
+    IEnumerator RunDialogue(string[] dialogue)
     {
-        JToken next = script[key];
-        
-        if (next != null)
-        {
-            string[][] dialogue = script[key].ToObject<string[][]>();
-            StartCoroutine(Dialogue(dialogue[Random.Range(0, dialogue.Length)]));
-        }
-    }
-
-    IEnumerator Dialogue(string[] dialogue)
-    {
-        uiName.text = characterName;
-        uiDialogue.text = "";
-
-        dialogueUI.SetActive(true);
-
         foreach (string line in dialogue)
         {
             for (int i = 0; i < line.Length; i++)
@@ -69,10 +57,48 @@ public class CharacterDialogue : MonoBehaviour
 
             yield return new WaitUntil(() => Input.GetButtonDown("Fire1"));
         }
+    }
 
-        dialogueUI.SetActive(false);
+    public IEnumerator Dialogue(string name, string[] dialogue, string[] onAccept, string[] onDecline)
+    {
+        uiName.text = name;
+        uiDialogue.text = "";
+
+        uiManager.SetActiveUI(1);
+        uiManager.SetPlayerControlEnabled(false);
+
+        yield return RunDialogue(dialogue);
+
+        if (onAccept != null && onDecline != null)
+        {
+            yesSelected = false;
+            noSelected = false;
+            yesButton.gameObject.SetActive(true);
+            noButton.gameObject.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(yesButton.gameObject);
+            yield return new WaitUntil(() => yesSelected || noSelected);
+            yesButton.gameObject.SetActive(false);
+            noButton.gameObject.SetActive(false);
+
+            if (yesSelected)
+            {
+                yield return RunDialogue(onAccept);
+            }
+            else
+            {
+                yield return RunDialogue(onDecline);
+            }
+        }
+
+        uiManager.SetActiveUI(0);
+        uiManager.SetPlayerControlEnabled(true);
         uiName.text = "";
         uiDialogue.text = "";
+    }
+
+    public IEnumerator Dialogue(string name, string[] dialogue)
+    {
+        return Dialogue(name, dialogue, null, null);
     }
 
     // Start is called before the first frame update
