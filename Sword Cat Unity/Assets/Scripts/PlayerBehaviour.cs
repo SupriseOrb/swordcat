@@ -20,6 +20,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         leftHolster = this.transform.GetChild(1).GetComponent<SwordHolster>();
         rightHolster = this.transform.GetChild(2).GetComponent<SwordHolster>();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Start is called before the first frame update
@@ -35,11 +38,15 @@ public class PlayerBehaviour : MonoBehaviour
 
         m_direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
-        if (Input.GetKey(KeyCode.Mouse0))
+        //m_direction = new Vector3(Input.GetAxis("LeftStickX"), 0f, Input.GetAxis("LeftStickY"));
+
+
+        if (Input.GetButtonDown("Fire1") || Input.GetAxis("LeftTrigger") > 0)
             FireLeft();
 
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (Input.GetButtonDown("Fire2") || Input.GetAxis("RightTrigger") > 0)
             FireRight();
+
     }
 
     void FixedUpdate()
@@ -75,6 +82,13 @@ public class PlayerBehaviour : MonoBehaviour
         {
             leftHolster.LaunchSword();
         }
+
+        else if (leftHolster.IsSwordLaunched())
+        {
+            this.transform.position = leftHolster.GetSwordPos();
+
+            leftHolster.DestroySword();
+        }
     }
 
     void FireRight()
@@ -83,6 +97,14 @@ public class PlayerBehaviour : MonoBehaviour
         if (!rightHolster.IsSwordLaunched())
         {
             rightHolster.LaunchSword();
+        }
+
+        else if (rightHolster.IsSwordLaunched())
+        {
+
+            this.transform.position = rightHolster.GetSwordPos();
+
+            rightHolster.DestroySword();
         }
     }
 

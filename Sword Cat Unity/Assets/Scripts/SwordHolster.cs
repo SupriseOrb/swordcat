@@ -15,6 +15,8 @@ public class SwordHolster : MonoBehaviour
 
     private Sword m_Sword;
 
+    private Coroutine swordCoroutine;
+
     private void Awake()
     {
         //m_Sword = this.transform.GetChild(0).GetComponent<Sword>();
@@ -31,9 +33,10 @@ public class SwordHolster : MonoBehaviour
     {
         //this.transform.position = this.transform.parent.position + holsterOffset;
         //this.transform.localRotation = this.transform.parent.rotation;
+        //Debug.Log(this.gameObject.name + " : " + GetSwordPos());
     }
 
-    void RespawnSword()
+    public void RespawnSword()
     {
         GameObject go = Instantiate(swordPrefab, this.transform.position, swordPrefab.transform.rotation, this.transform);
         m_Sword = go.GetComponent<Sword>();
@@ -43,7 +46,7 @@ public class SwordHolster : MonoBehaviour
     public void LaunchSword()
     {
         swordLaunched = true;
-        StartCoroutine(LaunchSwordCoroutine());
+        swordCoroutine = StartCoroutine(LaunchSwordCoroutine());
     }
 
     public bool IsSwordLaunched()
@@ -55,7 +58,24 @@ public class SwordHolster : MonoBehaviour
     {
         m_Sword.changeMoveSpeed(swordMoveSpeed);
         yield return new WaitForSeconds(swordDespawnTime);
+
+        DestroySword();
+       
+    }
+
+    public void DestroySword()
+    {
+        if(swordCoroutine != null)
+        {
+            StopCoroutine(swordCoroutine);
+        }
+
         Destroy(m_Sword.gameObject);
         RespawnSword();
+    }
+
+    public Vector3 GetSwordPos()
+    {
+        return m_Sword.transform.position;
     }
 }
