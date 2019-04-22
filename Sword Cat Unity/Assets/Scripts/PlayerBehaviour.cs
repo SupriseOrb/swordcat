@@ -41,10 +41,10 @@ public class PlayerBehaviour : MonoBehaviour
         //m_direction = new Vector3(Input.GetAxis("LeftStickX"), 0f, Input.GetAxis("LeftStickY"));
 
 
-        if (Input.GetButtonDown("Fire1") || Input.GetAxis("LeftTrigger") > 0)
+        if (Input.GetButtonDown("Fire1"))// || Input.GetAxis("LeftTrigger") > 0)
             FireLeft();
 
-        if (Input.GetButtonDown("Fire2") || Input.GetAxis("RightTrigger") > 0)
+        if (Input.GetButtonDown("Fire2"))// || Input.GetAxis("RightTrigger") > 0)
             FireRight();
 
     }
