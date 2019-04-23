@@ -15,7 +15,14 @@ public class CameraJoystickControls : MonoBehaviour
 
     private void Update()
     {
-        vcam.m_XAxis.Value = Input.GetAxis("RightStickX");
-        vcam.m_YAxis.Value= Input.GetAxis("RightStickY");
+#if UNITY_EDITOR_OSX
+        vcam.m_XAxis.Value = Input.GetAxis("MacRightStickX");
+        vcam.m_YAxis.Value= Input.GetAxis("MacRightStickY");
+#endif
+
+#if UNITY_EDITOR_64
+        vcam.m_XAxis.Value = Input.GetAxis("WinRightStickX");
+        vcam.m_YAxis.Value = Input.GetAxis("WInRightStickY");
+#endif
     }
 }
