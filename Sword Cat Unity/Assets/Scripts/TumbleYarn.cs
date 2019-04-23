@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//[RequireComponent(typeof())]
 public class TumbleYarn : MonoBehaviour
 {
     [SerializeField]private float tumbleSpeed = 1f;
     [SerializeField]private float tumbleHeight = 1f;
     [SerializeField]private float tumbleHopRate = 1f;
+    [SerializeField]private string groundTag;
     private Rigidbody rb;
-    private float timeInAir; //changable tumbleHopRate value
+    private bool onGround; //set true if on ground
+    private float timeToHop; //changable tumbleHopRate value
     
     // Start is called before the first frame update
     void Start()
     {
         //find the component and save it for rb, if no rigidbody then attach a new one.
         rb = (GetComponent<Rigidbody>() != null) ? GetComponent<Rigidbody>() : gameObject.AddComponent<Rigidbody>();
-        timeInAir = 0;
+        timeToHop = 0;
+        onGround = true;
     }
 
     // Update is called once per frame
@@ -26,36 +30,54 @@ public class TumbleYarn : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (IsInAir())
+        if (NotInAir() && readyToHop())
         {
             rb.velocity += new Vector3(0, tumbleHeight, 0);
-            setAirCooldown(tumbleHopRate);
+            yarnSetCooldown(tumbleHopRate);
         }
 
         rb.velocity += new Vector3(tumbleSpeed, 0, 0);
 
         //checks for in air yarn
-        if (NotInAir())
-            timeInAir = 0;
+        if (yarnOnCooldown())
+            yarnSetCooldown(timeToHop - Time.fixedDeltaTime);
         else
-            timeInAir -= Time.fixedDeltaTime;
+            yarnSetCooldown(0);
     }
 
-    //a bool to check if the timeInAir is less than or equal to 0
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == groundTag)
+            onGround = true;
+    }
+
+    //a bool to check if the yarn is on ground and not in air
     bool NotInAir()
     {
-        return (timeInAir <= 0);
+        return (onGround == true);
     }
 
-    //a bool to check if the timeInAir is 0
+    //a bool to check if the yearn is in the air, not touching ground
     bool IsInAir()
     {
-        return (timeInAir == 0);
+        return (onGround == false);
+    }
+
+    //a bool to check if the yarn should hop now
+    bool readyToHop()
+    {   
+        return (timeToHop == 0);
+    }
+
+    //a bool to check if the yarn is not ready to hop yet
+    bool yarnOnCooldown()
+    {
+        return (timeToHop > 0);
     }
 
     //setting the timeInAir by a set amount of time, so that we know when the tumbleweed should hop again.
-    void setAirCooldown(float cooldown)
+    void yarnSetCooldown(float cooldown)
     {
-        timeInAir = cooldown;
+        timeToHop = cooldown;
     }
 }
