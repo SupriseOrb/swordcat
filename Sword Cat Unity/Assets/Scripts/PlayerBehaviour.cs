@@ -10,16 +10,19 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody rb;
     private Camera cam;
 
-    private SwordHolster leftHolster;
-    private SwordHolster rightHolster;
+    private SwordHolster m_leftHolster;
+    private SwordHolster m_rightHolster;
+
+    private bool m_ltAxisInUse = false;
+    private bool m_rtAxisInUse = false;
 
     void Awake()
     {
         rb = this.transform.GetComponent<Rigidbody>();
         cam = Camera.main;
 
-        leftHolster = this.transform.GetChild(1).GetComponent<SwordHolster>();
-        rightHolster = this.transform.GetChild(2).GetComponent<SwordHolster>();
+        m_leftHolster = this.transform.GetChild(1).GetComponent<SwordHolster>();
+        m_rightHolster = this.transform.GetChild(2).GetComponent<SwordHolster>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -46,6 +49,36 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))// || Input.GetAxis("RightTrigger") > 0)
             FireRight();
+
+        //Left Trigger
+        if (Input.GetAxisRaw("LeftTrigger") != 0)
+        {
+            if (m_ltAxisInUse == false)
+            {
+                // Call your event function here.
+                FireLeft();
+                m_ltAxisInUse = true;
+            }
+        }
+        if (Input.GetAxisRaw("LeftTrigger") == 0)
+        {
+            m_ltAxisInUse = false;
+        }
+
+        //Right Trigger
+        if (Input.GetAxisRaw("RightTrigger") != 0)
+        {
+            if (m_rtAxisInUse == false)
+            {
+                // Call your event function here.
+                FireRight();
+                m_rtAxisInUse = true;
+            }
+        }
+        if (Input.GetAxisRaw("RightTrigger") == 0)
+        {
+            m_rtAxisInUse = false;
+        }
 
     }
 
@@ -78,33 +111,33 @@ public class PlayerBehaviour : MonoBehaviour
     void FireLeft()
     {
         Debug.Log("Fired left");
-        if (!leftHolster.IsSwordLaunched())
+        if (!m_leftHolster.IsSwordLaunched())
         {
-            leftHolster.LaunchSword();
+            m_leftHolster.LaunchSword();
         }
 
-        else if (leftHolster.IsSwordLaunched())
+        else if (m_leftHolster.IsSwordLaunched())
         {
-            this.transform.position = leftHolster.GetSwordPos();
+            this.transform.position = m_leftHolster.GetSwordPos();
 
-            leftHolster.DestroySword();
+            m_leftHolster.DestroySword();
         }
     }
 
     void FireRight()
     {
         Debug.Log("Fired left");
-        if (!rightHolster.IsSwordLaunched())
+        if (!m_rightHolster.IsSwordLaunched())
         {
-            rightHolster.LaunchSword();
+            m_rightHolster.LaunchSword();
         }
 
-        else if (rightHolster.IsSwordLaunched())
+        else if (m_rightHolster.IsSwordLaunched())
         {
 
-            this.transform.position = rightHolster.GetSwordPos();
+            this.transform.position = m_rightHolster.GetSwordPos();
 
-            rightHolster.DestroySword();
+            m_rightHolster.DestroySword();
         }
     }
 
