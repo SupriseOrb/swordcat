@@ -35,13 +35,13 @@ public class InteractUI : MonoBehaviour
     void Update()
     {
         //left wing controller
-        if (Input.GetMouseButtonDown(0) && (leftWingCooldown == 0))
+        if ((leftSwordHolsterObject.GetComponent<SwordHolster>().swordLaunched) && (leftWingCooldown == leftSwordHolsterCooldown))
         {
             UsedWing(leftWing);
             SetWingCooldown("L", leftSwordHolsterCooldown);
         }   
         //right wing controller
-        else if (Input.GetMouseButtonDown(1) && (rightWingCooldown == 0))
+        else if ((rightSwordHolsterObject.GetComponent<SwordHolster>().swordLaunched) && (rightWingCooldown == leftSwordHolsterCooldown))
         {
             UsedWing(rightWing);
             SetWingCooldown("R", rightSwordHolsterCooldown);
@@ -53,10 +53,10 @@ public class InteractUI : MonoBehaviour
     {
         //LEFT WING
         //count down the cooldown, showing the float by 2 decimals
-        if (IsOnCooldown(leftWingCooldown))
+        if (leftSwordHolsterObject.GetComponent<SwordHolster>().swordLaunched)
         {
-            leftWingCooldown -= Time.fixedDeltaTime;
-            leftWingUIText.text = string.Format("{0:0.00}", leftWingCooldown);
+            leftWingCooldown += Time.fixedDeltaTime;
+            leftWingUIText.text = string.Format("{0:0.00}", leftSwordHolsterCooldown - leftWingCooldown);
         }
         //wing is ready
         else
@@ -68,10 +68,10 @@ public class InteractUI : MonoBehaviour
 
         //RIGHT WING
         //count down the cooldown, showing the float by 2 decimals
-        if (IsOnCooldown(rightWingCooldown))
+        if (rightSwordHolsterObject.GetComponent<SwordHolster>().swordLaunched)
         {
-            rightWingCooldown -= Time.fixedDeltaTime;
-            rightWingUIText.text = string.Format("{0:0.00}", rightWingCooldown);
+            rightWingCooldown += Time.fixedDeltaTime;
+            rightWingUIText.text = string.Format("{0:0.00}", rightSwordHolsterCooldown - rightWingCooldown);
         }
         //wing is ready
         else
