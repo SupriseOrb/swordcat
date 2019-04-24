@@ -1,0 +1,33 @@
+{
+	"name": "Cat Friend",
+
+	scripts: {
+		"quest": [
+			[]
+		],
+		
+		"accept": [
+			[]
+		],
+		
+		"decline": [
+			[]
+		],
+		
+		"incomplete": [
+			[]
+		],
+		
+		"complete": [
+			[]
+		],
+		
+		"idle": [
+			["Good morning Kitten! Why, would you look at that! Your wings have formed! What a sheen they've got to them! I don't think I've ever seen swords as exquisite as yours, though don't tell the others I said that.",
+			 "Guess I can't call you Kitten anymore. Now you're a Sword Cat!",
+			 "Ah, before I forget, the Researcher was looking for you.",
+			 "Safe travels, Sword Cat!"]
+		],
+
+	}
+}
