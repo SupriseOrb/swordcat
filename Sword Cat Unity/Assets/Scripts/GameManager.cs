@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         }
 
         data = new GameData();
+        DontDestroyOnLoad(gameObject);
         instance = this;
     }
 

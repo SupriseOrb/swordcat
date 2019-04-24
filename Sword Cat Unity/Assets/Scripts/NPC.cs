@@ -9,10 +9,10 @@ public class NPC : MonoBehaviour
     [SerializeField] TextAsset dialogueScript;
     [SerializeField] CharacterDialogue dialogueManager;
 
-    // Placeholders for testing dialogue
+    public Quest quest;
+    
     public bool questAvailable;
-    public bool questInProgress;
-    public bool questComplete;
+    public bool questActive;
 
     bool interacted = false;
     bool inside = false;
@@ -21,11 +21,13 @@ public class NPC : MonoBehaviour
     string characterName;
     JToken script;
 
+    JObject jObj;
+
     static List<NPC> interactQueue = new List<NPC>();
 
     void Awake()
     {
-        JObject jObj = JObject.Parse(dialogueScript.text);
+        jObj = JObject.Parse(dialogueScript.text);
         characterName = jObj["name"].Value<string>();
         script = jObj["scripts"];
     }
@@ -33,7 +35,7 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -62,23 +64,11 @@ public class NPC : MonoBehaviour
         {
             interacted = false;
             runningDialogue = true;
-            string[][] dialogue = script["idle"].ToObject<string[][]>();
 
-            if (questAvailable)
+            if (questAvailable && jObj["quest"] != null && jObj["quest"]["type"].Value<string>() == "fetch")
             {
-                dialogue = script["quest"].ToObject<string[][]>();
-            }
-            else if (questInProgress)
-            {
-                dialogue = script["incomplete"].ToObject<string[][]>();
-            }
-            else if (questComplete)
-            {
-                dialogue = script["complete"].ToObject<string[][]>();
-            }
+                string[][] dialogue = script["quest"].ToObject<string[][]>();
 
-            if (questAvailable)
-            {
                 string[][] accept = script["accept"].ToObject<string[][]>();
                 string[][] decline = script["decline"].ToObject<string[][]>();
                 yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)],
@@ -87,14 +77,32 @@ public class NPC : MonoBehaviour
 
                 if (dialogueManager.yesSelected)
                 {
-                    // give quest
+                    quest = jObj["quest"]["fetch"].ToObject<Quest>();
+                    questAvailable = false;
+                    questActive = true;
+                }
+            }
+            else if (questActive)
+            {
+                if (quest.IsComplete())
+                {
+                    quest.TakeYarn();
+                    questActive = false;
+                    string[][] dialogue = script["complete"].ToObject<string[][]>();
+                    yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)]);
+                }
+                else
+                {
+                    string[][] dialogue = script["incomplete"].ToObject<string[][]>();
+                    yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)]);
                 }
             }
             else
             {
+                string[][] dialogue = script["idle"].ToObject<string[][]>();
                 yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)]);
             }
-            
+
             runningDialogue = false;
         }
     }
@@ -111,5 +119,27 @@ public class NPC : MonoBehaviour
                 interactText.SetActive(false);
             }
         }
+    }
+}
+
+[System.Serializable]
+public class Quest
+{
+    public int red;
+    public int purple;
+    public int green;
+
+    public bool IsComplete()
+    {
+        int[] inventory = GameManager.instance.data.inventory;
+        return inventory[0] >= red && inventory[1] >= purple && inventory[2] >= green;
+    }
+
+    public void TakeYarn()
+    {
+        int[] inventory = GameManager.instance.data.inventory;
+        inventory[0] -= red;
+        inventory[1] -= purple;
+        inventory[2] -= green;
     }
 }
