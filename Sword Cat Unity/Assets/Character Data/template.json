@@ -1,0 +1,30 @@
+{
+	"name": "Name",
+
+	scripts: {
+		"quest": [
+			[]
+		],
+		
+		"accept": [
+			[]
+		],
+		
+		"decline": [
+			[]
+		],
+		
+		"incomplete": [
+			[]
+		],
+		
+		"complete": [
+			[]
+		],
+		
+		"idle": [
+			[]
+		],
+
+	}
+}

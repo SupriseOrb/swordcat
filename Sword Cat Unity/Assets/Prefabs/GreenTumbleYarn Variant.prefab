@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8015741219165762228
+--- !u!1 &1281849687579059
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8015741219165762186}
-  - component: {fileID: 8015741219165762187}
-  - component: {fileID: 8015741219165762184}
-  - component: {fileID: 8015741219165762185}
-  - component: {fileID: 8015741219165762230}
-  - component: {fileID: 8015741219165762231}
+  - component: {fileID: 1281849687579053}
+  - component: {fileID: 1281849687579054}
+  - component: {fileID: 1281849687579055}
+  - component: {fileID: 1281849687579056}
+  - component: {fileID: 1281849687579057}
+  - component: {fileID: 1281849687579058}
   m_Layer: 0
-  m_Name: RedTumbleYarn Variant
+  m_Name: GreenTumbleYarn Variant
   m_TagString: yarn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8015741219165762186
+--- !u!4 &1281849687579053
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8015741219165762228}
+  m_GameObject: {fileID: 1281849687579059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.19, y: 0.46, z: -5.2}
+  m_LocalPosition: {x: -3.98, y: 0.46, z: -4.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8015741219165762187
+--- !u!33 &1281849687579054
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8015741219165762228}
+  m_GameObject: {fileID: 1281849687579059}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8015741219165762184
+--- !u!23 &1281849687579055
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8015741219165762228}
+  m_GameObject: {fileID: 1281849687579059}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b13edbca6aa22a24dab575c10495a84a, type: 2}
+  - {fileID: 2100000, guid: 4c18d232254f10c4ab37d6dab6110f4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,26 +80,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &8015741219165762185
+--- !u!135 &1281849687579056
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8015741219165762228}
+  m_GameObject: {fileID: 1281849687579059}
   m_Material: {fileID: 13400000, guid: 9a2c691cfc0e9d944aa52ec9c8d224de, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &8015741219165762230
+--- !u!54 &1281849687579057
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8015741219165762228}
+  m_GameObject: {fileID: 1281849687579059}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -109,19 +109,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8015741219165762231
+--- !u!114 &1281849687579058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8015741219165762228}
+  m_GameObject: {fileID: 1281849687579059}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a73fddb247f730499c72a8dad50885f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tumbleSpeed: 0.01
-  tumbleHeight: 4
-  tumbleHopRate: 1.5
+  yarnType: 2
+  tumbleSpeed: 0.025
+  tumbleHeight: 2.5
+  tumbleHopRate: 1
   groundTag: ground
