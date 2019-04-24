@@ -141,4 +141,14 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "yarn")
+        {
+            TumbleYarn yarn = collision.gameObject.GetComponent<TumbleYarn>();
+            GameManager.instance.data.inventory[(int) yarn.yarnType] += 1;
+            Destroy(collision.gameObject);
+        }
+    }
+
 }

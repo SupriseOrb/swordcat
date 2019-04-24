@@ -5,6 +5,9 @@ using UnityEngine;
 //[RequireComponent(typeof())]
 public class TumbleYarn : MonoBehaviour
 {
+    public enum YarnType { RED, PURPLE, GREEN }
+
+    public YarnType yarnType;
     [SerializeField]private float tumbleSpeed = 1f;
     [SerializeField]private float tumbleHeight = 1f;
     [SerializeField]private float tumbleHopRate = 1f;
