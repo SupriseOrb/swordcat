@@ -57,6 +57,7 @@ public class InteractUI : MonoBehaviour
         {
             leftWingCooldown += Time.fixedDeltaTime;
             leftWingUIText.text = string.Format("{0:0.00}", leftSwordHolsterCooldown - leftWingCooldown);
+            //leftWing.fillAmount -= 1f / leftSwordHolsterCooldown * Time.fixedDeltaTime;
         }
         //wing is ready
         else
