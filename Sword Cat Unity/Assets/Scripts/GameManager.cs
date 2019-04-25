@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        data = new GameData();
+        data = data ?? new GameData();
+        DontDestroyOnLoad(gameObject);
         instance = this;
     }
 
@@ -32,4 +34,19 @@ public class GameManager : MonoBehaviour
 public class GameData
 {
     public int[] inventory = new int[3];
+    public List<NPCState> npcs = new List<NPCState>();
+}
+
+[Serializable]
+public class NPCState
+{
+    public enum QuestState { NONE, AVAILABLE, ACTIVE, COMPLETE };
+    public NPCData data;
+    public int state;
+    public QuestState quest;
+
+    public JObject GetJsonData()
+    {
+        return JObject.Parse(data.dialogueScripts[state].text);
+    }
 }
