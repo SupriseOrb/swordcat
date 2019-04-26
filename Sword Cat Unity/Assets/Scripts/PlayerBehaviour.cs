@@ -97,7 +97,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void LookForward()
     {
-        Debug.Log("Looking Forward");
+        //Debug.Log("Looking Forward");
         if (cam == null)
             cam = Camera.main;
 
@@ -110,7 +110,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void FireLeft()
     {
-        Debug.Log("Fired left");
+        //Debug.Log("Fired left");
         if (!m_leftHolster.IsSwordLaunched())
         {
             m_leftHolster.LaunchSword();
@@ -118,7 +118,10 @@ public class PlayerBehaviour : MonoBehaviour
 
         else if (m_leftHolster.IsSwordLaunched())
         {
-            this.transform.position = m_leftHolster.GetSwordPos();
+
+            Vector3 swordPosition = m_leftHolster.GetSwordPos();
+
+            this.transform.position = new Vector3(swordPosition.x, this.transform.position.y, swordPosition.z);
 
             m_leftHolster.DestroySword();
         }
@@ -126,7 +129,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void FireRight()
     {
-        Debug.Log("Fired left");
+        //Debug.Log("Fired left");
         if (!m_rightHolster.IsSwordLaunched())
         {
             m_rightHolster.LaunchSword();
@@ -134,8 +137,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         else if (m_rightHolster.IsSwordLaunched())
         {
+            Vector3 swordPosition = m_rightHolster.GetSwordPos();
 
-            this.transform.position = m_rightHolster.GetSwordPos();
+            this.transform.position = new Vector3(swordPosition.x, this.transform.position.y, swordPosition.z);
 
             m_rightHolster.DestroySword();
         }

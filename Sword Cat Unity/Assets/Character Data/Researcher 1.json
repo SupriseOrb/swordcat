@@ -1,0 +1,37 @@
+{
+	"name": "Researcher",
+
+	"scripts": {
+		"quest": [
+			[]
+		],
+		
+		"accept": [
+			[]
+		],
+		
+		"decline": [
+			[]
+		],
+		
+		"incomplete": [
+			[]
+		],
+		
+		"complete": [
+			[]
+		],
+		
+		"idle": [
+			["Ah, Sword Cat, there you are. Are you ready to get out there and get that <b><color=#88d8c0>Tumbleyarn</color></b>? You don't need me to tell you how to do your job, right?",
+			 "You do? Ah, well you know how it goes. The people of this town need <b><color=#88d8c0>Tumbleyarn</color></b> to go about their day to day lives. It's up to you to chase after it.",
+			 "Talk to the people in <b>Oasis Town</b>, see what types of <b><color=#88d8c0>Tumbleyarn</color></b> they need. Then, go out into the desert and find it.",
+			 "It's pretty intense out there, so we're counting on you to get the <b><color=#88d8c0>Tumbleyarn</color></b> for us. When you see a ball, chase after it!",
+			 "Use your swords with left and right trigger to teleport and catch up to that <b><color=#88d8c0>Tumbleyarn</color></b>.",
+			 "When you have the <b><color=#88d8c0>Tumbleyarn</color></b>, come back and give it to the person.",
+			 "We're counting on you, Tumblecat, er, Sword Yarn. Er, I've been saying <b><color=#88d8c0>Tumbleyarn</color></b> too much today."
+			 ]
+		],
+
+	}
+}

@@ -6,34 +6,28 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     [SerializeField] GameObject interactText;
-    [SerializeField] TextAsset dialogueScript;
     [SerializeField] CharacterDialogue dialogueManager;
+    [SerializeField] NPCData characterData;
 
-    // Placeholders for testing dialogue
-    public bool questAvailable;
-    public bool questInProgress;
-    public bool questComplete;
+    public Quest quest;
 
     bool interacted = false;
     bool inside = false;
     bool runningDialogue = false;
 
+    NPCState state;
+
     string characterName;
     JToken script;
 
-    static List<NPC> interactQueue = new List<NPC>();
+    JObject jObj;
 
-    void Awake()
-    {
-        JObject jObj = JObject.Parse(dialogueScript.text);
-        characterName = jObj["name"].Value<string>();
-        script = jObj["scripts"];
-    }
+    static List<NPC> interactQueue = new List<NPC>();
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ReloadScripts();
     }
 
     // Update is called once per frame
@@ -60,25 +54,15 @@ public class NPC : MonoBehaviour
     {
         if (!runningDialogue && interacted && interactQueue[0] == this)
         {
+            ReloadScripts();
+
             interacted = false;
             runningDialogue = true;
-            string[][] dialogue = script["idle"].ToObject<string[][]>();
 
-            if (questAvailable)
+            if (state.quest == NPCState.QuestState.AVAILABLE && jObj["quest"] != null)
             {
-                dialogue = script["quest"].ToObject<string[][]>();
-            }
-            else if (questInProgress)
-            {
-                dialogue = script["incomplete"].ToObject<string[][]>();
-            }
-            else if (questComplete)
-            {
-                dialogue = script["complete"].ToObject<string[][]>();
-            }
+                string[][] dialogue = script["quest"].ToObject<string[][]>();
 
-            if (questAvailable)
-            {
                 string[][] accept = script["accept"].ToObject<string[][]>();
                 string[][] decline = script["decline"].ToObject<string[][]>();
                 yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)],
@@ -87,14 +71,32 @@ public class NPC : MonoBehaviour
 
                 if (dialogueManager.yesSelected)
                 {
-                    // give quest
+                    quest = jObj["quest"]["fetch"].ToObject<Quest>();
+                    state.quest = NPCState.QuestState.ACTIVE;
+                }
+            }
+            else if (state.quest == NPCState.QuestState.ACTIVE)
+            {
+                if (quest.IsComplete())
+                {
+                    string[][] dialogue = script["complete"].ToObject<string[][]>();
+                    yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)]);
+
+                    quest.TakeYarn();
+                    state.quest = NPCState.QuestState.COMPLETE;
+                }
+                else
+                {
+                    string[][] dialogue = script["incomplete"].ToObject<string[][]>();
+                    yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)]);
                 }
             }
             else
             {
+                string[][] dialogue = script["idle"].ToObject<string[][]>();
                 yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)]);
             }
-            
+
             runningDialogue = false;
         }
     }
@@ -111,5 +113,43 @@ public class NPC : MonoBehaviour
                 interactText.SetActive(false);
             }
         }
+    }
+
+    void ReloadScripts()
+    {
+        state = GameManager.instance.data.npcs.Find(npc => npc.data == characterData);
+
+        if (state == null)
+        {
+            state = new NPCState() { data = characterData };
+            GameManager.instance.data.npcs.Add(state);
+        }
+
+        jObj = state.GetJsonData();
+
+        characterName = jObj["name"].Value<string>();
+        script = jObj["scripts"];
+    }
+}
+
+[System.Serializable]
+public class Quest
+{
+    public int red;
+    public int purple;
+    public int green;
+
+    public bool IsComplete()
+    {
+        int[] inventory = GameManager.instance.data.inventory;
+        return inventory[0] >= red && inventory[1] >= purple && inventory[2] >= green;
+    }
+
+    public void TakeYarn()
+    {
+        int[] inventory = GameManager.instance.data.inventory;
+        inventory[0] -= red;
+        inventory[1] -= purple;
+        inventory[2] -= green;
     }
 }
