@@ -1,0 +1,31 @@
+{
+	"name": "Cat Friend",
+
+	scripts: {
+		"quest": [
+			[]
+		],
+		
+		"accept": [
+			[]
+		],
+		
+		"decline": [
+			[]
+		],
+		
+		"incomplete": [
+			[]
+		],
+		
+		"complete": [
+			[]
+		],
+		
+		"idle": [
+			["Off to go capture some <b><color=#88d8c0>Tumbleyarn</color></b>, are we? Godspeed, Sword Cat!"],
+			["Don't forget to take frequent breaks!"]
+		]
+
+	}
+}
