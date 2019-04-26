@@ -45,6 +45,7 @@ public class SwordHolster : MonoBehaviour
 
     public void LaunchSword()
     {
+        AkSoundEngine.PostEvent("Shoot", swordPrefab);
         swordLaunched = true;
         swordCoroutine = StartCoroutine(LaunchSwordCoroutine());
     }

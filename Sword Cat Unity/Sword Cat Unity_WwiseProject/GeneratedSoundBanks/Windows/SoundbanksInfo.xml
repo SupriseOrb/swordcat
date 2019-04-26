@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="134">
 	<RootPaths>
-		<ProjectRoot>C:\Users\krisc\Documents\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\krisc\Documents\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\krisc\Documents\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\krisc\Documents\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -21,12 +21,17 @@
 			<ShortName>main</ShortName>
 			<Path>main.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3038207054" Name="Shoot" ObjectPath="\Events\Default Work Unit\Shoot"/>
 				<Event Id="3157003241" Name="test" ObjectPath="\Events\Default Work Unit\test"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="462586578" Language="SFX">
 					<ShortName>grab_coin.wav</ShortName>
 					<Path>SFX\grab_coin_10C4C929.wem</Path>
+				</File>
+				<File Id="651300740" Language="SFX">
+					<ShortName>shoot.wav</ShortName>
+					<Path>SFX\shoot_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
