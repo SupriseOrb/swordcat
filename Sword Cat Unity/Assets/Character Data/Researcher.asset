@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f2ea5558aac7741ab39cc36fc26576, type: 3}
   m_Name: Researcher
   m_EditorClassIdentifier: 
-  dialogueScripts: []
+  dialogueScripts:
+  - {fileID: 4900000, guid: b8e9cf0245d365c4693fb2445ae959e0, type: 3}

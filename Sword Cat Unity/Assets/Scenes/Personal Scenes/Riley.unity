@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2064,7 +2064,7 @@ GameObject:
   - component: {fileID: 1234432932}
   - component: {fileID: 1234432931}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cat Friend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: {fileID: 2100109669}
   dialogueManager: {fileID: 550873508}
-  characterData: {fileID: 11400000, guid: 19ea26c71ababfa47a1353a6d935c619, type: 2}
+  characterData: {fileID: 11400000, guid: 091c70a1ad3daf245ae619425617a445, type: 2}
   quest:
     red: 0
     purple: 0
@@ -2190,7 +2190,7 @@ GameObject:
   - component: {fileID: 1322767666}
   - component: {fileID: 1322767665}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Researcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2224,7 +2224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: {fileID: 2100109669}
   dialogueManager: {fileID: 550873508}
-  characterData: {fileID: 11400000, guid: 19ea26c71ababfa47a1353a6d935c619, type: 2}
+  characterData: {fileID: 11400000, guid: 3d7206fdc0da6df4fb130e8bd688b188, type: 2}
   quest:
     red: 0
     purple: 0
