@@ -6,5 +6,5 @@ using UnityEngine;
 public interface Attachable
 {
     //method for allowing a sword to attach to this object
-    void attach();
+    void attach(GameObject sword);
 }
