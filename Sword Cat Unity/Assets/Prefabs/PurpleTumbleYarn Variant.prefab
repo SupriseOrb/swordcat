@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a73fddb247f730499c72a8dad50885f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yarnType: 1
+  yarnType: 2
   tumbleSpeed: 0.05
   tumbleHeight: 2
   tumbleHopRate: 0.5
