@@ -116,12 +116,9 @@ public class PlayerBehaviour : MonoBehaviour
             m_leftHolster.LaunchSword();
         }
 
-        else if (m_leftHolster.IsSwordLaunched())
+        else if (m_leftHolster.IsSwordLaunched() && m_leftHolster.IsSwordAttached())
         {
-
-            Vector3 swordPosition = m_leftHolster.GetSwordPos();
-
-            this.transform.position = new Vector3(swordPosition.x, this.transform.position.y, swordPosition.z);
+            this.transform.position = m_leftHolster.GetSwordPos();
 
             m_leftHolster.DestroySword();
         }
@@ -135,11 +132,9 @@ public class PlayerBehaviour : MonoBehaviour
             m_rightHolster.LaunchSword();
         }
 
-        else if (m_rightHolster.IsSwordLaunched())
+        else if (m_rightHolster.IsSwordLaunched() && m_rightHolster.IsSwordAttached())
         {
-            Vector3 swordPosition = m_rightHolster.GetSwordPos();
-
-            this.transform.position = new Vector3(swordPosition.x, this.transform.position.y, swordPosition.z);
+            this.transform.position = m_rightHolster.GetSwordPos();
 
             m_rightHolster.DestroySword();
         }

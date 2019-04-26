@@ -55,6 +55,11 @@ public class SwordHolster : MonoBehaviour
         return swordLaunched;
     }
 
+    public bool IsSwordAttached()
+    {
+        return m_Sword.IsAttached();
+    }
+
     public IEnumerator LaunchSwordCoroutine()
     {
         m_Sword.changeMoveSpeed(swordMoveSpeed);
