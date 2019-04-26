@@ -1,7 +1,7 @@
 {
 	"name": "Researcher",
 
-	scripts: {
+	"scripts": {
 		"quest": [
 			[]
 		],

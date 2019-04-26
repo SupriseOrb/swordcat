@@ -1,7 +1,7 @@
 {
 	"name": "Cat Friend",
 
-	scripts: {
+	"scripts": {
 		"quest": [
 			[]
 		],
