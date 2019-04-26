@@ -45,8 +45,15 @@ public class Sword : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided");
-
+        Debug.Log("Collidedxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         m_MoveSpeed = 0;
+        try
+        {
+            if (m_IsLaunched)        
+                collision.gameObject.GetComponent<Rock>().attach(this.gameObject);
+        }
+        catch
+        {
+        }
     }
 }
