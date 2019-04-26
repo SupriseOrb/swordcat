@@ -9,6 +9,10 @@
 		}
 	},
 
+	"options": {
+		"mode": "next"
+	},
+
 	scripts: {
 		"quest": [
 			["I need a bit of help.", "Would you mind getting me 10 red tumbleyarn?"]
@@ -39,7 +43,14 @@
 		"test": [
 			["<b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>Number 15: <b>Burger king foot <color=#00ff00>lettuce.</color></b>",
 			"The last thing you'd wan<i>t in <b>your</b> <color=#ff0000>Bur<b>ger</b></color> Kin</i>g <color=#ff0000>burger</color> is someone's foot fungus.",
-			"<b>But as <i>it turns out</i>, that</b> might be what <i>you</i> get."]
+			"<b>But as <i>it turns out</i>, that</b> might be what <i>you</i> get.",
+			"@ask",
+			"@yes",
+			"you said yes",
+			"@endyes",
+			"@no",
+			"you said no",
+			"@endno"]
 		]
 	}
 }

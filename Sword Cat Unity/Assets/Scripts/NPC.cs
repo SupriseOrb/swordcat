@@ -19,6 +19,7 @@ public class NPC : MonoBehaviour
 
     string characterName;
     JToken script;
+    JToken options;
 
     JObject jObj;
 
@@ -98,6 +99,11 @@ public class NPC : MonoBehaviour
             }
 
             runningDialogue = false;
+
+            if (options != null && options["mode"].Value<string>() == "next")
+            {
+                state.state += state.state + 1 < state.data.dialogueScripts.Count ? 1 : 0;
+            }
         }
     }
 
@@ -129,6 +135,7 @@ public class NPC : MonoBehaviour
 
         characterName = jObj["name"].Value<string>();
         script = jObj["scripts"];
+        options = jObj["options"];
     }
 }
 

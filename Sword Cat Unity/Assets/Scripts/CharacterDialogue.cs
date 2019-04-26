@@ -31,32 +31,102 @@ public class CharacterDialogue : MonoBehaviour
 
     IEnumerator RunDialogue(string[] dialogue)
     {
+        bool localYes = false;
+        bool localNo = false;
+
+        string block = null;
+
         foreach (string line in dialogue)
         {
-            for (int i = 0; i < line.Length; i++)
+            bool readLine = true;
+
+            if (block == "yes")
             {
-                while (i < line.Length && line[i] == '<')
+                print("yes");
+                if (line == "@endyes")
                 {
-                    while (i < line.Length && line[i] != '>')
-                    {
-                        i++;
-                    }
-
-                    i++;
+                    block = null;
+                    readLine = false;
                 }
-
-                uiDialogue.text = line.Substring(0, Mathf.Min(i + 1, line.Length));
-
-                yield return null;
-                if (!Input.GetButton("Fire1"))
+                else
                 {
-                    yield return null;
-                    yield return null;
+                    readLine = localYes;
+                }
+            }
+            else if (block == "no")
+            {
+                print("no");
+                if (line == "@endno")
+                {
+                    block = null;
+                    readLine = false;
+                }
+                else
+                {
+                    readLine = localNo;
+                }
+            }
+            else
+            {
+                print("null");
+                if (line == "@ask")
+                {
+                    yield return Ask();
+                    localYes = yesSelected;
+                    localNo = noSelected;
+                    readLine = false;
+                }
+                else if (line == "@yes")
+                {
+                    block = "yes";
+                    readLine = false;
+                }
+                else if (line == "@no")
+                {
+                    block = "no";
+                    readLine = false;
                 }
             }
 
-            yield return new WaitUntil(() => Input.GetButtonDown("Fire1"));
+            if (readLine)
+            {
+                for (int i = 0; i < line.Length; i++)
+                {
+                    while (i < line.Length && line[i] == '<')
+                    {
+                        while (i < line.Length && line[i] != '>')
+                        {
+                            i++;
+                        }
+
+                        i++;
+                    }
+
+                    uiDialogue.text = line.Substring(0, Mathf.Min(i + 1, line.Length));
+
+                    yield return null;
+                    if (!Input.GetButton("Fire1"))
+                    {
+                        yield return null;
+                        yield return null;
+                    }
+                }
+
+                yield return new WaitUntil(() => Input.GetButtonDown("Fire1"));
+            }
         }
+    }
+
+    IEnumerator Ask()
+    {
+        yesSelected = false;
+        noSelected = false;
+        yesButton.gameObject.SetActive(true);
+        noButton.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(yesButton.gameObject);
+        yield return new WaitUntil(() => yesSelected || noSelected);
+        yesButton.gameObject.SetActive(false);
+        noButton.gameObject.SetActive(false);
     }
 
     public IEnumerator Dialogue(string name, string[] dialogue, string[] onAccept, string[] onDecline)
@@ -71,14 +141,7 @@ public class CharacterDialogue : MonoBehaviour
 
         if (onAccept != null && onDecline != null)
         {
-            yesSelected = false;
-            noSelected = false;
-            yesButton.gameObject.SetActive(true);
-            noButton.gameObject.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(yesButton.gameObject);
-            yield return new WaitUntil(() => yesSelected || noSelected);
-            yesButton.gameObject.SetActive(false);
-            noButton.gameObject.SetActive(false);
+            yield return Ask();
 
             if (yesSelected)
             {
