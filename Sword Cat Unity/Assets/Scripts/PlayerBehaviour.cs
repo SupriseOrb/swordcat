@@ -6,9 +6,12 @@ public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] float m_moveSpeed;
     [SerializeField] Vector3 m_direction;
+    [SerializeField] float attackRange = 100f;
 
     private Rigidbody rb;
     private Camera cam;
+
+    private Ray forwardRay;
 
     private SwordHolster m_leftHolster;
     private SwordHolster m_rightHolster;
@@ -45,10 +48,10 @@ public class PlayerBehaviour : MonoBehaviour
 
 
         if (Input.GetButtonDown("Fire1"))// || Input.GetAxis("LeftTrigger") > 0)
-            FireLeft();
+            FireSword(m_leftHolster);
 
         if (Input.GetButtonDown("Fire2"))// || Input.GetAxis("RightTrigger") > 0)
-            FireRight();
+            FireSword(m_rightHolster);
 
         //Left Trigger
         if (Input.GetAxisRaw("LeftTrigger") != 0)
@@ -56,7 +59,7 @@ public class PlayerBehaviour : MonoBehaviour
             if (m_ltAxisInUse == false)
             {
                 // Call your event function here.
-                FireLeft();
+                FireSword(m_leftHolster);
                 m_ltAxisInUse = true;
             }
         }
@@ -71,7 +74,7 @@ public class PlayerBehaviour : MonoBehaviour
             if (m_rtAxisInUse == false)
             {
                 // Call your event function here.
-                FireRight();
+                FireSword(m_rightHolster);
                 m_rtAxisInUse = true;
             }
         }
@@ -108,40 +111,30 @@ public class PlayerBehaviour : MonoBehaviour
         rb.MoveRotation(Quaternion.Euler(currentX, camY, currentZ));
     }
 
-    void FireLeft()
+    void FireSword(SwordHolster holster)
     {
-        //Debug.Log("Fired left");
-        if (!m_leftHolster.IsSwordLaunched())
+        if (!holster.IsSwordLaunched())
         {
-            m_leftHolster.LaunchSword();
+            forwardRay = cam.ViewportPointToRay(Vector3.one * 0.5f);
+            //Debug.DrawRay(forwardRay.origin, forwardRay.direction * 100, Color.red, 2f);
+            RaycastHit hitInfo;
+
+            if (Physics.Raycast(forwardRay, out hitInfo, attackRange))//if it raycast hits an object
+            {
+                holster.LaunchSword(hitInfo.point);
+            }
+            else //if raycast doesn't hit object, launch sword towards end of raycast
+            {
+                Vector3 end = forwardRay.direction * attackRange;
+                holster.LaunchSword(end);
+            }
         }
 
-        else if (m_leftHolster.IsSwordLaunched())
+        else if (holster.IsSwordLaunched() && holster.IsSwordAttached())
         {
+            this.transform.position = holster.GetSwordPos();
 
-            Vector3 swordPosition = m_leftHolster.GetSwordPos();
-
-            this.transform.position = new Vector3(swordPosition.x, this.transform.position.y, swordPosition.z);
-
-            m_leftHolster.DestroySword();
-        }
-    }
-
-    void FireRight()
-    {
-        //Debug.Log("Fired left");
-        if (!m_rightHolster.IsSwordLaunched())
-        {
-            m_rightHolster.LaunchSword();
-        }
-
-        else if (m_rightHolster.IsSwordLaunched())
-        {
-            Vector3 swordPosition = m_rightHolster.GetSwordPos();
-
-            this.transform.position = new Vector3(swordPosition.x, this.transform.position.y, swordPosition.z);
-
-            m_rightHolster.DestroySword();
+            holster.DestroySword();
         }
     }
 

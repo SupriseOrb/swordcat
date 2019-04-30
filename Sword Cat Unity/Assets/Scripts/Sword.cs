@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    private Rigidbody rb;
+    private Rigidbody m_Rb;
 
     [SerializeField] float m_MoveSpeed = 0f;
 
     private bool m_IsLaunched = false;
+    private bool m_IsAttached = false;
 
     private void Awake()
     {
-        rb = this.transform.GetComponent<Rigidbody>();
+        m_Rb = this.transform.GetComponent<Rigidbody>();
     }
 
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class Sword : MonoBehaviour
     {
         m_MoveSpeed = 0f;
         m_IsLaunched = false;
+        m_IsAttached = false;
     }
 
     // Update is called once per frame
@@ -27,14 +29,19 @@ public class Sword : MonoBehaviour
     {
         if(!m_IsLaunched)
         {
-            this.transform.rotation = this.transform.parent.rotation;
+            this.transform.rotation = this.transform.parent.rotation * Quaternion.Euler(new Vector3(90f,0f,0f));
             this.transform.position = this.transform.parent.position;
         }
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + transform.TransformDirection(transform.forward) * -m_MoveSpeed * Time.deltaTime);
+        m_Rb.MovePosition(m_Rb.position + transform.forward * m_MoveSpeed * Time.deltaTime);
+    }
+
+    public bool IsAttached()
+    {
+        return m_IsAttached;
     }
 
     public void changeMoveSpeed(float value)
@@ -49,8 +56,12 @@ public class Sword : MonoBehaviour
         m_MoveSpeed = 0;
         try
         {
-            if (m_IsLaunched)        
+            if (m_IsLaunched)
+            {
                 collision.gameObject.GetComponent<Rock>().attach(this.gameObject);
+                m_IsAttached = true;
+            }
+
         }
         catch
         {
