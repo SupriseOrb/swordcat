@@ -13,22 +13,38 @@ public class PlayerBehaviour : MonoBehaviour
 
     private Ray forwardRay;
 
+    [SerializeField] GameObject m_lHolster;
+    [SerializeField] GameObject m_rHolster;
+
     private SwordHolster m_leftHolster;
     private SwordHolster m_rightHolster;
 
     private bool m_ltAxisInUse = false;
     private bool m_rtAxisInUse = false;
 
+    private string leftTriggerName;
+    private string rightTriggeName;
+
     void Awake()
     {
         rb = this.transform.GetComponent<Rigidbody>();
         cam = Camera.main;
 
-        m_leftHolster = this.transform.GetChild(1).GetComponent<SwordHolster>();
-        m_rightHolster = this.transform.GetChild(2).GetComponent<SwordHolster>();
+        m_leftHolster = m_lHolster.GetComponent<SwordHolster>();
+        m_rightHolster = m_rHolster.GetComponent<SwordHolster>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+#if UNITY_EDITOR_WIN
+        leftTriggerName = "LeftTrigger";
+        rightTriggerName = "RightTrigger";
+#endif
+
+#if UNITY_EDITOR_OSX
+        leftTriggerName = "MacLeftTrigger";
+        rightTriggeName = "MacRightTrigger";
+#endif
     }
 
     // Start is called before the first frame update
@@ -54,7 +70,7 @@ public class PlayerBehaviour : MonoBehaviour
             FireSword(m_rightHolster);
 
         //Left Trigger
-        if (Input.GetAxisRaw("LeftTrigger") != 0)
+        if (Input.GetAxisRaw(leftTriggerName) > 0)
         {
             if (m_ltAxisInUse == false)
             {
@@ -63,13 +79,13 @@ public class PlayerBehaviour : MonoBehaviour
                 m_ltAxisInUse = true;
             }
         }
-        if (Input.GetAxisRaw("LeftTrigger") == 0)
+        if (Input.GetAxisRaw(leftTriggerName) <= 0)
         {
             m_ltAxisInUse = false;
         }
 
         //Right Trigger
-        if (Input.GetAxisRaw("RightTrigger") != 0)
+        if (Input.GetAxisRaw(rightTriggeName) > 0)
         {
             if (m_rtAxisInUse == false)
             {
@@ -78,7 +94,7 @@ public class PlayerBehaviour : MonoBehaviour
                 m_rtAxisInUse = true;
             }
         }
-        if (Input.GetAxisRaw("RightTrigger") == 0)
+        if (Input.GetAxisRaw(rightTriggeName) <= 0)
         {
             m_rtAxisInUse = false;
         }
