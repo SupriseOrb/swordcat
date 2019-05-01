@@ -14,6 +14,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Shoot" ID="{4FE84BB6-4036-41CE-B364-227C29CC624C}">
+					<ChildrenList>
+						<Action Name="" ID="{3390F095-55CB-469E-AEFD-5D52E3C74459}" ShortID="441424877">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="shoot" ID="{27EDE890-F8EB-47AB-BE59-A48E76E3ADB8}" WorkUnitID="{D606D79B-ED34-44F3-9D7E-928EDBDD3E14}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

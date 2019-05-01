@@ -1,6 +1,8 @@
 Event	ID	Name			Wwise Object Path	Notes
+	3038207054	Shoot			\Default Work Unit\Shoot	
 	3157003241	test			\Default Work Unit\test	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	462586578	test	C:\Users\krisc\Documents\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Mac\SFX\grab_coin_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\test		121996
+	462586578	test	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Mac\SFX\grab_coin_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\test		121996
+	651300740	shoot	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Mac\SFX\shoot_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\shoot		434344
 

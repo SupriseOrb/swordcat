@@ -13,16 +13,21 @@ public class CameraJoystickControls : MonoBehaviour
         vcam = this.GetComponent<CinemachineFreeLook>();
     }
 
-    private void Update()
+    private void Start()
     {
 #if UNITY_EDITOR_OSX
-        vcam.m_XAxis.Value = Input.GetAxis("MacRightStickX");
-        vcam.m_YAxis.Value= Input.GetAxis("MacRightStickY");
+        vcam.m_XAxis.m_InputAxisName = "MacRightStickX";
+        vcam.m_YAxis.m_InputAxisName = "MacRightStickY";
 #endif
 
-#if UNITY_EDITOR_64
-        vcam.m_XAxis.Value = Input.GetAxis("WinRightStickX");
-        vcam.m_YAxis.Value = Input.GetAxis("WInRightStickY");
+#if UNITY_EDITOR_WIN
+        vcam.m_XAxis.m_InputAxisName = "WinRightStickX";
+        vcam.m_YAxis.m_InputAxisName = "WinRightStickY";
 #endif
+    }
+
+    private void Update()
+    {
+
     }
 }
