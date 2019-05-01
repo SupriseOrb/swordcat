@@ -8,8 +8,8 @@ public class Sword : MonoBehaviour
 
     [SerializeField] float m_MoveSpeed = 0f;
 
-    private bool m_IsLaunched = false;
-    private bool m_IsAttached = false;
+    [SerializeField] bool m_IsLaunched = false;
+    [SerializeField] bool m_IsAttached = false;
 
     private void Awake()
     {
@@ -27,6 +27,7 @@ public class Sword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(!m_IsLaunched)
         {
             this.transform.rotation = this.transform.parent.rotation * Quaternion.Euler(new Vector3(90f,0f,0f));
@@ -48,18 +49,22 @@ public class Sword : MonoBehaviour
     {
         m_MoveSpeed = value;
         m_IsLaunched = true;
+        m_Rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collidedxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         m_MoveSpeed = 0;
+        m_Rb.constraints = RigidbodyConstraints.FreezePosition;
+        m_Rb.constraints = RigidbodyConstraints.FreezeRotation;
         try
         {
             if (m_IsLaunched)
             {
                 collision.gameObject.GetComponent<Rock>().attach(this.gameObject);
                 m_IsAttached = true;
+
             }
 
         }
