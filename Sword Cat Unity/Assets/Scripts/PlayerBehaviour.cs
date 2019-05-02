@@ -43,7 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
 
 #if UNITY_EDITOR_OSX
         leftTriggerName = "MacLeftTrigger";
-        rightTriggeName = "MacRightTrigger";
+        rightTriggerName = "MacRightTrigger";
 #endif
     }
 
