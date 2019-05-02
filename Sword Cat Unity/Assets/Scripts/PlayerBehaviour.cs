@@ -135,13 +135,13 @@ public class PlayerBehaviour : MonoBehaviour
             //Debug.DrawRay(forwardRay.origin, forwardRay.direction * 100, Color.red, 2f);
             RaycastHit hitInfo;
 
-            if (Physics.Raycast(forwardRay, out hitInfo, attackRange))//if it raycast hits an object
+            if (Physics.Raycast(forwardRay, out hitInfo))//if it raycast hits an object
             {
                 holster.LaunchSword(hitInfo.point);
             }
             else //if raycast doesn't hit object, launch sword towards end of raycast
             {
-                Vector3 end = forwardRay.direction * attackRange;
+                Vector3 end = forwardRay.origin + forwardRay.direction * attackRange;
                 holster.LaunchSword(end);
             }
         }
