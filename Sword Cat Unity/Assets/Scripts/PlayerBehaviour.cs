@@ -23,7 +23,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool m_rtAxisInUse = false;
 
     private string leftTriggerName;
-    private string rightTriggeName;
+    private string rightTriggerName;
 
     void Awake()
     {
@@ -85,7 +85,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         //Right Trigger
-        if (Input.GetAxisRaw(rightTriggeName) > 0)
+        if (Input.GetAxisRaw(rightTriggerName) > 0)
         {
             if (m_rtAxisInUse == false)
             {
@@ -94,7 +94,7 @@ public class PlayerBehaviour : MonoBehaviour
                 m_rtAxisInUse = true;
             }
         }
-        if (Input.GetAxisRaw(rightTriggeName) <= 0)
+        if (Input.GetAxisRaw(rightTriggerName) <= 0)
         {
             m_rtAxisInUse = false;
         }
