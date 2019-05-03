@@ -6,4 +6,5 @@ using UnityEngine;
 public class NPCData : ScriptableObject
 {
     public List<TextAsset> dialogueScripts = new List<TextAsset>();
+    public List<TextAsset> randomQuestScripts = new List<TextAsset>();
 }

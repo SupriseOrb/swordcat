@@ -6,6 +6,11 @@
 		"fetch": {
 			"red": 1,
 			"purple": 2
+		},
+		"chance": 0.01,
+		"prereq": {
+			"name": "test 2",
+			"state": 1
 		}
 	},
 
@@ -13,7 +18,7 @@
 		"mode": "next"
 	},
 
-	scripts: {
+	"scripts": {
 		"quest": [
 			["I need a bit of help.", "Would you mind getting me 10 red tumbleyarn?"]
 		],

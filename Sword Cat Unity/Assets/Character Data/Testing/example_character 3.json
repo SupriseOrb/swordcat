@@ -1,0 +1,33 @@
+{
+	"name": "Darker Ittai",
+
+	"scripts": {
+		"quest": [
+			["quest"]
+		],
+		
+		"accept": [
+			["accept"]
+		],
+		
+		"decline": [
+			["decline"]
+		],
+		
+		"incomplete": [
+			["incomplete"]
+		],
+		
+		"complete": [
+			["complete"]
+		],
+
+		"idle": [
+			["state 1",
+			"@once",
+			"owo",
+			"@endonce",
+			"uwu"]
+		]
+	}
+}

@@ -15,7 +15,7 @@ public class NPC : MonoBehaviour
     bool inside = false;
     bool runningDialogue = false;
 
-    NPCState state;
+    public NPCState state;
 
     string characterName;
     JToken script;
@@ -28,7 +28,7 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ReloadScripts();
+        
     }
 
     // Update is called once per frame
@@ -55,12 +55,10 @@ public class NPC : MonoBehaviour
     {
         if (!runningDialogue && interacted && interactQueue[0] == this)
         {
-            ReloadScripts();
-
             interacted = false;
             runningDialogue = true;
 
-            if (state.quest == NPCState.QuestState.AVAILABLE && jObj["quest"] != null)
+            if (state.quest == NPCState.QuestState.AVAILABLE)
             {
                 string[][] dialogue = script["quest"].ToObject<string[][]>();
 
@@ -68,7 +66,8 @@ public class NPC : MonoBehaviour
                 string[][] decline = script["decline"].ToObject<string[][]>();
                 yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)],
                     accept[Random.Range(0, accept.Length)],
-                    decline[Random.Range(0, decline.Length)]);
+                    decline[Random.Range(0, decline.Length)], state.talked > 0);
+                state.talked++;
 
                 if (dialogueManager.yesSelected)
                 {
@@ -81,28 +80,41 @@ public class NPC : MonoBehaviour
                 if (quest.IsComplete())
                 {
                     string[][] dialogue = script["complete"].ToObject<string[][]>();
-                    yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)]);
+                    yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0);
+                    state.talked++;
 
                     quest.TakeYarn();
-                    state.quest = NPCState.QuestState.COMPLETE;
+
+                    if (state.state + 1 < state.data.dialogueScripts.Count)
+                    {
+                        state.state++;
+                        ReloadScripts();
+                    }
+                    else
+                    {
+                        state.quest = NPCState.QuestState.COMPLETE;
+                    }
                 }
                 else
                 {
                     string[][] dialogue = script["incomplete"].ToObject<string[][]>();
-                    yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)]);
+                    yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0);
+                    state.talked++;
                 }
             }
             else
             {
                 string[][] dialogue = script["idle"].ToObject<string[][]>();
-                yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)]);
+                yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0);
+                state.talked++;
             }
 
             runningDialogue = false;
 
-            if (options != null && options["mode"].Value<string>() == "next")
+            if (options != null && options["mode"].Value<string>() == "next" && state.state + 1 < state.data.dialogueScripts.Count)
             {
-                state.state += state.state + 1 < state.data.dialogueScripts.Count ? 1 : 0;
+                state.state++;
+                ReloadScripts();
             }
         }
     }
@@ -123,6 +135,14 @@ public class NPC : MonoBehaviour
 
     void ReloadScripts()
     {
+        jObj = state.GetJsonData();
+        characterName = jObj["name"].Value<string>();
+        script = jObj["scripts"];
+        options = jObj["options"];
+    }
+
+    public void LoadState()
+    {
         state = GameManager.instance.data.npcs.Find(npc => npc.data == characterData);
 
         if (state == null)
@@ -131,11 +151,36 @@ public class NPC : MonoBehaviour
             GameManager.instance.data.npcs.Add(state);
         }
 
-        jObj = state.GetJsonData();
+        ReloadScripts();
+    }
 
-        characterName = jObj["name"].Value<string>();
-        script = jObj["scripts"];
-        options = jObj["options"];
+    // 0: no quests available
+    // 1: prereqs not met
+    // 2: chance roll failed
+    // 3: quest already active
+    // 4: quest available
+    public int RollQuestCondition()
+    {
+        JToken token = jObj["quest"];
+        if (token == null || state.quest == NPCState.QuestState.COMPLETE)
+            return 0;
+
+        if (state.quest == NPCState.QuestState.ACTIVE)
+            return 3;
+        
+        if (token["prereq"] != null)
+        {
+            string name = token["prereq"]["name"].Value<string>();
+
+            NPCState npcState = GameManager.instance.data.npcs.Find(state => state.data.name == name);
+            if (npcState == null || npcState.state < token["prereq"]["state"].Value<int>())
+                return 1;
+        }
+
+        if (token["chance"] != null && Random.value > token["chance"].Value<float>())
+            return 2;
+
+        return 4;
     }
 }
 

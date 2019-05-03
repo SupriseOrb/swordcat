@@ -29,7 +29,7 @@ public class CharacterDialogue : MonoBehaviour
         noButton.gameObject.SetActive(false);
     }
 
-    IEnumerator RunDialogue(string[] dialogue)
+    IEnumerator RunDialogue(string[] dialogue, bool skipAtOnce)
     {
         bool localYes = false;
         bool localNo = false;
@@ -42,7 +42,6 @@ public class CharacterDialogue : MonoBehaviour
 
             if (block == "yes")
             {
-                print("yes");
                 if (line == "@endyes")
                 {
                     block = null;
@@ -55,7 +54,6 @@ public class CharacterDialogue : MonoBehaviour
             }
             else if (block == "no")
             {
-                print("no");
                 if (line == "@endno")
                 {
                     block = null;
@@ -66,9 +64,20 @@ public class CharacterDialogue : MonoBehaviour
                     readLine = localNo;
                 }
             }
+            else if (block == "once")
+            {
+                if (line == "@endonce")
+                {
+                    block = null;
+                    readLine = false;
+                }
+                else
+                {
+                    readLine = !skipAtOnce;
+                }
+            }
             else
             {
-                print("null");
                 if (line == "@ask")
                 {
                     yield return Ask();
@@ -84,6 +93,11 @@ public class CharacterDialogue : MonoBehaviour
                 else if (line == "@no")
                 {
                     block = "no";
+                    readLine = false;
+                }
+                else if (line == "@once")
+                {
+                    block = "once";
                     readLine = false;
                 }
             }
@@ -129,7 +143,7 @@ public class CharacterDialogue : MonoBehaviour
         noButton.gameObject.SetActive(false);
     }
 
-    public IEnumerator Dialogue(string name, string[] dialogue, string[] onAccept, string[] onDecline)
+    public IEnumerator Dialogue(string name, string[] dialogue, string[] onAccept, string[] onDecline, bool skipAtOnce)
     {
         uiName.text = name;
         uiDialogue.text = "";
@@ -137,7 +151,7 @@ public class CharacterDialogue : MonoBehaviour
         uiManager.SetActiveUI(1);
         uiManager.SetPlayerControlEnabled(false);
 
-        yield return RunDialogue(dialogue);
+        yield return RunDialogue(dialogue, skipAtOnce);
 
         if (onAccept != null && onDecline != null)
         {
@@ -145,11 +159,11 @@ public class CharacterDialogue : MonoBehaviour
 
             if (yesSelected)
             {
-                yield return RunDialogue(onAccept);
+                yield return RunDialogue(onAccept, skipAtOnce);
             }
             else
             {
-                yield return RunDialogue(onDecline);
+                yield return RunDialogue(onDecline, skipAtOnce);
             }
         }
 
@@ -159,9 +173,9 @@ public class CharacterDialogue : MonoBehaviour
         uiDialogue.text = "";
     }
 
-    public IEnumerator Dialogue(string name, string[] dialogue)
+    public IEnumerator Dialogue(string name, string[] dialogue, bool skipAtOnce)
     {
-        return Dialogue(name, dialogue, null, null);
+        return Dialogue(name, dialogue, null, null, skipAtOnce);
     }
 
     // Start is called before the first frame update

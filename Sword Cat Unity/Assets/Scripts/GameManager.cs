@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +20,8 @@ public class GameManager : MonoBehaviour
         data = data ?? new GameData();
         DontDestroyOnLoad(gameObject);
         instance = this;
+
+        ReloadNPCs();
     }
 
     // Update is called once per frame
@@ -28,22 +29,67 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void ReloadNPCs()
+    {
+        List<NPC> giveQuest = new List<NPC>();
+        List<NPC> chanceFailed = new List<NPC>();
+
+        foreach (NPC npc in FindObjectsOfType<NPC>())
+        {
+            npc.LoadState();
+            switch (npc.RollQuestCondition())
+            {
+                case 2:
+                    chanceFailed.Add(npc);
+                    break;
+                case 4:
+                    giveQuest.Add(npc);
+                    break;
+            }
+        }
+
+        if (giveQuest.Count == 0 && chanceFailed.Count > 0)
+        {
+            giveQuest.Add(chanceFailed[Random.Range(0, chanceFailed.Count)]);
+        }
+
+        foreach (NPC npc in giveQuest)
+        {
+            npc.state.quest = NPCState.QuestState.AVAILABLE;
+        }
+    }
 }
 
-[Serializable]
+[System.Serializable]
 public class GameData
 {
     public int[] inventory = new int[3];
     public List<NPCState> npcs = new List<NPCState>();
 }
 
-[Serializable]
+[System.Serializable]
 public class NPCState
 {
     public enum QuestState { NONE, AVAILABLE, ACTIVE, COMPLETE };
     public NPCData data;
-    public int state;
+    public int state
+    {
+        get
+        {
+            return index;
+        }
+
+        set
+        {
+            quest = QuestState.NONE;
+            talked = 0;
+            index = value;
+        }
+    }
+    [SerializeField] int index;
     public QuestState quest;
+    public int talked;
 
     public JObject GetJsonData()
     {
