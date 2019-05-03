@@ -1,0 +1,75 @@
+{
+	"name": "Bob", # The character's name
+
+	# Omit this entire section if this character doesn't have a quest
+	"quest": {
+		"type": "fetch", # Currently there are only fetch quests
+		"fetch": {
+			"red": 1,
+			"green": 3,
+			"purple": 2
+		},
+		"chance": 0.5, # Chance to give the quest as a number between 0-1. Omit if guaranteed.
+		"prereq": { # Prerequisite of having another character reach a certain state to give a quest. Not needed if prerequisite is completing this character's previous state's quest.
+			"name": "test 2", # Use the scriptable object file name
+			"state": 1 # The state required for the character to be at
+		}
+	},
+	
+	# Omit this entire section if this character doesn't have any special options
+	"options": {
+		"mode": "next"
+		# Modes:
+		# "next" - Immediately move on to the next state after dialogue.
+	},
+
+	"scripts": {
+		# Quest, accept, decline, incomplete, and complete can be omitted if the character does not give quests.
+		# Use @ask to have the player select a yes or no option.
+		# Dialogue between @yes and @endyes are skipped if the player selects no.
+		# Dialogue between @no and @endno are skipped if the player selects yes.
+		# Dialogue between @once and @endonce are skipped if the player has spoken to the character before.
+		# https://docs.unity3d.com/Manual/StyledText.html
+		# Each "string" is a single line of dialogue.
+		# Each set of strings between [brackets] is an entire dialogue conversation.
+		# One conversation is randomly selected if there are multiple [bracketed] conversations.
+		"quest": [
+			["I need a bit of help.", "Would you mind getting me 10 red tumbleyarn?"]
+		],
+		
+		"accept": [
+			["Thanks Sword Cat!", "I'll be waiting here for the tumbleyarn."]
+		],
+		
+		"decline": [
+			["Oh you're busy?", "Sorry for asking then.", "Come talk to me again if you want to help out."]
+		],
+		
+		"incomplete": [
+			["How's the tumbleyarn collection going?", "Don't worry, take your time."]
+		],
+		
+		"complete": [
+			["Is that the tumbleyarn I requested?", "Thanks a lot Sword Cat!", "I'm grateful that you've went out of your way to gather this for me."]
+		],
+		
+		"idle": [
+			["How are you doing Sword Cat?"],
+			["Lovely day isn't it?"],
+			["I'm tired.", "I think I should take a nap."]
+		],
+
+		"test": [
+			["<b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>Number 15: <b>Burger king foot <color=#00ff00>lettuce.</color></b>",
+			"The last thing you'd wan<i>t in <b>your</b> <color=#ff0000>Bur<b>ger</b></color> Kin</i>g <color=#ff0000>burger</color> is someone's foot fungus.",
+			"<b>But as <i>it turns out</i>, that</b> might be what <i>you</i> get.",
+			"@ask",
+			"@yes",
+			"you said yes",
+			"@endyes",
+			"@no",
+			"you said no",
+			"@endno"]
+		]
+	}
+}
