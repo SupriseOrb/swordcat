@@ -16,10 +16,9 @@ public class NPC : MonoBehaviour
     bool runningDialogue = false;
 
     public NPCState state;
-
-    string characterName;
     JToken script;
     JToken options;
+    JObject rqDialogue;
 
     JObject jObj;
 
@@ -60,19 +59,52 @@ public class NPC : MonoBehaviour
 
             if (state.quest == NPCState.QuestState.AVAILABLE)
             {
-                string[][] dialogue = script["quest"].ToObject<string[][]>();
-
-                string[][] accept = script["accept"].ToObject<string[][]>();
-                string[][] decline = script["decline"].ToObject<string[][]>();
-                yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)],
-                    accept[Random.Range(0, accept.Length)],
-                    decline[Random.Range(0, decline.Length)], state.talked > 0);
-                state.talked++;
-
-                if (dialogueManager.yesSelected)
+                if (state.randomQuest)
                 {
-                    quest = jObj["quest"]["fetch"].ToObject<Quest>();
-                    state.quest = NPCState.QuestState.ACTIVE;
+                    rqDialogue = JObject.Parse(state.data.randomQuestScripts[state.randomQuestDialogue].text);
+                    string[][] dialogue = rqDialogue["quest"].ToObject<string[][]>();
+
+                    string[][] accept = rqDialogue["accept"].ToObject<string[][]>();
+                    string[][] decline = rqDialogue["decline"].ToObject<string[][]>();
+                    yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)],
+                        accept[Random.Range(0, accept.Length)],
+                        decline[Random.Range(0, decline.Length)], state.talked > 0, state.randomQuestType, state.randomQuestAmount);
+                    state.talked++;
+
+                    if (dialogueManager.yesSelected)
+                    {
+                        quest = new Quest();
+                        switch (state.randomQuestType)
+                        {
+                            case TumbleYarn.YarnType.RED:
+                                quest.red = state.randomQuestAmount;
+                                break;
+                            case TumbleYarn.YarnType.GREEN:
+                                quest.green = state.randomQuestAmount;
+                                break;
+                            case TumbleYarn.YarnType.PURPLE:
+                                quest.purple = state.randomQuestAmount;
+                                break;
+                        }
+                        state.quest = NPCState.QuestState.ACTIVE;
+                    }
+                }
+                else
+                {
+                    string[][] dialogue = script["quest"].ToObject<string[][]>();
+
+                    string[][] accept = script["accept"].ToObject<string[][]>();
+                    string[][] decline = script["decline"].ToObject<string[][]>();
+                    yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)],
+                        accept[Random.Range(0, accept.Length)],
+                        decline[Random.Range(0, decline.Length)], state.talked > 0);
+                    state.talked++;
+
+                    if (dialogueManager.yesSelected)
+                    {
+                        quest = jObj["quest"]["fetch"].ToObject<Quest>();
+                        state.quest = NPCState.QuestState.ACTIVE;
+                    }
                 }
             }
             else if (state.quest == NPCState.QuestState.ACTIVE)
@@ -80,12 +112,23 @@ public class NPC : MonoBehaviour
                 if (quest.IsComplete())
                 {
                     string[][] dialogue = script["complete"].ToObject<string[][]>();
-                    yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0);
+
+                    if (state.randomQuest)
+                    {
+                        dialogue = rqDialogue["complete"].ToObject<string[][]>();
+                    }
+
+                    yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0, state.randomQuestType, state.randomQuestAmount);
                     state.talked++;
 
                     quest.TakeYarn();
 
-                    if (state.state + 1 < state.data.dialogueScripts.Count)
+                    if (state.randomQuest)
+                    {
+                        state.quest = NPCState.QuestState.NONE;
+                        state.randomQuestChance -= 0.1f;
+                    }
+                    else if (state.state + 1 < state.data.dialogueScripts.Count)
                     {
                         state.state++;
                         ReloadScripts();
@@ -98,14 +141,20 @@ public class NPC : MonoBehaviour
                 else
                 {
                     string[][] dialogue = script["incomplete"].ToObject<string[][]>();
-                    yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0);
+
+                    if (state.randomQuest)
+                    {
+                        dialogue = rqDialogue["incomplete"].ToObject<string[][]>();
+                    }
+
+                    yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0, state.randomQuestType, state.randomQuestAmount);
                     state.talked++;
                 }
             }
             else
             {
                 string[][] dialogue = script["idle"].ToObject<string[][]>();
-                yield return dialogueManager.Dialogue(characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0);
+                yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0);
                 state.talked++;
             }
 
@@ -136,7 +185,6 @@ public class NPC : MonoBehaviour
     void ReloadScripts()
     {
         jObj = state.GetJsonData();
-        characterName = jObj["name"].Value<string>();
         script = jObj["scripts"];
         options = jObj["options"];
     }

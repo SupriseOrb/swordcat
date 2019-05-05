@@ -7,11 +7,7 @@
 			"red": 1,
 			"purple": 2
 		},
-		"chance": 0.01,
-		"prereq": {
-			"name": "test 2",
-			"state": 1
-		}
+		"chance": 1
 	},
 
 	"options": {
