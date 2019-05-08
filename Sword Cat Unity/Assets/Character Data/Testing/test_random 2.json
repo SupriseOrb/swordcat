@@ -1,0 +1,21 @@
+{
+	"quest": [
+		["Yes, I would like some {color} tumbleyarn, specifically {amount} of them."]
+	],
+		
+	"accept": [
+		["Thanks."]
+	],
+		
+	"decline": [
+		["Oh okay."]
+	],
+		
+	"incomplete": [
+		["It doesn't seem like you have {amount} of the {color} tumbleyarn yet."]
+	],
+		
+	"complete": [
+		["Thanks for the {amount} {color} tumbleyarn."]
+	]
+}

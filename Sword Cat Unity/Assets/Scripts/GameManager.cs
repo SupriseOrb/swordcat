@@ -57,6 +57,29 @@ public class GameManager : MonoBehaviour
         foreach (NPC npc in giveQuest)
         {
             npc.state.quest = NPCState.QuestState.AVAILABLE;
+
+            if (npc.state.data.randomQuestScripts.Count > 0)
+            {
+                npc.state.randomQuest = Random.value < npc.state.randomQuestChance;
+
+                if (npc.state.randomQuest)
+                {
+                    npc.state.randomQuestDialogue = Random.Range(0, npc.state.data.randomQuestScripts.Count);
+                    npc.state.randomQuestType = (TumbleYarn.YarnType) Random.Range(0, 3);
+                    switch (npc.state.randomQuestType)
+                    {
+                        case TumbleYarn.YarnType.RED:
+                            npc.state.randomQuestAmount = Random.Range(8, 21);
+                            break;
+                        case TumbleYarn.YarnType.GREEN:
+                            npc.state.randomQuestAmount = Random.Range(6, 16);
+                            break;
+                        case TumbleYarn.YarnType.PURPLE:
+                            npc.state.randomQuestAmount = Random.Range(5, 11);
+                            break;
+                    }
+                }
+            }
         }
     }
 }
@@ -84,12 +107,19 @@ public class NPCState
         {
             quest = QuestState.NONE;
             talked = 0;
+            randomQuestChance = 0.6f;
             index = value;
         }
     }
     [SerializeField] int index;
     public QuestState quest;
     public int talked;
+
+    public float randomQuestChance = 0.6f;
+    public bool randomQuest;
+    public int randomQuestDialogue;
+    public TumbleYarn.YarnType randomQuestType;
+    public int randomQuestAmount;
 
     public JObject GetJsonData()
     {

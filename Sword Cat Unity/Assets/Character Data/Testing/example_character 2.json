@@ -1,13 +1,13 @@
 {
 	"name": "Darker Ittai",
 
-	"questnope": {
+	"quest": {
 		"type": "fetch",
 		"fetch": {
 			"red": 1,
 			"purple": 2
 		},
-		"chance": 0.01
+		"chance": 1
 	},
 
 	"optionsaaaaa": {
