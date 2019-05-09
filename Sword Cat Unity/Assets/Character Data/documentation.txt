@@ -1,6 +1,4 @@
 {
-	"name": "Bob", # The character's name
-
 	# Omit this entire section if this character doesn't have a quest
 	"quest": {
 		"type": "fetch", # Currently there are only fetch quests
