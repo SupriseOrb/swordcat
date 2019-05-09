@@ -1,0 +1,47 @@
+{
+	"name": "Darker Ittai",
+
+	"quest": {
+		"type": "fetch",
+		"fetch": {
+			"red": 1,
+			"purple": 2
+		},
+		"chance": 1
+	},
+
+	"optionsaaaaa": {
+		"mode": "next"
+	},
+
+	"scripts": {
+		"quest": [
+			["quest"]
+		],
+		
+		"accept": [
+			["accept"]
+		],
+		
+		"decline": [
+			["decline"]
+		],
+		
+		"incomplete": [
+			["incomplete"]
+		],
+		
+		"complete": [
+			["complete"]
+		],
+
+		"idle": [
+			["@once",
+			"I will only say this the first time",
+			"I will say this only once",
+			"@endonce",
+			"I will say this all the time.",
+			"I will say this whenever you talk to me."]
+		]
+	}
+}

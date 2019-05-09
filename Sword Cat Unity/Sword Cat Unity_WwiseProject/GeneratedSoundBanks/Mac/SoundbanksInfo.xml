@@ -29,9 +29,9 @@
 					<ShortName>grab_coin.wav</ShortName>
 					<Path>SFX\grab_coin_10C4C929.wem</Path>
 				</File>
-				<File Id="651300740" Language="SFX">
-					<ShortName>shoot.wav</ShortName>
-					<Path>SFX\shoot_10C4C929.wem</Path>
+				<File Id="608975910" Language="SFX">
+					<ShortName>shoot_3.wav</ShortName>
+					<Path>SFX\shoot_3_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

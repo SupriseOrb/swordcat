@@ -6,14 +6,15 @@
 		"fetch": {
 			"red": 1,
 			"purple": 2
-		}
+		},
+		"chance": 1
 	},
 
 	"options": {
 		"mode": "next"
 	},
 
-	scripts: {
+	"scripts": {
 		"quest": [
 			["I need a bit of help.", "Would you mind getting me 10 red tumbleyarn?"]
 		],

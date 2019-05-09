@@ -23,7 +23,9 @@ public class PlayerBehaviour : MonoBehaviour
     private bool m_rtAxisInUse = false;
 
     private string leftTriggerName;
-    private string rightTriggeName;
+    private string rightTriggerName;
+    private string leftBumperName;
+    private string rightBumperName;
 
     void Awake()
     {
@@ -39,11 +41,16 @@ public class PlayerBehaviour : MonoBehaviour
 #if UNITY_EDITOR_WIN
         leftTriggerName = "LeftTrigger";
         rightTriggerName = "RightTrigger";
+        leftBumperName = "LeftBumper";
+        rightBumperName = "RightBumper";
 #endif
 
 #if UNITY_EDITOR_OSX
         leftTriggerName = "MacLeftTrigger";
-        rightTriggeName = "MacRightTrigger";
+        rightTriggerName = "MacRightTrigger";
+        leftBumperName = "MacLeftBumper";
+        rightBumperName = "MacRightBumper";
+
 #endif
     }
 
@@ -85,7 +92,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         //Right Trigger
-        if (Input.GetAxisRaw(rightTriggeName) > 0)
+        if (Input.GetAxisRaw(rightTriggerName) > 0)
         {
             if (m_rtAxisInUse == false)
             {
@@ -94,9 +101,27 @@ public class PlayerBehaviour : MonoBehaviour
                 m_rtAxisInUse = true;
             }
         }
-        if (Input.GetAxisRaw(rightTriggeName) <= 0)
+        if (Input.GetAxisRaw(rightTriggerName) <= 0)
         {
             m_rtAxisInUse = false;
+        }
+
+        //Left Bumper
+        if(Input.GetButtonDown(leftBumperName))
+        {
+            if (m_leftHolster.IsSwordLaunched())
+            {
+                m_leftHolster.DestroySword();
+            }
+        }
+
+        //Right Bumper
+        if (Input.GetButtonDown(rightBumperName))
+        {
+            if (m_rightHolster.IsSwordLaunched())
+            {
+                m_rightHolster.DestroySword();
+            }
         }
 
     }
@@ -135,13 +160,13 @@ public class PlayerBehaviour : MonoBehaviour
             //Debug.DrawRay(forwardRay.origin, forwardRay.direction * 100, Color.red, 2f);
             RaycastHit hitInfo;
 
-            if (Physics.Raycast(forwardRay, out hitInfo, attackRange))//if it raycast hits an object
+            if (Physics.Raycast(forwardRay, out hitInfo))//if it raycast hits an object
             {
                 holster.LaunchSword(hitInfo.point);
             }
             else //if raycast doesn't hit object, launch sword towards end of raycast
             {
-                Vector3 end = forwardRay.direction * attackRange;
+                Vector3 end = forwardRay.origin + forwardRay.direction * attackRange;
                 holster.LaunchSword(end);
             }
         }

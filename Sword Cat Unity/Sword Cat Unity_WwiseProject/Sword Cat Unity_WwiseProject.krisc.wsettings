@@ -4,8 +4,10 @@
 		<UserProjectSettings Name="" ID="{F2CB4524-F2FD-40C6-915B-5F9D25CED9D9}">
 			<PropertyList>
 				<Property Name="AudioFilesImporter\Path" Type="string" Value="D:\Everything\Everything\Folders\Group Game Projects\Sword Cat - Spring 2019\SFX\WAV"/>
+				<Property Name="Event Action List\{16B442D7-31DE-4348-8A4B-6BCACBCCB3F6}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{4FE84BB6-4036-41CE-B364-227C29CC624C}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{6FF6FADB-5225-48EB-95F1-9BD5F2E0D6C6}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{D5FA4069-4341-4D7D-B7A1-546CD7E1E0FA}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{FDDA4875-2372-4E32-92A6-4B6F6E59134F}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="EventView\FilterMode1" Type="int32" Value="2"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
@@ -55,7 +57,7 @@
 				<Property Name="ProjectExplorer\x64_Expanded_1_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_20_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_21_1" Type="string" Value=""/>
-				<Property Name="ProjectExplorer\x64_Expanded_2_1" Type="string" Value="m9cG1jTt80SdfpKO290+FA=="/>
+				<Property Name="ProjectExplorer\x64_Expanded_2_1" Type="string" Value="m9cG1jTt80SdfpKO290+FNJNdKoqMe9GierdeoLorsw="/>
 				<Property Name="ProjectExplorer\x64_Expanded_3_1" Type="string" Value="K1NgjkQTNkOP3vk0piyHQw=="/>
 				<Property Name="ProjectExplorer\x64_Expanded_4_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_5_1" Type="string" Value=""/>

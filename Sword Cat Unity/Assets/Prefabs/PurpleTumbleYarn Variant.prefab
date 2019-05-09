@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yarnType: 2
-  tumbleSpeed: 0.05
+  tumbleSpeed: 0.1
   tumbleHeight: 2
   tumbleHopRate: 0.5
   groundTag: ground

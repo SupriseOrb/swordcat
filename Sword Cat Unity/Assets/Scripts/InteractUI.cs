@@ -35,13 +35,13 @@ public class InteractUI : MonoBehaviour
     void Update()
     {
         //left wing controller
-        if ((leftSwordHolsterObject.GetComponent<SwordHolster>().swordLaunched) && (leftWingCooldown == leftSwordHolsterCooldown))
+        if ((leftSwordHolsterObject.GetComponent<SwordHolster>().swordLaunched) && (leftWingCooldown == 0))
         {
             UsedWing(leftWing);
             SetWingCooldown("L", leftSwordHolsterCooldown);
         }   
         //right wing controller
-        else if ((rightSwordHolsterObject.GetComponent<SwordHolster>().swordLaunched) && (rightWingCooldown == leftSwordHolsterCooldown))
+        else if ((rightSwordHolsterObject.GetComponent<SwordHolster>().swordLaunched) && (rightWingCooldown == 0))
         {
             UsedWing(rightWing);
             SetWingCooldown("R", rightSwordHolsterCooldown);
@@ -55,8 +55,10 @@ public class InteractUI : MonoBehaviour
         //count down the cooldown, showing the float by 2 decimals
         if (leftSwordHolsterObject.GetComponent<SwordHolster>().swordLaunched)
         {
-            leftWingCooldown += Time.fixedDeltaTime;
-            leftWingUIText.text = string.Format("{0:0.00}", leftSwordHolsterCooldown - leftWingCooldown);
+            leftWingCooldown -= Time.fixedDeltaTime;
+            if (leftWingCooldown < 0)
+                leftWingCooldown = 0;
+            leftWingUIText.text = string.Format("{0:0.00}", leftWingCooldown);
             //leftWing.fillAmount -= 1f / leftSwordHolsterCooldown * Time.fixedDeltaTime;
         }
         //wing is ready
@@ -71,8 +73,10 @@ public class InteractUI : MonoBehaviour
         //count down the cooldown, showing the float by 2 decimals
         if (rightSwordHolsterObject.GetComponent<SwordHolster>().swordLaunched)
         {
-            rightWingCooldown += Time.fixedDeltaTime;
-            rightWingUIText.text = string.Format("{0:0.00}", rightSwordHolsterCooldown - rightWingCooldown);
+            rightWingCooldown -= Time.fixedDeltaTime;
+            if (rightWingCooldown < 0)
+                rightWingCooldown = 0;
+            rightWingUIText.text = string.Format("{0:0.00}", rightWingCooldown);
         }
         //wing is ready
         else
@@ -89,6 +93,7 @@ public class InteractUI : MonoBehaviour
     {
         Color32 tempColor = wing.GetComponent<Image>().color;
         wing.GetComponent<Image>().color = new Color32(tempColor.r, tempColor.g, tempColor.b, 122);
+        Debug.Log(wing.GetComponent<Image>().color);
     }
 
     /*updates the UI to show that the wing is ready to be used again. Brightening up box.
@@ -97,6 +102,7 @@ public class InteractUI : MonoBehaviour
     {
         Color32 tempColor = wing.GetComponent<Image>().color;
         wing.GetComponent<Image>().color = new Color32(tempColor.r, tempColor.g, tempColor.b, 255);
+        Debug.Log(wing.GetComponent<Image>().color);
     }
 
     /*when a wing is used, it will go on cooldown based on the set cooldown rate.
@@ -112,10 +118,9 @@ public class InteractUI : MonoBehaviour
             return;
     }
 
-    /*checks if the wing is on cooldown.
-    we compare by 0.1 rather than 0, as a slight delay for the swords to come back*/
+    /*checks if the wing is on cooldown.*/
     bool IsOnCooldown(float wingTime)
     {
-        return (wingTime > 0.1);
+        return (wingTime >= 0);
     }
 }
