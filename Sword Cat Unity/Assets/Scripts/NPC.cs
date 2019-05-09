@@ -115,6 +115,7 @@ public class NPC : MonoBehaviour
 
                     if (state.randomQuest)
                     {
+                        rqDialogue = JObject.Parse(state.data.randomQuestScripts[state.randomQuestDialogue].text);
                         dialogue = rqDialogue["complete"].ToObject<string[][]>();
                     }
 
@@ -144,6 +145,7 @@ public class NPC : MonoBehaviour
 
                     if (state.randomQuest)
                     {
+                        rqDialogue = JObject.Parse(state.data.randomQuestScripts[state.randomQuestDialogue].text);
                         dialogue = rqDialogue["incomplete"].ToObject<string[][]>();
                     }
 
