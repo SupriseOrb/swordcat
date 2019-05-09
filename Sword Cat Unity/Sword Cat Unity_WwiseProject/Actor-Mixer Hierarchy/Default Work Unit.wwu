@@ -120,16 +120,21 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
-				<Sound Name="shoot" ID="{27EDE890-F8EB-47AB-BE59-A48E76E3ADB8}" ShortID="1038992641">
+				<Sound Name="shoot" ID="{0E4C64F2-DE7F-4A52-9078-CC9B045DD448}" ShortID="1056221468">
 					<PropertyList>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>37</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Pitch" Type="int32">
 							<ModifierList>
 								<ModifierInfo>
-									<Modifier Name="" ID="{BB9BD900-40B8-4B23-976D-6FDD6F68EECF}">
+									<Modifier Name="" ID="{BB254A64-9EDC-4F11-BE4D-FCCA2CECF216}">
 										<PropertyList>
 											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="110"/>
-											<Property Name="Min" Type="Real64" Value="-110"/>
+											<Property Name="Max" Type="Real64" Value="25"/>
+											<Property Name="Min" Type="Real64" Value="-75"/>
 										</PropertyList>
 									</Modifier>
 								</ModifierInfo>
@@ -145,13 +150,54 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="shoot" ID="{75CDFE15-0E7B-4547-BBA6-17336273C1E8}" ShortID="651300740">
+						<AudioFileSource Name="shoot_6" ID="{F3ECBC99-04A2-4819-99F5-5519719ED0CE}" ShortID="1041934633">
 							<Language>SFX</Language>
-							<AudioFile>shoot.wav</AudioFile>
+							<AudioFile>shoot_6.wav</AudioFile>
+							<ConvertedFileIDList>
+								<File ID="111309743"/>
+							</ConvertedFileIDList>
 						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
-						<ActiveSource Name="shoot" ID="{75CDFE15-0E7B-4547-BBA6-17336273C1E8}" Platform="Linked"/>
+						<ActiveSource Name="shoot_6" ID="{F3ECBC99-04A2-4819-99F5-5519719ED0CE}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="menu_scroll" ID="{FBC40A8B-41BA-4A6A-9411-879B882F727D}" ShortID="244127389">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B69AD01-F373-4CFB-8DA1-15A4746A289D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="menu_scroll" ID="{52FAAA4A-5486-4753-941E-3FC973E0303C}" ShortID="252056934">
+							<Language>SFX</Language>
+							<AudioFile>menu_scroll.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="menu_scroll" ID="{52FAAA4A-5486-4753-941E-3FC973E0303C}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="select-adv_ text" ID="{E01552B9-BE2F-45EA-8B8F-E86F2D58B8E0}" ShortID="420924294">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B69AD01-F373-4CFB-8DA1-15A4746A289D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="select-adv_ text" ID="{765A9104-B28E-4260-B1AE-CE95B5C32B80}" ShortID="510224934">
+							<Language>SFX</Language>
+							<AudioFile>select-adv. text.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="select-adv_ text" ID="{765A9104-B28E-4260-B1AE-CE95B5C32B80}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>
