@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Sword : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Sword : MonoBehaviour
 
     [SerializeField] bool m_IsLaunched = false;
     [SerializeField] bool m_IsAttached = false;
+
+    public UnityEvent hitUnattachableEnvironment;
 
     private void Awake()
     {
@@ -58,18 +61,32 @@ public class Sword : MonoBehaviour
         m_MoveSpeed = 0;
         m_Rb.constraints = RigidbodyConstraints.FreezePosition;
         m_Rb.constraints = RigidbodyConstraints.FreezeRotation;
+        if(m_IsLaunched)
+        {
+            var attachComponent = collision.gameObject.GetComponent<Rock>();
+            if (attachComponent != null)
+            {
+                attachComponent.attach(this.gameObject);
+                m_IsAttached = true;
+            }
+            else
+            {
+                hitUnattachableEnvironment.Invoke();
+            }
+        }
+
+        /*
         try
         {
             if (m_IsLaunched)
             {
                 collision.gameObject.GetComponent<Rock>().attach(this.gameObject);
                 m_IsAttached = true;
-
             }
 
         }
         catch
         {
-        }
+        }*/
     }
 }

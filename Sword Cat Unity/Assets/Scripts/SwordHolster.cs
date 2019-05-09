@@ -40,6 +40,7 @@ public class SwordHolster : MonoBehaviour
     {
         GameObject go = Instantiate(swordPrefab, this.transform.position, swordPrefab.transform.rotation, this.transform);
         m_Sword = go.GetComponent<Sword>();
+        m_Sword.hitUnattachableEnvironment.AddListener(OnHitUnattachableEnvironmentListener);
         swordLaunched = false;
     }
 
@@ -84,5 +85,10 @@ public class SwordHolster : MonoBehaviour
     public Vector3 GetSwordPos()
     {
         return m_Sword.transform.position;
+    }
+
+    public void OnHitUnattachableEnvironmentListener()
+    {
+        DestroySword();
     }
 }

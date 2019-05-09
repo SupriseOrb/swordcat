@@ -24,6 +24,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     private string leftTriggerName;
     private string rightTriggerName;
+    private string leftBumperName;
+    private string rightBumperName;
 
     void Awake()
     {
@@ -39,11 +41,16 @@ public class PlayerBehaviour : MonoBehaviour
 #if UNITY_EDITOR_WIN
         leftTriggerName = "LeftTrigger";
         rightTriggerName = "RightTrigger";
+        leftBumperName = "LeftBumper";
+        rightBumperName = "RightBumper";
 #endif
 
 #if UNITY_EDITOR_OSX
         leftTriggerName = "MacLeftTrigger";
         rightTriggerName = "MacRightTrigger";
+        leftBumperName = "MacLeftBumper";
+        rightBumperName = "MacRightBumper";
+
 #endif
     }
 
@@ -97,6 +104,24 @@ public class PlayerBehaviour : MonoBehaviour
         if (Input.GetAxisRaw(rightTriggerName) <= 0)
         {
             m_rtAxisInUse = false;
+        }
+
+        //Left Bumper
+        if(Input.GetButtonDown(leftBumperName))
+        {
+            if (m_leftHolster.IsSwordLaunched())
+            {
+                m_leftHolster.DestroySword();
+            }
+        }
+
+        //Right Bumper
+        if (Input.GetButtonDown(rightBumperName))
+        {
+            if (m_rightHolster.IsSwordLaunched())
+            {
+                m_rightHolster.DestroySword();
+            }
         }
 
     }
