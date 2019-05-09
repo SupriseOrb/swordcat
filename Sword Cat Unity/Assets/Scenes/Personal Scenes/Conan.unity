@@ -2183,7 +2183,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125917309}
-  m_LocalRotation: {x: 0.04302669, y: 0.5032916, z: -0.025101965, w: 0.86267966}
+  m_LocalRotation: {x: 0.043026697, y: 0.5032916, z: -0.025101969, w: 0.86267966}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2363,7 +2363,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142171438}
-  m_LocalRotation: {x: 0.043026656, y: 0.5032916, z: -0.025102023, w: 0.86267966}
+  m_LocalRotation: {x: 0.04302666, y: 0.5032916, z: -0.025102025, w: 0.86267966}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4552,7 +4552,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283374465}
-  m_LocalRotation: {x: 0.011661427, y: 0.5038713, z: -0.0068034693, w: 0.8636732}
+  m_LocalRotation: {x: 0.011661432, y: 0.50387126, z: -0.0068034837, w: 0.86367327}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6874,7 +6874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406081494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.657405, y: 3.6399999, z: 18.449326}
+  m_LocalPosition: {x: 15.657406, y: 3.6399999, z: 18.449326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 142171440}
@@ -15499,6 +15499,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2989238544269427999, guid: 9e438aaacfb644931b66d35abab4504c,
+        type: 3}
+      propertyPath: m_lHolster
+      value: 
+      objectReference: {fileID: 178550224}
+    - target: {fileID: 2989238544269427999, guid: 9e438aaacfb644931b66d35abab4504c,
+        type: 3}
+      propertyPath: m_rHolster
+      value: 
+      objectReference: {fileID: 636127830}
     - target: {fileID: 2989238544269427985, guid: 9e438aaacfb644931b66d35abab4504c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15559,16 +15569,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2989238544269427999, guid: 9e438aaacfb644931b66d35abab4504c,
-        type: 3}
-      propertyPath: m_lHolster
-      value: 
-      objectReference: {fileID: 178550224}
-    - target: {fileID: 2989238544269427999, guid: 9e438aaacfb644931b66d35abab4504c,
-        type: 3}
-      propertyPath: m_rHolster
-      value: 
-      objectReference: {fileID: 636127830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e438aaacfb644931b66d35abab4504c, type: 3}
 --- !u!1 &833077545
@@ -19342,7 +19342,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     inventory: 1f0000000400000005000000
-    npcs: []
+    npcs:
+    - data: {fileID: 11400000, guid: 19ea26c71ababfa47a1353a6d935c619, type: 2}
+      index: 0
+      quest: 2
+      talked: 0
+      randomQuestChance: 0
+      randomQuest: 1
+      randomQuestDialogue: 0
+      randomQuestType: 0
+      randomQuestAmount: 1
 --- !u!4 &1036719142
 Transform:
   m_ObjectHideFlags: 0
@@ -27034,8 +27043,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560599731}
-  m_LocalRotation: {x: 0.04302668, y: 0.50329167, z: -0.02510198, w: 0.86267966}
-  m_LocalPosition: {x: 15.657405, y: 3.6399999, z: 18.449326}
+  m_LocalRotation: {x: 0.04302669, y: 0.5032916, z: -0.025101986, w: 0.86267966}
+  m_LocalPosition: {x: 15.657406, y: 3.6399999, z: 18.449326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -27440,7 +27449,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     inventory: 000000000000000000000000
-    npcs: []
+    npcs:
+    - data: {fileID: 11400000, guid: 19ea26c71ababfa47a1353a6d935c619, type: 2}
+      index: 0
+      quest: 2
+      talked: 0
+      randomQuestChance: 0.5
+      randomQuest: 1
+      randomQuestDialogue: 0
+      randomQuestType: 0
+      randomQuestAmount: 1
 --- !u!4 &1579821110
 Transform:
   m_ObjectHideFlags: 0
