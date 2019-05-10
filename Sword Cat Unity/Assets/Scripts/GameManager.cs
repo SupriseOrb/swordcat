@@ -58,8 +58,10 @@ public class GameManager : MonoBehaviour
         {
             npc.state.quest = NPCState.QuestState.AVAILABLE;
 
-            if (npc.state.data.randomQuestScripts.Count > 0)
+            if (npc.state.data.randomQuestScripts.Count > 0 && npc.state.GetJsonData()["quest"]["random"] != null)
             {
+                if (npc.state.randomQuestChance == -1)
+                    npc.state.randomQuestChance = npc.state.GetJsonData()["quest"]["random"]["chance"].Value<float>();
                 npc.state.randomQuest = Random.value < npc.state.randomQuestChance;
 
                 if (npc.state.randomQuest)
@@ -107,7 +109,8 @@ public class NPCState
         {
             quest = QuestState.NONE;
             talked = 0;
-            randomQuestChance = 0.6f;
+            randomQuest = false;
+            randomQuestChance = GetJsonData()["quest"] != null && GetJsonData()["quest"]["random"] != null ? GetJsonData()["quest"]["random"]["chance"].Value<float>() : 0;
             index = value;
         }
     }
@@ -115,7 +118,7 @@ public class NPCState
     public QuestState quest;
     public int talked;
 
-    public float randomQuestChance = 0.6f;
+    public float randomQuestChance = -1;
     public bool randomQuest;
     public int randomQuestDialogue;
     public TumbleYarn.YarnType randomQuestType;

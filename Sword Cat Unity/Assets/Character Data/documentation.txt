@@ -9,16 +9,35 @@
 		},
 		"chance": 0.5, # Chance to give the quest as a number between 0-1. Omit if guaranteed.
 		"prereq": { # Prerequisite of having another character reach a certain state to give a quest. Not needed if prerequisite is completing this character's previous state's quest.
-			"name": "test 2", # Use the scriptable object file name
+			"name": "test 2", # Character name
 			"state": 1 # The state required for the character to be at
+		},
+		"random": { # Omit if character does not give random quests.
+			"chance": 0.6, # Base chance to give a random quest instead of a story quest.
+			"modifier": 0.1 # After completing the random quest, decrease the chance by this amount.
+		}
+		"complete": { # What to do after completing a quest.
+			"mode": "wait",
+			# Modes:
+			# "next" # Immediately move on to the next state after completion dialogue.
+			# "wait" - When entering the area, if the specified condition (below) is met and quest has been completed, move on to the next state.
+			"wait": { # Use only if mode is wait
+				"name": "test 2",
+				"state": 1
+			}
 		}
 	},
 	
 	# Omit this entire section if this character doesn't have any special options
 	"options": {
-		"mode": "next"
+		"mode": "wait",
 		# Modes:
 		# "next" - Immediately move on to the next state after dialogue.
+		# "wait" - When entering the area, if the specified condition (below) is met, move on to the next state.
+		"wait": { # Use only if mode is wait
+			"name": "test 2",
+			"state": 1
+		}
 	},
 
 	"scripts": {
