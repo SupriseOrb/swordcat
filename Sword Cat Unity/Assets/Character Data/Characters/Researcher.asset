@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f2ea5558aac7741ab39cc36fc26576, type: 3}
   m_Name: Researcher
   m_EditorClassIdentifier: 
+  characterName: Researcher
   dialogueScripts:
+  - {fileID: 4900000, guid: e46dad9b07b7f6644a1cae80542e27f8, type: 3}
+  - {fileID: 4900000, guid: 549b8d8bfe881ad46891ce11125b86ed, type: 3}
+  - {fileID: 4900000, guid: c3fdef4f788d9724a8324ac727a3dac0, type: 3}
   - {fileID: 4900000, guid: b8e9cf0245d365c4693fb2445ae959e0, type: 3}
+  randomQuestScripts: []
