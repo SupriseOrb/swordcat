@@ -52,7 +52,7 @@ public class Sword : MonoBehaviour
     {
         m_MoveSpeed = value;
         m_IsLaunched = true;
-        //m_Rb.constraints = RigidbodyConstraints.FreezeRotation;
+        m_Rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     private void OnCollisionEnter(Collision collision)

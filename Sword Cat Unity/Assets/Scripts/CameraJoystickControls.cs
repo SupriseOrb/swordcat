@@ -6,6 +6,10 @@ using Cinemachine;
 [RequireComponent(typeof(CinemachineFreeLook))]
 public class CameraJoystickControls : MonoBehaviour
 {
+
+    public float m_YMin;
+    public float m_YMax;
+
     private CinemachineFreeLook vcam;
 
     private void Awake()
@@ -28,6 +32,6 @@ public class CameraJoystickControls : MonoBehaviour
 
     private void Update()
     {
-
+        vcam.m_YAxis.Value = Mathf.Clamp(vcam.m_YAxis.Value, m_YMin, m_YMax);
     }
 }
