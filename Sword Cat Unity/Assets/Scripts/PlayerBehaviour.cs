@@ -151,7 +151,8 @@ public class PlayerBehaviour : MonoBehaviour
             cam = Camera.main;
 
         m_direction = cam.transform.TransformDirection(m_direction);
-        this.transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * m_TurnSpeed * Time.deltaTime);
+        m_direction.y = 0;
+        //this.transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * m_TurnSpeed * Time.deltaTime);
     }
 
     void LookForward()
