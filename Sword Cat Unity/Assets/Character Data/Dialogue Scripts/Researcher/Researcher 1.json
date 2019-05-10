@@ -1,0 +1,47 @@
+{
+	"quest": {
+		"type": "fetch", # Currently there are only fetch quests
+		"fetch": {
+			"red": 1
+		}
+	},
+	
+	"options": {
+	
+	},
+	
+	"scripts": {
+		"quest": [
+			[
+				"@once",
+				"Ah, Tumble Cat, er, Sword Cat. There you are. My mother sent you?",
+				"I'm sure you're eager to begin your illustrious career and do good by the people of Oasis Town, but I need your help.",
+				"The subject of your pursuit is Tumbleyarn. This concentrated form of raw magic energy from the Oasis makes this town run, but what is it? That is what I wish to know.",
+				"Help the townspeople get the Tumbleyarn they need, as your title calls you to do. But I ask that you also provide me samples, when your time permits it, of course.",
+				"@endonce",
+				"To start, would you please fetch me one sample of Red Tumbleyarn?"
+			]
+		],
+		
+		"accept": [
+			["Ah, good. I await your successful return, Tumblecat, er Sword Cat."]
+		],
+		
+		"decline": [
+			["Very well. My study will have to wait then."]
+		],
+		
+		"incomplete": [
+			["Back so soon? Red Tumbleyarn is among the more common, I'm sure you can find one sample. Godspeed Sword Cat."]
+		],
+		
+		"complete": [
+			["You have the sample? Wonderful! I'll let you know what I find out."]
+		],
+		
+		"idle": [
+			["Fascinating..."]
+		],
+
+	}
+}

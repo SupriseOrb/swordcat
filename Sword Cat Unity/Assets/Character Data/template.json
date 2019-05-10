@@ -1,9 +1,27 @@
 {
-	"name": "Name",
-
+	"quest": {
+		"type": "fetch", # Currently there are only fetch quests
+		"fetch": {
+			"red": 0,
+			"green": 0,
+			"purple": 0
+		},
+		"chance": 0.5, # Chance to give the quest as a number between 0-1. Omit if guaranteed.
+		"prereq": { # Prerequisite of having another character reach a certain state to give a quest. Not needed if prerequisite is completing this character's previous state's quest.
+			"name": "test 2", # Use the scriptable object file name
+			"state": 1 # The state required for the character to be at
+		}
+	},
+	
+	"options": {
+	
+	},
+	
 	"scripts": {
 		"quest": [
-			[]
+			[
+				
+			]
 		],
 		
 		"accept": [
