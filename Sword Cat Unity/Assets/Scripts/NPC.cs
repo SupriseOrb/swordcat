@@ -124,12 +124,14 @@ public class NPC : MonoBehaviour
 
                     quest.TakeYarn();
 
+                    JToken token = jObj["quest"];
+
                     if (state.randomQuest)
                     {
                         state.quest = NPCState.QuestState.NONE;
-                        state.randomQuestChance -= 0.1f;
+                        state.randomQuestChance -= state.GetJsonData()["quest"]["random"]["modifier"] == null ? 0 : state.GetJsonData()["quest"]["random"]["modifier"].Value<float>();
                     }
-                    else if (state.state + 1 < state.data.dialogueScripts.Count)
+                    else if (token["complete"] != null && token["complete"]["mode"].Value<string>() == "next")
                     {
                         state.state++;
                         ReloadScripts();
@@ -202,6 +204,29 @@ public class NPC : MonoBehaviour
         }
 
         ReloadScripts();
+
+        if (options != null && options["mode"] != null && options["mode"].Value<string>() == "wait")
+        {
+            NPCState checkState = GameManager.instance.data.npcs.Find(npc => npc.data.characterName == options["wait"]["name"].Value<string>());
+            if (checkState != null && checkState.state >= options["wait"]["state"].Value<int>())
+            {
+                state.state++;
+                ReloadScripts();
+            }
+        }
+        else if (state.quest == NPCState.QuestState.COMPLETE)
+        {
+            JToken token = jObj["quest"];
+            if (token["complete"] != null && token["complete"]["mode"].Value<string>() == "wait")
+            {
+                NPCState checkState = GameManager.instance.data.npcs.Find(npc => npc.data.characterName == token["complete"]["wait"]["name"].Value<string>());
+                if (checkState.state >= token["complete"]["wait"]["state"].Value<int>())
+                {
+                    state.state++;
+                    ReloadScripts();
+                }
+            }
+        }
     }
 
     // 0: no quests available
@@ -222,7 +247,7 @@ public class NPC : MonoBehaviour
         {
             string name = token["prereq"]["name"].Value<string>();
 
-            NPCState npcState = GameManager.instance.data.npcs.Find(state => state.data.name == name);
+            NPCState npcState = GameManager.instance.data.npcs.Find(state => state.data.characterName == name);
             if (npcState == null || npcState.state < token["prereq"]["state"].Value<int>())
                 return 1;
         }
