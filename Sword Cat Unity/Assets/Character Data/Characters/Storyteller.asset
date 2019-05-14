@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Storyteller
   dialogueScripts:
-  - {fileID: 4900000, guid: 1e41b9e9de31f1c439926cec4d6345af, type: 3}
-  - {fileID: 4900000, guid: 64bcb07502e80f74c86126ba6d381ff6, type: 3}
+  - {fileID: 4900000, guid: ca02dbef95a4c574b8d35d66a4833c0e, type: 3}
+  - {fileID: 4900000, guid: d89aa156baf8a7a46884b2939b00dde8, type: 3}
+  - {fileID: 4900000, guid: 0cfcae2cdb20a104aad25973ec7df0b5, type: 3}
+  - {fileID: 4900000, guid: 13e2e76dae0a13f439b1b1016b78c33b, type: 3}
+  - {fileID: 4900000, guid: a0632a9b3e80c714ab1b88ea7a13c92b, type: 3}
   randomQuestScripts: []
