@@ -39,6 +39,8 @@ public class SwordHolster : MonoBehaviour
     public void RespawnSword()
     {
         GameObject go = Instantiate(swordPrefab, this.transform.position, swordPrefab.transform.rotation, this.transform);
+
+        Physics.IgnoreLayerCollision(9, 9);
         m_Sword = go.GetComponent<Sword>();
         m_Sword.hitUnattachableEnvironment.AddListener(OnHitUnattachableEnvironmentListener);
         swordLaunched = false;

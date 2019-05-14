@@ -33,7 +33,7 @@ public class Sword : MonoBehaviour
 
         if(!m_IsLaunched)
         {
-            this.transform.rotation = this.transform.parent.rotation * Quaternion.Euler(new Vector3(90f,0f,0f));
+            this.transform.rotation = this.transform.parent.rotation * Quaternion.Euler(new Vector3(-90f,0f,0f));
             this.transform.position = this.transform.parent.position;
         }
     }

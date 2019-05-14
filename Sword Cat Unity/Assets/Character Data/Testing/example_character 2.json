@@ -7,11 +7,26 @@
 			"red": 1,
 			"purple": 2
 		},
-		"chance": 1
+		"chance": 0,
+		"random": {
+			"chance": 0,
+			"modifier": 0.1
+		},
+		"complete": {
+			"mode": "wait",
+			"wait": {
+				"name": "Dark Ittai",
+				"state": 1
+			}
+		}
 	},
 
-	"optionsaaaaa": {
-		"mode": "next"
+	"!options": {
+		"mode": "wait",
+		"wait": {
+			"name": "Dark Ittai",
+			"state": 0
+		}
 	},
 
 	"scripts": {
@@ -36,12 +51,7 @@
 		],
 
 		"idle": [
-			["@once",
-			"I will only say this the first time",
-			"I will say this only once",
-			"@endonce",
-			"I will say this all the time.",
-			"I will say this whenever you talk to me."]
+			["idle"]
 		]
 	}
 }
