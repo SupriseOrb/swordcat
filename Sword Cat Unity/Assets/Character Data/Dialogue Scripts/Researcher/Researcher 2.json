@@ -1,6 +1,6 @@
 {
 	"quest": {
-		"type": "fetch", # Currently there are only fetch quests
+		"type": "fetch",
 		"fetch": {
 			"green": 1
 		}
@@ -40,7 +40,7 @@
 		
 		"idle": [
 			["Hmm, Green Tumbleyarn..."]
-		],
+		]
 
 	}
 }

@@ -1,6 +1,6 @@
 {
 	"quest": {
-		"type": "fetch", # Currently there are only fetch quests
+		"type": "fetch",
 		"fetch": {
 			"purple": 5
 		}
@@ -23,7 +23,7 @@
 			 "Thank you for your contribtuion to my research Sword Cat. Our world truly is incredible.",
 			 "There's much more to learn, but until then, keep up the good work and maintain balance for the good people of Oasis Town. Lifestreams guide you."
 			 ]
-		],
+		]
 
 	}
 }
