@@ -2183,7 +2183,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125917309}
-  m_LocalRotation: {x: 0.043026697, y: 0.5032916, z: -0.025101969, w: 0.86267966}
+  m_LocalRotation: {x: 0.04302669, y: 0.5032916, z: -0.025101965, w: 0.86267966}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2363,7 +2363,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142171438}
-  m_LocalRotation: {x: 0.04302666, y: 0.5032916, z: -0.025102025, w: 0.86267966}
+  m_LocalRotation: {x: 0.043026656, y: 0.5032916, z: -0.025102023, w: 0.86267966}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4552,7 +4552,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283374465}
-  m_LocalRotation: {x: 0.011661421, y: 0.50387126, z: -0.006803492, w: 0.86367327}
+  m_LocalRotation: {x: 0.011661432, y: 0.5038713, z: -0.006803468, w: 0.8636732}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6765,6 +6765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5c47e233a5b4261a6fcbae058fe0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_YMin: 0
+  m_YMax: 0
 --- !u!114 &406081497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6874,7 +6876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406081494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.657406, y: 3.6399999, z: 18.449326}
+  m_LocalPosition: {x: 15.657405, y: 3.6399999, z: 18.449326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 142171440}
@@ -13843,7 +13845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: {fileID: 2100109669}
   dialogueManager: {fileID: 550873508}
-  characterData: {fileID: 11400000, guid: 19ea26c71ababfa47a1353a6d935c619, type: 2}
+  characterData: {fileID: 11400000, guid: 3d7206fdc0da6df4fb130e8bd688b188, type: 2}
   quest:
     red: 0
     purple: 0
@@ -15499,6 +15501,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2989238544269427999, guid: 9e438aaacfb644931b66d35abab4504c,
+        type: 3}
+      propertyPath: m_lHolster
+      value: 
+      objectReference: {fileID: 178550224}
+    - target: {fileID: 2989238544269427999, guid: 9e438aaacfb644931b66d35abab4504c,
+        type: 3}
+      propertyPath: m_rHolster
+      value: 
+      objectReference: {fileID: 636127830}
     - target: {fileID: 2989238544269427985, guid: 9e438aaacfb644931b66d35abab4504c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15554,16 +15566,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2989238544269427999, guid: 9e438aaacfb644931b66d35abab4504c,
-        type: 3}
-      propertyPath: m_lHolster
-      value: 
-      objectReference: {fileID: 178550224}
-    - target: {fileID: 2989238544269427999, guid: 9e438aaacfb644931b66d35abab4504c,
-        type: 3}
-      propertyPath: m_rHolster
-      value: 
-      objectReference: {fileID: 636127830}
     - target: {fileID: 2989238544269427984, guid: 9e438aaacfb644931b66d35abab4504c,
         type: 3}
       propertyPath: m_Mass
@@ -19352,25 +19354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     inventory: 320000003200000032000000
-    npcs:
-    - data: {fileID: 11400000, guid: ec1e1bab3a41b3f44acd7c7927621320, type: 2}
-      index: 0
-      quest: 3
-      talked: 0
-      randomQuestChance: 0
-      randomQuest: 0
-      randomQuestDialogue: 0
-      randomQuestType: 0
-      randomQuestAmount: 0
-    - data: {fileID: 11400000, guid: 19ea26c71ababfa47a1353a6d935c619, type: 2}
-      index: 1
-      quest: 0
-      talked: 0
-      randomQuestChance: 0
-      randomQuest: 0
-      randomQuestDialogue: 0
-      randomQuestType: 0
-      randomQuestAmount: 0
+    npcs: []
 --- !u!4 &1036719142
 Transform:
   m_ObjectHideFlags: 0
@@ -20915,8 +20899,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9fc201c056b4140832e3bc1160430c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_moveSpeed: 10
+  m_MoveSpeed: 0
+  m_TurnSpeed: 0
   m_direction: {x: 0, y: 0, z: 0}
+  m_RightHorizontal: 0
   attackRange: 100
   m_lHolster: {fileID: 0}
   m_rHolster: {fileID: 0}
@@ -27062,8 +27048,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560599731}
-  m_LocalRotation: {x: 0.04302669, y: 0.5032916, z: -0.025101986, w: 0.86267966}
-  m_LocalPosition: {x: 15.657406, y: 3.6399999, z: 18.449326}
+  m_LocalRotation: {x: 0.04302668, y: 0.50329167, z: -0.02510198, w: 0.86267966}
+  m_LocalPosition: {x: 15.657405, y: 3.6399999, z: 18.449326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
