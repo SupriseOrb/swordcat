@@ -10,7 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0f2ea5558aac7741ab39cc36fc26576, type: 3}
-  m_Name: Researcher
+  m_Name: test 2
   m_EditorClassIdentifier: 
+  characterName: 'Dark Ittai #2'
   dialogueScripts:
-  - {fileID: 4900000, guid: b8e9cf0245d365c4693fb2445ae959e0, type: 3}
+  - {fileID: 4900000, guid: 01421adc45a218d4da30b940bca9d871, type: 3}
+  - {fileID: 4900000, guid: 861be128b32b0114ba1cf12aacfcd15d, type: 3}
+  randomQuestScripts:
+  - {fileID: 4900000, guid: 0564505f23cfda14e91d3bfc491ea12d, type: 3}
+  - {fileID: 4900000, guid: 32030c6f2af0df04781fed55e14dbded, type: 3}

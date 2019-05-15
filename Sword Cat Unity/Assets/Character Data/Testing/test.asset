@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f2ea5558aac7741ab39cc36fc26576, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
+  characterName: Dark Ittai
   dialogueScripts:
   - {fileID: 4900000, guid: 29bdc996d72734446aa0b6cff071468b, type: 3}
-  - {fileID: 4900000, guid: 01421adc45a218d4da30b940bca9d871, type: 3}
+  - {fileID: 4900000, guid: 861be128b32b0114ba1cf12aacfcd15d, type: 3}
+  randomQuestScripts:
+  - {fileID: 4900000, guid: 0564505f23cfda14e91d3bfc491ea12d, type: 3}

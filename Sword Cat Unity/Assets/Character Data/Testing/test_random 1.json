@@ -1,0 +1,21 @@
+{
+	"quest": [
+		["random quest woo need {amount} {color} pls"]
+	],
+		
+	"accept": [
+		["{amount}  {amount} asdf{amount}c{Color}{color}{amount}{amount}{amount} "]
+	],
+		
+	"decline": [
+		["f u{Color}{color}{Color}{color}{amount}{amount}"]
+	],
+		
+	"incomplete": [
+		["{amount}{color}{amount}{Color}{amount}{Color}{amount}{color}"]
+	],
+		
+	"complete": [
+		["{amount}aaaaaaaaaaaaaaaaaaa{color}aaaaaaaaaaaaa{Color}"]
+	]
+}

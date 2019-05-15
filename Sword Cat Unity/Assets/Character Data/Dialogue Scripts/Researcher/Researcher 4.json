@@ -1,0 +1,48 @@
+{
+	"quest": {
+		"type": "fetch", # Currently there are only fetch quests
+		"fetch": {
+			"purple": 5
+		}
+	},
+	
+	"options": {
+	
+	},
+	
+	"scripts": {
+		"quest": [
+			[
+				"@once",
+				"Tumblecat! I've finished my study, lend me your ear.",
+				"As I suspected, Purple Tumbleyarn is even more powerful than Green Tumbleyarn, and dangerously so!",
+				"The last sample you gave me exploded, and I need to know why.",
+				"@endonce",
+				"I need to run more tests on Purple Tumbleyarn. Please, get me 5 samples quickly!"
+			]
+		],
+		
+		"accept": [
+			["Fly, Sword Cat, as fast as your wings can take you!"]
+		],
+		
+		"decline": [
+			["Please reconsider, this is important!"]
+		],
+		
+		"incomplete": [
+			["What are you doing here? This is serious!"]
+		],
+		
+		"complete": [
+			["Careful now, hand me the samples. I'll let you know what I find."]
+		],
+		
+		"idle": [
+			["*BOOM*",
+			 "Oops...",
+			 "Good thing I have a few samples left."]
+		],
+
+	}
+}

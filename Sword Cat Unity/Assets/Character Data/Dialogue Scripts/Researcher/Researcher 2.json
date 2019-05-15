@@ -1,0 +1,46 @@
+{
+	"quest": {
+		"type": "fetch", # Currently there are only fetch quests
+		"fetch": {
+			"green": 1
+		}
+	},
+	
+	"options": {
+	
+	},
+	
+	"scripts": {
+		"quest": [
+			[
+				"@once",
+				"Sword Cat, hello there! I may have er, misplaced the last sample you got for me. But not before completing some of my study.",
+				"We've long used Tumbleyarn to weave cloth and all manner of woven goods.",
+				"It's possible that using Tumbleyarn in such a way imparts upon the fabric some magical properties.",
+				"@endonce",
+				"I need to look further into this. Sword Cat, please get me a Green Tumbleyarn."
+			]
+		],
+		
+		"accept": [
+			["Good luck Sword Cat."]
+		],
+		
+		"decline": [
+			["Ah. If you change your mind, you know where to find me."]
+		],
+		
+		"incomplete": [
+			["Green Tumbleyarn is a little less common than Red Tumbleyarn, but more common than Purple Tumbleyarn."]
+		],
+		
+		"complete": [
+			["You have the sample? Thanks, I'll let you know what I find."]
+		],
+		
+		"idle": [
+			["Hmm, Green Tumbleyarn..."]
+		],
+
+	}
+}

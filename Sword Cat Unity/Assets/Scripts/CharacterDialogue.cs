@@ -29,7 +29,7 @@ public class CharacterDialogue : MonoBehaviour
         noButton.gameObject.SetActive(false);
     }
 
-    IEnumerator RunDialogue(string[] dialogue)
+    IEnumerator RunDialogue(string[] dialogue, bool skipAtOnce = false, TumbleYarn.YarnType color = TumbleYarn.YarnType.RED, int amount = 0)
     {
         bool localYes = false;
         bool localNo = false;
@@ -42,7 +42,6 @@ public class CharacterDialogue : MonoBehaviour
 
             if (block == "yes")
             {
-                print("yes");
                 if (line == "@endyes")
                 {
                     block = null;
@@ -55,7 +54,6 @@ public class CharacterDialogue : MonoBehaviour
             }
             else if (block == "no")
             {
-                print("no");
                 if (line == "@endno")
                 {
                     block = null;
@@ -66,9 +64,20 @@ public class CharacterDialogue : MonoBehaviour
                     readLine = localNo;
                 }
             }
+            else if (block == "once")
+            {
+                if (line == "@endonce")
+                {
+                    block = null;
+                    readLine = false;
+                }
+                else
+                {
+                    readLine = !skipAtOnce;
+                }
+            }
             else
             {
-                print("null");
                 if (line == "@ask")
                 {
                     yield return Ask();
@@ -86,15 +95,38 @@ public class CharacterDialogue : MonoBehaviour
                     block = "no";
                     readLine = false;
                 }
+                else if (line == "@once")
+                {
+                    block = "once";
+                    readLine = false;
+                }
             }
 
             if (readLine)
             {
-                for (int i = 0; i < line.Length; i++)
+                string readout = line;
+                switch (color)
                 {
-                    while (i < line.Length && line[i] == '<')
+                    case TumbleYarn.YarnType.RED:
+                        readout = readout.Replace("{color}", "red");
+                        readout = readout.Replace("{Color}", "Red");
+                        break;
+                    case TumbleYarn.YarnType.GREEN:
+                        readout = readout.Replace("{color}", "green");
+                        readout = readout.Replace("{Color}", "Green");
+                        break;
+                    case TumbleYarn.YarnType.PURPLE:
+                        readout = readout.Replace("{color}", "purple");
+                        readout = readout.Replace("{Color}", "Purple");
+                        break;
+                }
+
+                readout = readout.Replace("{amount}", amount.ToString());
+                for (int i = 0; i < readout.Length; i++)
+                {
+                    while (i < readout.Length && readout[i] == '<')
                     {
-                        while (i < line.Length && line[i] != '>')
+                        while (i < readout.Length && readout[i] != '>')
                         {
                             i++;
                         }
@@ -102,7 +134,7 @@ public class CharacterDialogue : MonoBehaviour
                         i++;
                     }
 
-                    uiDialogue.text = line.Substring(0, Mathf.Min(i + 1, line.Length));
+                    uiDialogue.text = readout.Substring(0, Mathf.Min(i + 1, readout.Length));
 
                     yield return null;
                     if (!Input.GetButton("Fire1"))
@@ -129,7 +161,7 @@ public class CharacterDialogue : MonoBehaviour
         noButton.gameObject.SetActive(false);
     }
 
-    public IEnumerator Dialogue(string name, string[] dialogue, string[] onAccept, string[] onDecline)
+    public IEnumerator Dialogue(string name, string[] dialogue, string[] onAccept, string[] onDecline, bool skipAtOnce = false, TumbleYarn.YarnType color = TumbleYarn.YarnType.RED, int amount = 0)
     {
         uiName.text = name;
         uiDialogue.text = "";
@@ -137,7 +169,7 @@ public class CharacterDialogue : MonoBehaviour
         uiManager.SetActiveUI(1);
         uiManager.SetPlayerControlEnabled(false);
 
-        yield return RunDialogue(dialogue);
+        yield return RunDialogue(dialogue, skipAtOnce, color, amount);
 
         if (onAccept != null && onDecline != null)
         {
@@ -145,11 +177,11 @@ public class CharacterDialogue : MonoBehaviour
 
             if (yesSelected)
             {
-                yield return RunDialogue(onAccept);
+                yield return RunDialogue(onAccept, skipAtOnce, color, amount);
             }
             else
             {
-                yield return RunDialogue(onDecline);
+                yield return RunDialogue(onDecline, skipAtOnce, color, amount);
             }
         }
 
@@ -159,9 +191,9 @@ public class CharacterDialogue : MonoBehaviour
         uiDialogue.text = "";
     }
 
-    public IEnumerator Dialogue(string name, string[] dialogue)
+    public IEnumerator Dialogue(string name, string[] dialogue, bool skipAtOnce = false, TumbleYarn.YarnType color = TumbleYarn.YarnType.RED, int amount = 0)
     {
-        return Dialogue(name, dialogue, null, null);
+        return Dialogue(name, dialogue, null, null, skipAtOnce, color, amount);
     }
 
     // Start is called before the first frame update

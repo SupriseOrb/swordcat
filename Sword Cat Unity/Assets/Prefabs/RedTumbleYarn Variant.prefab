@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a73fddb247f730499c72a8dad50885f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tumbleSpeed: 0.01
+  yarnType: 0
+  tumbleSpeed: 0.02
   tumbleHeight: 4
   tumbleHopRate: 1.5
   groundTag: ground

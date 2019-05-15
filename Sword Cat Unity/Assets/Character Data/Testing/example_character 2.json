@@ -1,0 +1,57 @@
+{
+	"name": "Darker Ittai",
+
+	"quest": {
+		"type": "fetch",
+		"fetch": {
+			"red": 1,
+			"purple": 2
+		},
+		"chance": 0,
+		"random": {
+			"chance": 0,
+			"modifier": 0.1
+		},
+		"complete": {
+			"mode": "wait",
+			"wait": {
+				"name": "Dark Ittai",
+				"state": 1
+			}
+		}
+	},
+
+	"!options": {
+		"mode": "wait",
+		"wait": {
+			"name": "Dark Ittai",
+			"state": 0
+		}
+	},
+
+	"scripts": {
+		"quest": [
+			["quest"]
+		],
+		
+		"accept": [
+			["accept"]
+		],
+		
+		"decline": [
+			["decline"]
+		],
+		
+		"incomplete": [
+			["incomplete"]
+		],
+		
+		"complete": [
+			["complete"]
+		],
+
+		"idle": [
+			["idle"]
+		]
+	}
+}

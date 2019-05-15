@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [SerializeField] float m_moveSpeed;
+    [SerializeField] float m_MoveSpeed;
+    [SerializeField] float m_TurnSpeed;
     [SerializeField] Vector3 m_direction;
+    [SerializeField] float m_RightHorizontal;
     [SerializeField] float attackRange = 100f;
 
     private Rigidbody rb;
     private Camera cam;
 
     private Ray forwardRay;
+    private int playerMask = ~(1 << 9);
 
     [SerializeField] GameObject m_lHolster;
     [SerializeField] GameObject m_rHolster;
@@ -23,7 +26,13 @@ public class PlayerBehaviour : MonoBehaviour
     private bool m_rtAxisInUse = false;
 
     private string leftTriggerName;
-    private string rightTriggeName;
+    private string rightTriggerName;
+
+    private string leftBumperName;
+    private string rightBumperName;
+
+    private string rightStickX;
+    private string rightStickY;
 
     void Awake()
     {
@@ -39,11 +48,20 @@ public class PlayerBehaviour : MonoBehaviour
 #if UNITY_EDITOR_WIN
         leftTriggerName = "LeftTrigger";
         rightTriggerName = "RightTrigger";
+        leftBumperName = "LeftBumper";
+        rightBumperName = "RightBumper";
+        rightStickX = "WinRightStickX";
+        rightStickY = "WinRightStickY";
 #endif
 
 #if UNITY_EDITOR_OSX
         leftTriggerName = "MacLeftTrigger";
-        rightTriggeName = "MacRightTrigger";
+        rightTriggerName = "MacRightTrigger";
+        leftBumperName = "MacLeftBumper";
+        rightBumperName = "MacRightBumper";
+        rightStickX = "MacRightStickX";
+        rightStickY = "MacRightStickY";
+
 #endif
     }
 
@@ -56,12 +74,9 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LookForward();
-
         m_direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
-        //m_direction = new Vector3(Input.GetAxis("LeftStickX"), 0f, Input.GetAxis("LeftStickY"));
-
+        RotateDirection();
 
         if (Input.GetButtonDown("Fire1"))// || Input.GetAxis("LeftTrigger") > 0)
             FireSword(m_leftHolster);
@@ -85,7 +100,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         //Right Trigger
-        if (Input.GetAxisRaw(rightTriggeName) > 0)
+        if (Input.GetAxisRaw(rightTriggerName) > 0)
         {
             if (m_rtAxisInUse == false)
             {
@@ -94,9 +109,27 @@ public class PlayerBehaviour : MonoBehaviour
                 m_rtAxisInUse = true;
             }
         }
-        if (Input.GetAxisRaw(rightTriggeName) <= 0)
+        if (Input.GetAxisRaw(rightTriggerName) <= 0)
         {
             m_rtAxisInUse = false;
+        }
+
+        //Left Bumper
+        if(Input.GetButtonDown(leftBumperName))
+        {
+            if (m_leftHolster.IsSwordLaunched())
+            {
+                m_leftHolster.DestroySword();
+            }
+        }
+
+        //Right Bumper
+        if (Input.GetButtonDown(rightBumperName))
+        {
+            if (m_rightHolster.IsSwordLaunched())
+            {
+                m_rightHolster.DestroySword();
+            }
         }
 
     }
@@ -108,10 +141,18 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Move()
     {
-        //Debug.Log(m_direction.normalized * m_moveSpeed);
-        //rb.velocity = m_direction.normalized * m_moveSpeed;
-        rb.MovePosition(rb.position + transform.TransformDirection(m_direction.normalized) * m_moveSpeed * Time.deltaTime);
+        rb.velocity = m_direction.normalized * m_MoveSpeed;
+    }
 
+
+    void RotateDirection()
+    {
+        if (cam == null)
+            cam = Camera.main;
+
+        m_direction = cam.transform.TransformDirection(m_direction);
+        m_direction.y = 0;
+        //this.transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * m_TurnSpeed * Time.deltaTime);
     }
 
     void LookForward()
@@ -123,8 +164,10 @@ public class PlayerBehaviour : MonoBehaviour
         float currentX = this.transform.rotation.x;
         float camY = cam.transform.eulerAngles.y;
         float currentZ = this.transform.rotation.z;
+
+        Quaternion newRotation = Quaternion.Euler(new Vector3(currentX, camY, currentZ));
         //Debug.Log(camY);
-        rb.MoveRotation(Quaternion.Euler(currentX, camY, currentZ));
+
     }
 
     void FireSword(SwordHolster holster)
@@ -132,16 +175,16 @@ public class PlayerBehaviour : MonoBehaviour
         if (!holster.IsSwordLaunched())
         {
             forwardRay = cam.ViewportPointToRay(Vector3.one * 0.5f);
-            //Debug.DrawRay(forwardRay.origin, forwardRay.direction * 100, Color.red, 2f);
+            Debug.DrawRay(forwardRay.origin, forwardRay.direction * 100, Color.red, 2f);
             RaycastHit hitInfo;
 
-            if (Physics.Raycast(forwardRay, out hitInfo, attackRange))//if it raycast hits an object
+            if (Physics.Raycast(forwardRay, out hitInfo, attackRange, playerMask))//if it raycast hits an object
             {
                 holster.LaunchSword(hitInfo.point);
             }
             else //if raycast doesn't hit object, launch sword towards end of raycast
             {
-                Vector3 end = forwardRay.direction * attackRange;
+                Vector3 end = forwardRay.origin + forwardRay.direction * attackRange;
                 holster.LaunchSword(end);
             }
         }

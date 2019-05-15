@@ -17,9 +17,35 @@
 				<Event Name="Shoot" ID="{4FE84BB6-4036-41CE-B364-227C29CC624C}">
 					<ChildrenList>
 						<Action Name="" ID="{3390F095-55CB-469E-AEFD-5D52E3C74459}" ShortID="441424877">
+							<PropertyList>
+								<Property Name="FadeInCurve" Type="int16" Value="1"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="shoot" ID="{27EDE890-F8EB-47AB-BE59-A48E76E3ADB8}" WorkUnitID="{D606D79B-ED34-44F3-9D7E-928EDBDD3E14}"/>
+									<ObjectRef Name="shoot" ID="{0E4C64F2-DE7F-4A52-9078-CC9B045DD448}" WorkUnitID="{D606D79B-ED34-44F3-9D7E-928EDBDD3E14}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Menu_scroll" ID="{16B442D7-31DE-4348-8A4B-6BCACBCCB3F6}">
+					<ChildrenList>
+						<Action Name="" ID="{ECDFA456-4E80-471E-B8C1-63BCF3FE3D30}" ShortID="305517739">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="menu_scroll" ID="{FBC40A8B-41BA-4A6A-9411-879B882F727D}" WorkUnitID="{D606D79B-ED34-44F3-9D7E-928EDBDD3E14}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Advance_text" ID="{D5FA4069-4341-4D7D-B7A1-546CD7E1E0FA}">
+					<ChildrenList>
+						<Action Name="" ID="{F3480988-58AB-4EBA-84E4-16A86721ABC3}" ShortID="369142581">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="select-adv_ text" ID="{E01552B9-BE2F-45EA-8B8F-E86F2D58B8E0}" WorkUnitID="{D606D79B-ED34-44F3-9D7E-928EDBDD3E14}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
