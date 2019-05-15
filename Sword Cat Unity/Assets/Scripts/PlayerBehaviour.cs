@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private Rigidbody rb;
     private Camera cam;
+    private CharacterController controller;
 
     private Ray forwardRay;
     private int playerMask = ~(1 << 9);
@@ -38,6 +40,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         rb = this.transform.GetComponent<Rigidbody>();
         cam = Camera.main;
+
+        CameraJoystickControls vcam = GameObject.FindGameObjectWithTag("vcam").GetComponent<CameraJoystickControls>();
+        vcam.RotatePlayer.AddListener(OnCameraRotate);
+
+        controller = this.GetComponent<CharacterController>();
 
         m_leftHolster = m_lHolster.GetComponent<SwordHolster>();
         m_rightHolster = m_rHolster.GetComponent<SwordHolster>();
@@ -74,9 +81,21 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_direction = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        var x = Input.GetAxis("Horizontal");
+        var z = Input.GetAxis("Vertical");
 
-        RotateDirection();
+        m_direction = new Vector3(x, 0, z);
+
+        //controller.SimpleMove(m_direction * Time.deltaTime * m_MoveSpeed);
+
+        transform.Rotate(Vector3.up, x * Time.deltaTime * m_TurnSpeed);
+
+        if(z != 0)
+        {
+            controller.SimpleMove(transform.forward * m_MoveSpeed * z);
+        }
+
+        //LookForward();
 
         if (Input.GetButtonDown("Fire1"))// || Input.GetAxis("LeftTrigger") > 0)
             FireSword(m_leftHolster);
@@ -134,40 +153,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    public void OnCameraRotate()
     {
-        Move();
-    }
-
-    void Move()
-    {
-        rb.velocity = m_direction.normalized * m_MoveSpeed;
-    }
-
-
-    void RotateDirection()
-    {
-        if (cam == null)
-            cam = Camera.main;
-
-        m_direction = cam.transform.TransformDirection(m_direction);
-        m_direction.y = 0;
-        //this.transform.Rotate(Vector3.up, Input.GetAxis("Horizontal") * m_TurnSpeed * Time.deltaTime);
-    }
-
-    void LookForward()
-    {
-        //Debug.Log("Looking Forward");
-        if (cam == null)
-            cam = Camera.main;
-
-        float currentX = this.transform.rotation.x;
-        float camY = cam.transform.eulerAngles.y;
-        float currentZ = this.transform.rotation.z;
-
-        Quaternion newRotation = Quaternion.Euler(new Vector3(currentX, camY, currentZ));
-        //Debug.Log(camY);
-
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, cam.transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
 
     void FireSword(SwordHolster holster)
