@@ -13,8 +13,8 @@
 	"scripts": {
 		"idle": [
 			["Sword Cat, I have finished my study!",
-			 "The first sample of Purple Tumbleyarn yielded some explosive results, a find that had me very concerned.",
-			 "The energy from the Oasis accumulates over time, but Purple Tumbleyarn has collected so much that it becomes unstable."
+			 "The first sample of <i><color=#B000B0>Purple Tumbleyarn</color></i> yielded some explosive results, a find that had me very concerned.",
+			 "The energy from the Oasis accumulates over time, but <i><color=#B000B0>Purple Tumbleyarn</color></i> has collected so much that it becomes unstable."
 			 "If there is so much energy in the stuff, why do we use it to weave cloth and fabrics? What happens if we leave it be?",
 			 "First, when woven together, it actually becomes more stable, like a lattice.",
 			 "Second, the Tumbleyarn we don't catch, I suspect returns to the desert.",

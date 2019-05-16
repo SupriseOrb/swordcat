@@ -18,7 +18,7 @@
 				"We've long used Tumbleyarn to weave cloth and all manner of woven goods.",
 				"It's possible that using Tumbleyarn in such a way imparts upon the fabric some magical properties.",
 				"@endonce",
-				"I need to look further into this. Sword Cat, please get me a Green Tumbleyarn."
+				"I need to look further into this. Sword Cat, please get me a <i><color=#339C33>Green Tumbleyarn</color></i>."
 			]
 		],
 		
@@ -31,7 +31,7 @@
 		],
 		
 		"incomplete": [
-			["Green Tumbleyarn is a little less common than Red Tumbleyarn, but more common than Purple Tumbleyarn."]
+			["<i><color=#339C33>Green Tumbleyarn</color></i> is a little less common than <i><color=#FF0000>Red Tumbleyarn</color></i>, but more common than <i><color=#B000B0>Purple Tumbleyarn</color></i>."]
 		],
 		
 		"complete": [
@@ -39,7 +39,7 @@
 		],
 		
 		"idle": [
-			["Hmm, Green Tumbleyarn..."]
+			["Hmm, <i><color=#339C33>Green Tumbleyarn</color></i>..."]
 		]
 
 	}
