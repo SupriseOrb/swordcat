@@ -15,10 +15,10 @@
 			[
 				"@once",
 				"Tumblecat! I've finished my study, lend me your ear.",
-				"As I suspected, Purple Tumbleyarn is even more powerful than Green Tumbleyarn, and dangerously so!",
+				"As I suspected, <i><color=#B000B0>Purple Tumbleyarn</color></i> is even more powerful than <i><color=#339C33>Green Tumbleyarn</color></i>, and dangerously so!",
 				"The last sample you gave me exploded, and I need to know why.",
 				"@endonce",
-				"I need to run more tests on Purple Tumbleyarn. Please, get me 5 samples quickly!"
+				"I need to run more tests on <i><color=#B000B0>Purple Tumbleyarn</color></i>. Please, get me 5 samples quickly!"
 			]
 		],
 		

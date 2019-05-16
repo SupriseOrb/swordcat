@@ -15,10 +15,10 @@
 			[
 				"@once",
 				"Sword Cat! Don't startle me like that. I've finished my study.",
-				"As it turns out, Green Tumbleyarn contains more magical energy than the red variety.",
+				"As it turns out, <i><color=#339C33>Green Tumbleyarn</color></i> contains more magical energy than the red variety.",
 				"It's also very fun to play with.",
 				"@endonce",
-				"You know what's next Sword Cat. I need one sample of Purple Tumbleyarn. Can you do that?"
+				"You know what's next Sword Cat. I need one sample of <i><color=#B000B0>Purple Tumbleyarn</color></i>. Can you do that?"
 			]
 		],
 		
@@ -31,7 +31,7 @@
 		],
 		
 		"incomplete": [
-			["Purple Tumbleyarn is usually found the furthest from Town, where the sands grow violent."]
+			["<i><color=#B000B0>Purple Tumbleyarn</color></i> is usually found the furthest from Town, where the sands grow violent."]
 		],
 		
 		"complete": [
