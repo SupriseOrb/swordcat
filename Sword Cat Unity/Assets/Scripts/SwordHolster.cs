@@ -9,6 +9,7 @@ public class SwordHolster : MonoBehaviour
 
     public float swordDespawnTime;
     public bool swordLaunched = false;
+    public bool swordAttached = false;
     public float swordMoveSpeed = 10f;
 
     public Vector3 holsterOffset;
@@ -61,7 +62,17 @@ public class SwordHolster : MonoBehaviour
 
     public bool IsSwordAttached()
     {
-        return m_Sword.IsAttached();
+        return swordAttached;
+    }
+
+    public void AttachSword()
+    {
+        swordAttached = true;
+    }
+
+    public void DetachSword()
+    {
+        swordAttached = false;
     }
 
     public IEnumerator LaunchSwordCoroutine()
@@ -79,7 +90,7 @@ public class SwordHolster : MonoBehaviour
         {
             StopCoroutine(swordCoroutine);
         }
-
+        DetachSword();
         Destroy(m_Sword.gameObject);
         RespawnSword();
     }

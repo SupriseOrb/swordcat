@@ -589,7 +589,8 @@ MonoBehaviour:
     type: 3}
   swordDespawnTime: 4
   swordLaunched: 0
-  swordMoveSpeed: 250
+  swordAttached: 0
+  swordMoveSpeed: 150
   holsterOffset: {x: -1, y: 1.5, z: 0}
 --- !u!1 &2989238543605045740
 GameObject:
@@ -638,7 +639,8 @@ MonoBehaviour:
     type: 3}
   swordDespawnTime: 4
   swordLaunched: 0
-  swordMoveSpeed: 250
+  swordAttached: 0
+  swordMoveSpeed: 150
   holsterOffset: {x: -1, y: 1.5, z: 0}
 --- !u!1 &2989238544269427998
 GameObject:
@@ -737,8 +739,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 2
+  m_Height: 1
+  m_Radius: 1.85
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
