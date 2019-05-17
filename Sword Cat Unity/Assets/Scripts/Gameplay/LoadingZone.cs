@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadingZone : MonoBehaviour
 {
     [SerializeField] string newSceneName;
+    [SerializeField] PlayerBehaviour player;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +20,12 @@ public class LoadingZone : MonoBehaviour
         
     }
 
-    IEnumerator OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            SceneManager.LoadSceneAsync(newSceneName);
+            player.enabled = false;
+            Fader.instance.FadeEffect(() => SceneManager.LoadSceneAsync(newSceneName));
         }
-
-        yield break;
     }
 }
