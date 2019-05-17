@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/OasisTown.unity
+    guid: 71fe082a174c0d2419190260b7b2ff37
   m_configObjects: {}
