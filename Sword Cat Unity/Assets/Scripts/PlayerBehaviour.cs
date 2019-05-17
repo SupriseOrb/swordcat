@@ -36,6 +36,8 @@ public class PlayerBehaviour : MonoBehaviour
     private string rightStickX;
     private string rightStickY;
 
+    private RaycastHit hit;
+
     void Awake()
     {
         rb = this.transform.GetComponent<Rigidbody>();
@@ -81,6 +83,19 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Ray camRay = cam.ViewportPointToRay(Vector3.one * 0.5f);
+        Debug.DrawRay(camRay.origin, camRay.direction * 100, Color.red, 2f);
+        if (Physics.Raycast(camRay, out hit, attackRange, playerMask))
+        {
+            Rock hasAttach = hit.transform.GetComponent<Rock>();
+            if (hasAttach)
+            {
+                hasAttach.TurnOnOutline();
+            }
+        }
+
+
+
         var x = Input.GetAxis("Horizontal");
         var z = Input.GetAxis("Vertical");
 
