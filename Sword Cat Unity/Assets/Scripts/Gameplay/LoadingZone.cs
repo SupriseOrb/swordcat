@@ -7,6 +7,7 @@ public class LoadingZone : MonoBehaviour
 {
     [SerializeField] string newSceneName;
     [SerializeField] PlayerBehaviour player;
+    static bool triggered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +23,11 @@ public class LoadingZone : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !triggered)
         {
+            triggered = true;
             player.enabled = false;
-            Fader.instance.FadeEffect(() => SceneManager.LoadSceneAsync(newSceneName));
+            Fader.instance.FadeEffect(() => { triggered = false; return SceneManager.LoadSceneAsync(newSceneName); });
         }
     }
 }
