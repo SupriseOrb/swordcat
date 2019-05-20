@@ -11,13 +11,13 @@ public class Rock : MonoBehaviour, Attachable
 
     public MeshRenderer meshRender;
 
-    public float m_OutlineTimer;
-
+    public float m_OutlineTimer = 5f;
 
     void Awake()
     {
         meshRender = this.GetComponent<MeshRenderer>();
         m_DefaultMaterial = meshRender.material;
+           
     }
 
     // Start is called before the first frame update
@@ -39,7 +39,9 @@ public class Rock : MonoBehaviour, Attachable
 
     public void TurnOnOutline()
     {
+        StopAllCoroutines();
         meshRender.material = m_OutlineMaterial;
+        StartCoroutine(OutlineTimer());
     }
 
     public void TurnOffOutline()

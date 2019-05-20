@@ -376,6 +376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3785f8db4ad949896271a073a32bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OutlineMaterial: {fileID: 2100000, guid: f9d2656d02810405283d83ba811de9e4, type: 2}
+  meshRender: {fileID: 0}
+  m_OutlineTimer: 0
 --- !u!1 &170016313
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +483,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3785f8db4ad949896271a073a32bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OutlineMaterial: {fileID: 0}
+  meshRender: {fileID: 0}
+  m_OutlineTimer: 0
 --- !u!1 &366015255
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +590,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3785f8db4ad949896271a073a32bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OutlineMaterial: {fileID: 0}
+  meshRender: {fileID: 0}
+  m_OutlineTimer: 0
 --- !u!4 &380983617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8921672703735928716, guid: 9e438aaacfb644931b66d35abab4504c,
@@ -930,6 +939,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3785f8db4ad949896271a073a32bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OutlineMaterial: {fileID: 0}
+  meshRender: {fileID: 0}
+  m_OutlineTimer: 0
 --- !u!1 &800520412
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3785f8db4ad949896271a073a32bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OutlineMaterial: {fileID: 0}
+  meshRender: {fileID: 0}
+  m_OutlineTimer: 0
 --- !u!1 &1075399847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1657,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3785f8db4ad949896271a073a32bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OutlineMaterial: {fileID: 0}
+  meshRender: {fileID: 0}
+  m_OutlineTimer: 0
 --- !u!1 &1372868052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2989238543605045740, guid: 9e438aaacfb644931b66d35abab4504c,
@@ -1905,6 +1923,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3785f8db4ad949896271a073a32bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_OutlineMaterial: {fileID: 0}
+  meshRender: {fileID: 0}
+  m_OutlineTimer: 0
 --- !u!1 &1828363317 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2989238543417788429, guid: 9e438aaacfb644931b66d35abab4504c,
@@ -2151,7 +2172,7 @@ PrefabInstance:
     - target: {fileID: 6319579215258577954, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0025934137
+      value: -0.0025934135
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
