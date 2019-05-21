@@ -8,7 +8,6 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] float m_MoveSpeed;
     [SerializeField] float m_TurnSpeed;
     [SerializeField] Vector3 m_direction;
-    [SerializeField] float m_RightHorizontal;
     [SerializeField] float attackRange = 100f;
 
     private Rigidbody rb;
@@ -194,7 +193,13 @@ public class PlayerBehaviour : MonoBehaviour
 
         else if (holster.IsSwordLaunched() && holster.IsSwordAttached())
         {
-            this.transform.position = holster.GetSwordPos();
+            var objectHit = holster.GetObjectHit();
+
+            var objectCenter = objectHit.GetComponent<Collider>().bounds.center;
+
+            var yLevel = objectHit.GetComponent<Collider>().bounds.extents.y;
+
+            this.transform.position = objectCenter + new Vector3(0, yLevel + 0.1f, 0);
 
             holster.DestroySword();
         }

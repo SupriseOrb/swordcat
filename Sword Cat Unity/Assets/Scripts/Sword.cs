@@ -73,6 +73,7 @@ public class Sword : MonoBehaviour
                 parent.AttachSword();
                 attachComponent.attach(this.gameObject);
                 m_IsAttached = true;
+                parent.SetObjectHit(collision.gameObject);
             }
             else
             {
