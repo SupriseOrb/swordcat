@@ -19,7 +19,7 @@
 				"The subject of your pursuit is Tumbleyarn. This concentrated form of raw magic energy from the Oasis makes this town run, but what is it? That is what I wish to know.",
 				"Help the townspeople get the Tumbleyarn they need, as your title calls you to do. But I ask that you also provide me samples, when your time permits it, of course.",
 				"@endonce",
-				"To start, would you please fetch me one sample of Red Tumbleyarn?"
+				"To start, would you please fetch me one sample of  <i><color=#FF0000>Red Tumbleyarn</color></i>?"
 			]
 		],
 		
@@ -32,7 +32,7 @@
 		],
 		
 		"incomplete": [
-			["Back so soon? Red Tumbleyarn is among the more common, I'm sure you can find one sample. Godspeed Sword Cat."]
+			["Back so soon? <i><color=#FF0000>Red Tumbleyarn</color></i> is among the more common, I'm sure you can find one sample. Godspeed Sword Cat."]
 		],
 		
 		"complete": [

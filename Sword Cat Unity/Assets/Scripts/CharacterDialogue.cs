@@ -136,11 +136,14 @@ public class CharacterDialogue : MonoBehaviour
 
                     uiDialogue.text = readout.Substring(0, Mathf.Min(i + 1, readout.Length));
 
-                    yield return null;
-                    if (!Input.GetButton("Fire1"))
+                    if (Input.GetButton("Fire1"))
                     {
-                        yield return null;
-                        yield return null;
+                        if (i % 2 == 0)
+                            yield return null;
+                    }
+                    else
+                    {
+                        yield return new WaitForSeconds(0.05f);
                     }
                 }
 
