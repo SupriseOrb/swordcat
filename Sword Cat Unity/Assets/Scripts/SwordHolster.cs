@@ -16,6 +16,8 @@ public class SwordHolster : MonoBehaviour
 
     private Sword m_Sword;
 
+    private GameObject m_ObjectHit = null;
+
     private Coroutine swordCoroutine;
 
     private void Awake()
@@ -44,7 +46,9 @@ public class SwordHolster : MonoBehaviour
         Physics.IgnoreLayerCollision(9, 9);
         m_Sword = go.GetComponent<Sword>();
         m_Sword.hitUnattachableEnvironment.AddListener(OnHitUnattachableEnvironmentListener);
+
         swordLaunched = false;
+        m_ObjectHit = null;
     }
 
     public void LaunchSword(Vector3 hitInfo)
@@ -98,6 +102,16 @@ public class SwordHolster : MonoBehaviour
     public Vector3 GetSwordPos()
     {
         return m_Sword.transform.position;
+    }
+
+    public void SetObjectHit(GameObject go)
+    {
+        m_ObjectHit = go;
+    }
+
+    public GameObject GetObjectHit()
+    {
+        return m_ObjectHit;
     }
 
     public void OnHitUnattachableEnvironmentListener()
