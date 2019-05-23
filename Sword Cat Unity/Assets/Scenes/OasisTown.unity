@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &151766741
 GameObject:
@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &240967420 stripped
 GameObject:
@@ -839,7 +839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1001 &581189059
 PrefabInstance:
@@ -1511,7 +1511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &698896080
 GameObject:
@@ -1669,7 +1669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &759253396
 GameObject:
@@ -1775,7 +1775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &778427798
 GameObject:
@@ -1972,7 +1972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!114 &825473633 stripped
 MonoBehaviour:
@@ -2197,17 +2197,17 @@ PrefabInstance:
     - target: {fileID: 6319579215670877331, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1181872
+      value: 0.11818719
       objectReference: {fileID: 0}
     - target: {fileID: 6319579215670877331, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000042714476
+      value: -0.0000000042714463
       objectReference: {fileID: 0}
     - target: {fileID: 6319579215670877331, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -5.083935e-10
+      value: 5.083935e-10
       objectReference: {fileID: 0}
     - target: {fileID: 6319579215670877331, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
@@ -2247,7 +2247,7 @@ PrefabInstance:
     - target: {fileID: 6319579215258577954, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.99999994
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6319579215258577954, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
@@ -2262,17 +2262,17 @@ PrefabInstance:
     - target: {fileID: 6319579215258577954, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.2415188
+      value: -0.24151878
       objectReference: {fileID: 0}
     - target: {fileID: 6319579215258577954, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0025934153
+      value: -0.002593381
       objectReference: {fileID: 0}
     - target: {fileID: 6319579215258577954, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.010419313
+      value: -0.010419303
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
@@ -2282,12 +2282,12 @@ PrefabInstance:
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0028771823
+      value: -0.0028772189
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.010723465
+      value: -0.010723462
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
@@ -2307,7 +2307,7 @@ PrefabInstance:
     - target: {fileID: 6319579214672193668, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0050087227
+      value: -0.005008725
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214672193668, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
@@ -2327,7 +2327,7 @@ PrefabInstance:
     - target: {fileID: 6319579214672193668, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.017400155
+      value: -0.017400164
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a992cdf6b6ae4810bba9de65f355299, type: 3}
@@ -2435,7 +2435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &1053039064
 GameObject:
@@ -2541,7 +2541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &1066089602
 GameObject:
@@ -2647,7 +2647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1001 &1285348745
 PrefabInstance:
@@ -2896,7 +2896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &1313267881
 GameObject:
@@ -3002,7 +3002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &1321728079
 GameObject:
@@ -3333,7 +3333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &1579075550
 GameObject:
@@ -3439,7 +3439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &1580090856
 GameObject:
@@ -3545,7 +3545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &1635897758
 GameObject:
@@ -3892,7 +3892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &1757087288
 GameObject:
@@ -3998,7 +3998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &1831895805
 GameObject:
@@ -4083,7 +4083,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1831895805}
-  m_LocalRotation: {x: 0.1181872, y: 0.0000000042714476, z: -5.083935e-10, w: 0.9929913}
+  m_LocalRotation: {x: 0.11818719, y: -0.0000000042714463, z: 5.083935e-10, w: 0.9929913}
   m_LocalPosition: {x: 1, y: 7.74, z: 14.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4344,7 +4344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &1892505661
 GameObject:
@@ -4450,7 +4450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &1995473570
 GameObject:
@@ -4556,7 +4556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1 &2064772609
 GameObject:
@@ -4662,7 +4662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1001 &2098754494
 PrefabInstance:
@@ -4954,7 +4954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7529beaeed8b8e4198eb2e1a7305e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSceneName: OasisTown
+  newSceneName: SeanScene
   player: {fileID: 825473633}
 --- !u!1001 &1232446821916990923
 PrefabInstance:
