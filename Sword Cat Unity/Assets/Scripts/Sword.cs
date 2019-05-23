@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Sword : MonoBehaviour
 {
     private Rigidbody m_Rb;
+    private SwordHolster parent;
 
     [SerializeField] float m_MoveSpeed = 0f;
 
@@ -17,6 +18,8 @@ public class Sword : MonoBehaviour
     private void Awake()
     {
         m_Rb = this.transform.GetComponent<Rigidbody>();
+        parent = this.transform.parent.GetComponent<SwordHolster>();
+
     }
 
     // Start is called before the first frame update
@@ -31,7 +34,7 @@ public class Sword : MonoBehaviour
     void Update()
     {
 
-        if(!m_IsLaunched)
+        if(!m_IsLaunched && this.transform.parent != null)
         {
             this.transform.rotation = this.transform.parent.rotation * Quaternion.Euler(new Vector3(-90f,0f,0f));
             this.transform.position = this.transform.parent.position;
@@ -52,6 +55,7 @@ public class Sword : MonoBehaviour
     {
         m_MoveSpeed = value;
         m_IsLaunched = true;
+        this.transform.parent = null;
         m_Rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
@@ -66,8 +70,10 @@ public class Sword : MonoBehaviour
             var attachComponent = collision.gameObject.GetComponent<Rock>();
             if (attachComponent != null)
             {
+                parent.AttachSword();
                 attachComponent.attach(this.gameObject);
                 m_IsAttached = true;
+                parent.SetObjectHit(collision.gameObject);
             }
             else
             {

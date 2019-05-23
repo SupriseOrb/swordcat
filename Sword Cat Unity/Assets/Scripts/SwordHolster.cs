@@ -9,11 +9,14 @@ public class SwordHolster : MonoBehaviour
 
     public float swordDespawnTime;
     public bool swordLaunched = false;
+    public bool swordAttached = false;
     public float swordMoveSpeed = 10f;
 
     public Vector3 holsterOffset;
 
     private Sword m_Sword;
+
+    private GameObject m_ObjectHit = null;
 
     private Coroutine swordCoroutine;
 
@@ -43,7 +46,9 @@ public class SwordHolster : MonoBehaviour
         Physics.IgnoreLayerCollision(9, 9);
         m_Sword = go.GetComponent<Sword>();
         m_Sword.hitUnattachableEnvironment.AddListener(OnHitUnattachableEnvironmentListener);
+
         swordLaunched = false;
+        m_ObjectHit = null;
     }
 
     public void LaunchSword(Vector3 hitInfo)
@@ -61,7 +66,17 @@ public class SwordHolster : MonoBehaviour
 
     public bool IsSwordAttached()
     {
-        return m_Sword.IsAttached();
+        return swordAttached;
+    }
+
+    public void AttachSword()
+    {
+        swordAttached = true;
+    }
+
+    public void DetachSword()
+    {
+        swordAttached = false;
     }
 
     public IEnumerator LaunchSwordCoroutine()
@@ -79,7 +94,7 @@ public class SwordHolster : MonoBehaviour
         {
             StopCoroutine(swordCoroutine);
         }
-
+        DetachSword();
         Destroy(m_Sword.gameObject);
         RespawnSword();
     }
@@ -87,6 +102,16 @@ public class SwordHolster : MonoBehaviour
     public Vector3 GetSwordPos()
     {
         return m_Sword.transform.position;
+    }
+
+    public void SetObjectHit(GameObject go)
+    {
+        m_ObjectHit = go;
+    }
+
+    public GameObject GetObjectHit()
+    {
+        return m_ObjectHit;
     }
 
     public void OnHitUnattachableEnvironmentListener()
