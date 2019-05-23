@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OasisTown.unity
     guid: 71fe082a174c0d2419190260b7b2ff37
+  - enabled: 1
+    path: Assets/Scenes/SeanScene.unity
+    guid: c029a5da6f46b194fafe379ac058a068
   m_configObjects: {}

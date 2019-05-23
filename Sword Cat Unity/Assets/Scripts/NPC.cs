@@ -195,6 +195,9 @@ public class NPC : MonoBehaviour
 
     public void LoadState()
     {
+        if (characterData == null)
+            return;
+
         state = GameManager.instance.data.npcs.Find(npc => npc.data == characterData);
 
         if (state == null)
@@ -236,6 +239,9 @@ public class NPC : MonoBehaviour
     // 4: quest available
     public int RollQuestCondition()
     {
+        if (characterData == null)
+            return 0;
+
         JToken token = jObj["quest"];
         if (token == null || state.quest == NPCState.QuestState.COMPLETE)
             return 0;
