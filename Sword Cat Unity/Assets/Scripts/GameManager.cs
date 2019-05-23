@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         if (instance != null)
         {
             Destroy(gameObject);
+            instance.ReloadNPCs();
             return;
         }
 
