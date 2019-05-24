@@ -19,4 +19,5 @@ MonoBehaviour:
   - {fileID: 4900000, guid: c3fdef4f788d9724a8324ac727a3dac0, type: 3}
   - {fileID: 4900000, guid: 10eea7c0113c8ba43988a6c9e89bf812, type: 3}
   - {fileID: 4900000, guid: e332b834ccd6a5a46b93d8bbedc9488f, type: 3}
+  - {fileID: 4900000, guid: 7760d66fae4130b40866ff10d8515ab5, type: 3}
   randomQuestScripts: []

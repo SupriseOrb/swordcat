@@ -1,0 +1,25 @@
+{
+		"quest": [
+			["Today calls for a masterpiece in {color}! Can you get me {amount} Tumbleyarn?"],
+			["{Color} calls to me today. Can you please get me {amount} Balls of it?"],
+			["I'm seeing {color} for today's work. {Amount} should do."]
+		],
+		
+		"accept": [
+			["Magnificent! Lifestreams guide you."]
+		],
+		
+		"decline": [
+			["Ah, very well. My art will have to wait."]
+		],
+		
+		"incomplete": [
+			["Hurry, before I lose my inspiration."]
+		],
+		
+		"complete": [
+			["Wonderful!"],
+			["Thanks!"]
+		]
+
+}
