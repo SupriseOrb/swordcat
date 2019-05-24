@@ -1,0 +1,27 @@
+{
+	"quest": {
+		"type": "fetch",
+		"fetch": {
+			"red": 0,
+			"green": 0,
+			"purple": 0
+		},
+		"chance": 0.8,
+		"random": {
+			"chance": 1, 
+			"modifier": 0
+		}
+	},
+	
+	"scripts": {
+		
+		"idle": [
+			["Many of my goods go to market when the Caravan makes the journey west."],
+			["Meow, I want to weave in magenta, but Purple Tumbleyarn is already so concentrated."],
+			["If I want to use different colors in my work, I simply need to drain or further concentrate the energy in my yarn."],
+			["The Oasis provides some comfort in this desert heat, but I could do with a little more shade."],
+			["Magic? Of course! My wares all contain properties innate in Tumbleyarn.", "My goods offer protection from heat, resistance to the elements of the desert, and more!"]
+		]
+
+	}
+}

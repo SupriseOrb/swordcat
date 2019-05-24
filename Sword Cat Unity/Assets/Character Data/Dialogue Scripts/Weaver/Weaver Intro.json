@@ -1,0 +1,16 @@
+{
+	"options": {
+		"mode": "next"
+		
+	},
+	"scripts": {
+		"idle": [
+			[
+				"Good trails, Sword Cat. I am Cleo, a weaver of this town. I make some of the finest woven goods in town, if I say so myself.",
+				"And I do!",
+				"I look forward to working with you Sword Cat."
+			]
+		],
+
+	}
+}
