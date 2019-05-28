@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f2ea5558aac7741ab39cc36fc26576, type: 3}
   m_Name: Weaver
   m_EditorClassIdentifier: 
-  characterName: Weaver
+  characterName: Cleo
   dialogueScripts:
-  - {fileID: 0}
-  - {fileID: 0}
-  randomQuestScripts: []
+  - {fileID: 4900000, guid: 4274456685a96864b880fde24a5181d6, type: 3}
+  - {fileID: 4900000, guid: c27eb30be404138469de92bc016ced00, type: 3}
+  randomQuestScripts:
+  - {fileID: 4900000, guid: 222823d8f21fd3d489d018d0177541b6, type: 3}
