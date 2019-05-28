@@ -9,15 +9,18 @@ public class Rock : MonoBehaviour, Attachable
 
     private Material m_DefaultMaterial;
 
+    private Color m_defaultColor;
+
     public MeshRenderer meshRender;
 
-    public float m_OutlineTimer = 5f;
+    public float m_OutlineTimer = 3f;
 
     void Awake()
     {
         meshRender = this.GetComponent<MeshRenderer>();
         m_DefaultMaterial = meshRender.material;
-           
+
+        m_defaultColor = m_DefaultMaterial.color;
     }
 
     // Start is called before the first frame update
@@ -40,7 +43,9 @@ public class Rock : MonoBehaviour, Attachable
     public void TurnOnOutline()
     {
         StopAllCoroutines();
+        //m_OutlineMaterial.color = m_defaultColor;
         meshRender.material = m_OutlineMaterial;
+        meshRender.material.color = m_defaultColor;
         StartCoroutine(OutlineTimer());
     }
 
@@ -51,7 +56,7 @@ public class Rock : MonoBehaviour, Attachable
 
     private IEnumerator OutlineTimer()
     {
-        yield return new WaitForSeconds(m_OutlineTimer);
+        yield return new WaitForSeconds(1f);
         TurnOffOutline();
 
     }

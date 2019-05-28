@@ -230,6 +230,29 @@ public class NPC : MonoBehaviour
                 }
             }
         }
+        else if (state.quest == NPCState.QuestState.ACTIVE)
+        {
+            if (state.randomQuest)
+            {
+                quest = new Quest();
+                switch (state.randomQuestType)
+                {
+                    case TumbleYarn.YarnType.RED:
+                        quest.red = state.randomQuestAmount;
+                        break;
+                    case TumbleYarn.YarnType.GREEN:
+                        quest.green = state.randomQuestAmount;
+                        break;
+                    case TumbleYarn.YarnType.PURPLE:
+                        quest.purple = state.randomQuestAmount;
+                        break;
+                }
+            }
+            else
+            {
+                quest = jObj["quest"]["fetch"].ToObject<Quest>();
+            }
+        }
     }
 
     // 0: no quests available
