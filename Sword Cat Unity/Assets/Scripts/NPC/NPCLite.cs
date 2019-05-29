@@ -13,14 +13,15 @@ public class NPCLite : MonoBehaviour
     bool inside = false;
     bool runningDialogue = false;
 
-    public NPCState state;
-
+    string characterName;
     string[][] idleDialogue;
 
     // Start is called before the first frame update
     void Start()
     {
-        idleDialogue = JObject.Parse(dialogue.text)["scripts"]["idle"].ToObject<string[][]>(); ;
+        JObject jObj = JObject.Parse(dialogue.text);
+        characterName = jObj["name"] == null ? "Unnamed NPC" : jObj["name"].Value<string>();
+        idleDialogue = jObj["scripts"]["idle"].ToObject<string[][]>(); ;
     }
 
     // Update is called once per frame
@@ -49,7 +50,7 @@ public class NPCLite : MonoBehaviour
         {
             interacted = false;
             runningDialogue = true;
-            yield return dialogueManager.Dialogue(state.data.characterName, idleDialogue[Random.Range(0, idleDialogue.Length)]);
+            yield return dialogueManager.Dialogue(characterName, idleDialogue[Random.Range(0, idleDialogue.Length)]);
             runningDialogue = false;
         }
     }
