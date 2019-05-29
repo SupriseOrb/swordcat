@@ -33,7 +33,7 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        interacted = inside && !runningDialogue && interactQueue[0] == this && (interacted || Input.GetButtonDown("Fire1"));
+        interacted = inside && !runningDialogue && interactQueue[0] == this && (interacted || Input.GetButtonDown("Interact"));
     }
 
     void OnTriggerEnter(Collider other)
