@@ -181,6 +181,6 @@ public class NPCState
 
     public JObject GetJsonData()
     {
-        return JObject.Parse(data.dialogueScripts[state].text);
+        return data.dialogueScripts[state] == null ? null : JObject.Parse(data.dialogueScripts[state].text);
     }
 }
