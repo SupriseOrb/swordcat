@@ -22,7 +22,7 @@ public class NPC : MonoBehaviour
 
     JObject jObj;
 
-    static List<NPC> interactQueue = new List<NPC>();
+    public static List<MonoBehaviour> interactQueue = new List<MonoBehaviour>();
 
     // Start is called before the first frame update
     void Start()
@@ -164,7 +164,7 @@ public class NPC : MonoBehaviour
 
             runningDialogue = false;
 
-            if (options != null && options["mode"].Value<string>() == "next" && state.state + 1 < state.data.dialogueScripts.Count)
+            if (options != null && options["mode"] != null && options["mode"].Value<string>() == "next" && state.state + 1 < state.data.dialogueScripts.Count)
             {
                 state.state++;
                 ReloadScripts();
@@ -202,7 +202,7 @@ public class NPC : MonoBehaviour
 
         if (state == null)
         {
-            state = new NPCState() { data = characterData };
+            state = new NPCState() { characterName = characterData.characterName };
             GameManager.instance.data.npcs.Add(state);
         }
 
