@@ -232,7 +232,7 @@
 							<PropertyList>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-150</Value>
+										<Value>-480</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
@@ -260,6 +260,18 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="landing_sand2" ID="{17CA09AF-F7CE-47C0-94B4-7061F5ADA262}" ShortID="284238260">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-300</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
@@ -308,7 +320,7 @@
 							<PropertyList>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-100</Value>
+										<Value>-680</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -328,6 +340,115 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="landing_sand4" ID="{DD8A9971-2621-4CFC-8AD8-D8CB7F2505DB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Footsteps (Sand)" ID="{9373CECA-15B4-44FA-932E-57A0F730D159}" ShortID="343499981">
+					<PropertyList>
+						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{94AA9222-DFBA-4CF8-B64B-C41675E40B17}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="100"/>
+											<Property Name="Min" Type="Real64" Value="-100"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+						<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+						<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+						<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.1"/>
+						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B69AD01-F373-4CFB-8DA1-15A4746A289D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="footstep_sand1" ID="{5CCA1609-95E3-4314-B466-43A52D2383FC}" ShortID="98021238">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>29</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B69AD01-F373-4CFB-8DA1-15A4746A289D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="footstep_sand1" ID="{D20F971B-328A-4EAC-83E9-449CF481128F}" ShortID="321274560">
+									<Language>SFX</Language>
+									<AudioFile>footstep_sand1.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="footstep_sand1" ID="{D20F971B-328A-4EAC-83E9-449CF481128F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="footstep_sand2" ID="{C7588C45-D7D0-43C0-A41E-6B7CC16F0449}" ShortID="134806119">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B69AD01-F373-4CFB-8DA1-15A4746A289D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="footstep_sand2" ID="{775F75BE-668C-4915-BB97-464793A6078F}" ShortID="110202920">
+									<Language>SFX</Language>
+									<AudioFile>footstep_sand2.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="footstep_sand2" ID="{775F75BE-668C-4915-BB97-464793A6078F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="footstep_sand3" ID="{B7371343-A359-438E-8606-21F20F531E1C}" ShortID="389455427">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>31</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>610</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B69AD01-F373-4CFB-8DA1-15A4746A289D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="footstep_sand3" ID="{7B76FFEB-3286-45D7-AE04-D1ACFFF0DDD4}" ShortID="340430374">
+									<Language>SFX</Language>
+									<AudioFile>footstep_sand3.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="footstep_sand3" ID="{7B76FFEB-3286-45D7-AE04-D1ACFFF0DDD4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
