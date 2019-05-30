@@ -18,7 +18,7 @@ public class Saving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!saved && inside && Input.GetButtonDown("Fire1"))
+        if (!saved && inside && Input.GetButtonDown("Interact"))
         {
             GameManager.instance.Save();
             saveText.text = "Saved";
