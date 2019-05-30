@@ -162,11 +162,11 @@ public class NPCState
 
         set
         {
+            index = value;
             quest = QuestState.NONE;
             talked = 0;
             randomQuest = false;
             randomQuestChance = GetJsonData()["quest"] != null && GetJsonData()["quest"]["random"] != null ? GetJsonData()["quest"]["random"]["chance"].Value<float>() : 0;
-            index = value;
         }
     }
     [SerializeField] int index;
