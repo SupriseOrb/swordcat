@@ -33,7 +33,7 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        interacted = inside && !runningDialogue && interactQueue[0] == this && (interacted || Input.GetButtonDown("Fire1"));
+        interacted = inside && !runningDialogue && interactQueue[0] == this && (interacted || Input.GetButtonDown("Interact"));
     }
 
     void OnTriggerEnter(Collider other)
@@ -189,8 +189,11 @@ public class NPC : MonoBehaviour
     void ReloadScripts()
     {
         jObj = state.GetJsonData();
-        script = jObj["scripts"];
-        options = jObj["options"];
+        if (jObj != null)
+        {
+            script = jObj["scripts"];
+            options = jObj["options"];
+        }
     }
 
     public void LoadState()
@@ -262,7 +265,7 @@ public class NPC : MonoBehaviour
     // 4: quest available
     public int RollQuestCondition()
     {
-        if (characterData == null)
+        if (characterData == null || jObj == null)
             return 0;
 
         JToken token = jObj["quest"];
