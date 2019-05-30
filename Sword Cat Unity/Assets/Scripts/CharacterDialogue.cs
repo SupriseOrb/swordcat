@@ -136,7 +136,7 @@ public class CharacterDialogue : MonoBehaviour
 
                     uiDialogue.text = readout.Substring(0, Mathf.Min(i + 1, readout.Length));
 
-                    if (Input.GetButton("Fire1"))
+                    if (Input.GetButton("Interact"))
                     {
                         if (i % 2 == 0)
                             yield return null;
@@ -147,7 +147,7 @@ public class CharacterDialogue : MonoBehaviour
                     }
                 }
 
-                yield return new WaitUntil(() => Input.GetButtonDown("Fire1"));
+                yield return new WaitUntil(() => Input.GetButtonDown("Interact"));
             }
         }
     }

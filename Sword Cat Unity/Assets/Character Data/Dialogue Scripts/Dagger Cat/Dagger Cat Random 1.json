@@ -1,0 +1,23 @@
+{
+		"quest": [
+			["Hey Sword Cat? It happened again...",
+			"Can you help me get {amount} {Color} Tumbleyarn?"],
+		],
+		
+		"accept": [
+			["I'm sorry you have to keep helping me..."]
+		],
+		
+		"decline": [
+			["Oh...What should I do..."]
+		],
+		
+		"incomplete": [
+			["Sorry Sword Cat..."]
+		],
+		
+		"complete": [
+			["Thanks Sword Cat, you're the best. You know that, right?"]
+		]
+
+}

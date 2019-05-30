@@ -1,23 +1,36 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Bson;
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameData data;
+    [SerializeField] bool loadFromFile = false;
+
+    string saveDataPath;
 
     // Start is called before the first frame update
     void Start()
     {
+        saveDataPath = Path.Combine(Application.persistentDataPath, "save.dat");
+
         if (instance != null)
         {
             Destroy(gameObject);
+            instance.ReloadNPCs();
             return;
         }
 
-        data = data ?? new GameData();
+        if (loadFromFile)
+            Load();
+        else
+            data = data ?? new GameData();
+
         DontDestroyOnLoad(gameObject);
         instance = this;
 
@@ -84,6 +97,36 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void Save()
+    {
+        using (var fs = File.Open(saveDataPath, FileMode.Create))
+        {
+            using (var writer = new BsonWriter(fs))
+            {
+                var serializer = new JsonSerializer();
+                serializer.Serialize(writer, JObject.Parse(JsonUtility.ToJson(data)));
+            }
+        }
+    }
+
+    public void Load()
+    {
+        if (!File.Exists(saveDataPath))
+        {
+            data = new GameData();
+            return;
+        }
+
+        using (var fs = File.OpenRead(saveDataPath))
+        {
+            using (var reader = new BsonReader(fs))
+            {
+                var serializer = new JsonSerializer();
+                data = serializer.Deserialize<JObject>(reader).ToObject<GameData>();
+            }
+        }
+    }
 }
 
 [System.Serializable]
@@ -97,7 +140,19 @@ public class GameData
 public class NPCState
 {
     public enum QuestState { NONE, AVAILABLE, ACTIVE, COMPLETE };
-    public NPCData data;
+    public string characterName;
+    public NPCData data
+    {
+        get
+        {
+            if (dat == null)
+            {
+                dat = NPCData.dats.Find(d => d.characterName == characterName);
+            }
+            return dat;
+        }
+    }
+    NPCData dat = null;
     public int state
     {
         get
@@ -126,6 +181,6 @@ public class NPCState
 
     public JObject GetJsonData()
     {
-        return JObject.Parse(data.dialogueScripts[state].text);
+        return data.dialogueScripts[state] == null ? null : JObject.Parse(data.dialogueScripts[state].text);
     }
 }

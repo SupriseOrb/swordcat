@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f2ea5558aac7741ab39cc36fc26576, type: 3}
   m_Name: Storyteller
   m_EditorClassIdentifier: 
-  characterName: Storyteller
+  characterName: Stelle
   dialogueScripts:
   - {fileID: 4900000, guid: ca02dbef95a4c574b8d35d66a4833c0e, type: 3}
   - {fileID: 4900000, guid: d89aa156baf8a7a46884b2939b00dde8, type: 3}

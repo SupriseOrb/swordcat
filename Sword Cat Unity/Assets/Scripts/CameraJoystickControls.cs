@@ -49,7 +49,7 @@ public class CameraJoystickControls : MonoBehaviour
 
     private void Update()
     {
-        float vertical = Input.GetAxis("Mouse Y");
+        float vertical = -Input.GetAxis("Mouse Y");
         float horizontal = Input.GetAxis("Mouse X");
 
         float joystickY = Input.GetAxis(rightY);

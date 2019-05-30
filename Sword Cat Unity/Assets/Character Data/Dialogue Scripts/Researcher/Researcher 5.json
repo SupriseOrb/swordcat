@@ -1,15 +1,8 @@
 {
-	"quest": {
-		"type": "fetch",
-		"fetch": {
-			"purple": 5
-		}
+"options": {
+		"mode": "next"
+		
 	},
-	
-	"options": {
-	
-	},
-	
 	"scripts": {
 		"idle": [
 			["Sword Cat, I have finished my study!",

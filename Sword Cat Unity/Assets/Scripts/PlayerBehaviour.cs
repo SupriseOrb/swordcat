@@ -8,7 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] float m_MoveSpeed;
     [SerializeField] float m_TurnSpeed;
     [SerializeField] Vector3 m_direction;
-    [SerializeField] float attackRange = 100f;
+    [SerializeField] float attackRange = 1000f;
 
     private Rigidbody rb;
     private Camera cam;
@@ -196,6 +196,8 @@ public class PlayerBehaviour : MonoBehaviour
             var objectHit = holster.GetObjectHit();
 
             var objectCenter = objectHit.GetComponent<Collider>().bounds.center;
+
+            //var objectCenter = this.transform.position;
 
             var yLevel = objectHit.GetComponent<Collider>().bounds.extents.y;
 

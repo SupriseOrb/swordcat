@@ -93,7 +93,7 @@ public class InteractUI : MonoBehaviour
     {
         Color32 tempColor = wing.GetComponent<Image>().color;
         wing.GetComponent<Image>().color = new Color32(tempColor.r, tempColor.g, tempColor.b, 122);
-        Debug.Log(wing.GetComponent<Image>().color);
+//        Debug.Log(wing.GetComponent<Image>().color);
     }
 
     /*updates the UI to show that the wing is ready to be used again. Brightening up box.
@@ -102,7 +102,7 @@ public class InteractUI : MonoBehaviour
     {
         Color32 tempColor = wing.GetComponent<Image>().color;
         wing.GetComponent<Image>().color = new Color32(tempColor.r, tempColor.g, tempColor.b, 255);
-        Debug.Log(wing.GetComponent<Image>().color);
+//        Debug.Log(wing.GetComponent<Image>().color);
     }
 
     /*when a wing is used, it will go on cooldown based on the set cooldown rate.

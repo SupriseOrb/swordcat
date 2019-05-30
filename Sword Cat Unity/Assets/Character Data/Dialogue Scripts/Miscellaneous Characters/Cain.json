@@ -1,0 +1,10 @@
+{
+	"scripts": {
+		"idle": [
+			["It's hard to get ingredients out here."],
+			["It's hot as hell out there."],
+			["I wonder what would go well with cactus fruit."]
+		]
+
+	}
+}

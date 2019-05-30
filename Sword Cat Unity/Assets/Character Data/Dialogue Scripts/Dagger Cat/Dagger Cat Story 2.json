@@ -1,0 +1,57 @@
+{
+	"quest": {
+		"type": "fetch",
+		"fetch": {
+			"green": 3
+		}
+	},
+	
+	"options": {
+	
+	},
+	
+	"scripts": {
+		"quest": [
+			[
+				"@once",
+				"Hey, do you have a moment? I need some help.",
+				"Don't laugh, but I got the wrong Tumbleyarn while I was out.",
+				"@endonce",
+				"Can you give me 3 Green Tumbleyarn?"
+			]
+		],
+		
+		"accept": [
+			["Sorry I'm so inept at my job. I'd get it myself, but I don't know if I could do it."]
+		],
+		
+		"decline": [
+			["I see... What should I do..."]
+		],
+		
+		"incomplete": [
+			["Sorry, Sword Cat."]
+		],
+		
+		"complete": [
+			[
+			"Thanks, you really saved my tail here.",
+			"...",
+			"Hey Sword Cat? How do you do it? How do you deal with the pressure?",
+			"I know who I'm supposed to be, but I'm just not there...",
+			"You know what I mean?"
+			"@yes",
+			"Thanks Sword Cat. It means a lot to me.",
+			"@endyes",
+			"@no",
+			"Oh...alright...",
+			"@endno",
+			]
+		],
+		
+		"idle": [
+			["Why am I like this..."]
+		]
+
+	}
+}

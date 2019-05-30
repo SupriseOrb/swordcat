@@ -1,0 +1,16 @@
+{
+	"options": {
+		"mode": "next"
+		
+	},
+	"scripts": {
+		"idle": [
+			[
+				"Hey, you're the new cat on the block right? I'm Sword Cat. Well, another sword cat. It gets confusing. You can call me Dagger Cat. That's all my wings are, anyway.",
+				"I wish I could give you some advice or guidance, but let's be honest, I'm no good at any of this.",
+				"Good luck out there, Sword Cat. Lifestreams guide you."
+			]
+		],
+
+	}
+}

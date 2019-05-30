@@ -1,0 +1,23 @@
+{
+		"quest": [
+			["Hey Sword Cat? Could I get your help again?",
+			"Got most of my order, but I lost a ball or two. Could you get me {amount} {Color}?"],
+		],
+		
+		"accept": [
+			["Thanks for your help. I'll do better next time!"]
+		],
+		
+		"decline": [
+			["Ah, maybe they'll understand. It won't happen next time!"]
+		],
+		
+		"incomplete": [
+			["I let the client know what's going on. Thanks again."]
+		],
+		
+		"complete": [
+			["Thanks! Maybe one day, it'll be me helping you with your orders."]
+		]
+
+}
