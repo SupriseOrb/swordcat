@@ -1,0 +1,25 @@
+{
+	"quest": {
+		"type": "fetch",
+		"fetch": {
+			"red": 0,
+			"green": 0,
+			"purple": 0
+		},
+		"chance": 0.8,
+		"random": {
+			"chance": .5, 
+			"modifier": .1
+		}
+	},
+	
+	"scripts": {
+		
+		"idle": [
+			["All I do is mess things up."],
+			["Accidentally gave Cleo the wrong Yarn the other day..."],
+			["I couldn't even get one ball of Yarn today."]
+		]
+
+	}
+}

@@ -1,4 +1,5 @@
 {
+	"name": "Nia",
 	"scripts": {
 		"idle": [
 			["The desert gets pretty intense out there!"],
@@ -13,7 +14,8 @@
 			"@endyes",
 			"@no",
 			"Ah, well maybe you haven't thought about it long enough.",
-			"@endno"
+			"@endno",
+			"@endask"
 			]
 		]
 

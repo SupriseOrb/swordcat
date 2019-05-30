@@ -2165,7 +2165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: {fileID: 113521437}
   dialogueManager: {fileID: 113521436}
-  characterData: {fileID: 0}
+  characterData: {fileID: 11400000, guid: 6df6260fbc9a91242ae90c3010ea35eb, type: 2}
   quest:
     red: 0
     purple: 0
@@ -2378,12 +2378,12 @@ PrefabInstance:
     - target: {fileID: 6319579215258577954, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0025933809
+      value: -0.0025933785
       objectReference: {fileID: 0}
     - target: {fileID: 6319579215258577954, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.010419301
+      value: -0.010419302
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
@@ -2393,12 +2393,12 @@ PrefabInstance:
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0028771819
+      value: -0.0028772163
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.010723454
+      value: -0.0107234605
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
@@ -2418,7 +2418,7 @@ PrefabInstance:
     - target: {fileID: 6319579214672193668, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.005008725
+      value: -0.0050087217
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214672193668, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
@@ -2438,7 +2438,7 @@ PrefabInstance:
     - target: {fileID: 6319579214672193668, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.017400164
+      value: -0.017400151
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a992cdf6b6ae4810bba9de65f355299, type: 3}

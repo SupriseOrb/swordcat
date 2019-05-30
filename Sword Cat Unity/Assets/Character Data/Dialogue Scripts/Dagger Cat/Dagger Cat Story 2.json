@@ -2,7 +2,9 @@
 	"quest": {
 		"type": "fetch",
 		"fetch": {
-			"green": 3
+			"red": 1
+			"green": 1
+			"purple": 1
 		}
 	},
 	
@@ -14,43 +16,41 @@
 		"quest": [
 			[
 				"@once",
-				"Hey, do you have a moment? I need some help.",
-				"Don't laugh, but I got the wrong Tumbleyarn while I was out.",
+				"Oh, Sword Cat. Could I ask I favor?",
+				"I haven't gotten the wrong Tumbleyarn today, not yet.",
+				"I was wondering if I could purrhaps watch you out there today?",
+				"I feel like if I see you do it, maybe I can do it too. You won't even notice me.",
 				"@endonce",
-				"Can you give me 3 Green Tumbleyarn?"
+				"Could you catch one of each color of Tumbleyarn while I watch?"
 			]
 		],
 		
 		"accept": [
-			["Sorry I'm so inept at my job. I'd get it myself, but I don't know if I could do it."]
+			["Thank you Sword Cat! Just do as you do normally, I'll be watching."]
 		],
 		
 		"decline": [
-			["I see... What should I do..."]
+			["Please come back if you change your mind."]
 		],
 		
 		"incomplete": [
-			["Sorry, Sword Cat."]
+			["I'm watching, don't worry!"]
 		],
 		
 		"complete": [
 			[
-			"Thanks, you really saved my tail here.",
+			"Hey Sword Cat, I was watching your work. It's strange.",
+			"It's not like there was something special about the way you did it. There wasn't any technique or strategy that I wouldn't be able to do myself.",
+			"So what was it? What's holding me back?",
 			"...",
-			"Hey Sword Cat? How do you do it? How do you deal with the pressure?",
-			"I know who I'm supposed to be, but I'm just not there...",
-			"You know what I mean?"
-			"@yes",
-			"Thanks Sword Cat. It means a lot to me.",
-			"@endyes",
-			"@no",
-			"Oh...alright...",
-			"@endno",
+			"I guess there's no real answer. Maybe it's just up to me to decide."
+			"Stelle always says that I have a place here, that the town depends on us. I'll find my place.",
+			"Thank you, Sword Cat, I'm going to keep on trying.",
 			]
 		],
 		
 		"idle": [
-			["Why am I like this..."]
+			["I'm feeling inspired, thanks Sword Cat!"]
 		]
 
 	}
