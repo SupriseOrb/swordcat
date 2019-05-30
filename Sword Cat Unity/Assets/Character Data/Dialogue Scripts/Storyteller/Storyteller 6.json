@@ -2,7 +2,7 @@
 	"scripts": {
 		"idle": [
 			[
-				"Have I told you the story about the First Sword Cat?"
+				"Have I told you the story about the First Sword Cat?",
 				"@ask",
 				"@yes",
 				"It's one of my favorite stories.",
@@ -11,7 +11,7 @@
 				"The First Sword Cat was a powerful being born from deep within the sands.",
 				"Her domain was the sky, and among the stars she walked.",
 				"As you chase Yarn, she chased the sun.",
-				"Her swords still rest out there in the desert."
+				"Her swords still rest out there in the desert.",
 				"@endno",
 				"@endask"
 			]
