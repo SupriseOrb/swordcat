@@ -111,12 +111,16 @@ public class NPC : MonoBehaviour
             {
                 if (quest.IsComplete())
                 {
-                    string[][] dialogue = script["complete"].ToObject<string[][]>();
+                    string[][] dialogue;
 
                     if (state.randomQuest)
                     {
                         rqDialogue = JObject.Parse(state.data.randomQuestScripts[state.randomQuestDialogue].text);
                         dialogue = rqDialogue["complete"].ToObject<string[][]>();
+                    }
+                    else
+                    {
+                        dialogue = script["complete"].ToObject<string[][]>();
                     }
 
                     yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0, state.randomQuestType, state.randomQuestAmount);
@@ -143,12 +147,16 @@ public class NPC : MonoBehaviour
                 }
                 else
                 {
-                    string[][] dialogue = script["incomplete"].ToObject<string[][]>();
+                    string[][] dialogue;
 
                     if (state.randomQuest)
                     {
                         rqDialogue = JObject.Parse(state.data.randomQuestScripts[state.randomQuestDialogue].text);
                         dialogue = rqDialogue["incomplete"].ToObject<string[][]>();
+                    }
+                    else
+                    {
+                        dialogue = script["incomplete"].ToObject<string[][]>();
                     }
 
                     yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0, state.randomQuestType, state.randomQuestAmount);
@@ -295,20 +303,20 @@ public class NPC : MonoBehaviour
 public class Quest
 {
     public int red;
-    public int purple;
     public int green;
+    public int purple;
 
     public bool IsComplete()
     {
         int[] inventory = GameManager.instance.data.inventory;
-        return inventory[0] >= red && inventory[1] >= purple && inventory[2] >= green;
+        return inventory[0] >= red && inventory[1] >= green && inventory[2] >= purple;
     }
 
     public void TakeYarn()
     {
         int[] inventory = GameManager.instance.data.inventory;
         inventory[0] -= red;
-        inventory[1] -= purple;
-        inventory[2] -= green;
+        inventory[1] -= green;
+        inventory[2] -= purple;
     }
 }
