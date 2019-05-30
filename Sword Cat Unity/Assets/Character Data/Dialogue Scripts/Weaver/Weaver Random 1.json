@@ -2,7 +2,7 @@
 		"quest": [
 			["Today calls for a masterpiece in {color}! Can you get me {amount} Tumbleyarn?"],
 			["{Color} calls to me today. Can you please get me {amount} Balls of it?"],
-			["I'm seeing {color} for today's work. {Amount} should do."]
+			["I'm seeing {color} for today's work. {amount} should do."]
 		],
 		
 		"accept": [
