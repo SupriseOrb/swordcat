@@ -656,8 +656,8 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 3d7206fdc0da6df4fb130e8bd688b188, type: 2}
   quest:
     red: 0
-    purple: 0
     green: 0
+    purple: 0
   state:
     characterName: 
     index: 0
@@ -953,8 +953,8 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 091c70a1ad3daf245ae619425617a445, type: 2}
   quest:
     red: 0
-    purple: 0
     green: 0
+    purple: 0
   state:
     characterName: 
     index: 0
@@ -1393,8 +1393,8 @@ MonoBehaviour:
   characterData: {fileID: 0}
   quest:
     red: 0
-    purple: 0
     green: 0
+    purple: 0
   state:
     characterName: 
     index: 0
@@ -2168,8 +2168,8 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 6df6260fbc9a91242ae90c3010ea35eb, type: 2}
   quest:
     red: 0
-    purple: 0
     green: 0
+    purple: 0
   state:
     characterName: 
     index: 0
@@ -2378,12 +2378,12 @@ PrefabInstance:
     - target: {fileID: 6319579215258577954, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0025933785
+      value: -0.002593381
       objectReference: {fileID: 0}
     - target: {fileID: 6319579215258577954, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.010419302
+      value: -0.0104193
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
@@ -2393,12 +2393,12 @@ PrefabInstance:
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0028772163
+      value: -0.002877218
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0107234605
+      value: -0.010723469
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214018854127, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
@@ -2418,7 +2418,7 @@ PrefabInstance:
     - target: {fileID: 6319579214672193668, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0050087217
+      value: -0.0050087185
       objectReference: {fileID: 0}
     - target: {fileID: 6319579214672193668, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
@@ -2438,7 +2438,7 @@ PrefabInstance:
     - target: {fileID: 6319579214672193668, guid: 1a992cdf6b6ae4810bba9de65f355299,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.017400151
+      value: -0.017400142
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a992cdf6b6ae4810bba9de65f355299, type: 3}
@@ -3404,52 +3404,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4771697490137980135, guid: 8a8ff792b528fb447bbadb16e89da18a,
-        type: 3}
-      propertyPath: data.npcs.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4771697490137980135, guid: 8a8ff792b528fb447bbadb16e89da18a,
-        type: 3}
-      propertyPath: data.npcs.Array.data[0].data
-      value: 
-      objectReference: {fileID: 11400000, guid: 3d7206fdc0da6df4fb130e8bd688b188,
-        type: 2}
-    - target: {fileID: 4771697490137980135, guid: 8a8ff792b528fb447bbadb16e89da18a,
-        type: 3}
-      propertyPath: data.npcs.Array.data[0].quest
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4771697490137980135, guid: 8a8ff792b528fb447bbadb16e89da18a,
-        type: 3}
-      propertyPath: data.npcs.Array.data[0].talked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4771697490137980135, guid: 8a8ff792b528fb447bbadb16e89da18a,
-        type: 3}
-      propertyPath: data.npcs.Array.data[0].randomQuestChance
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4771697490137980135, guid: 8a8ff792b528fb447bbadb16e89da18a,
-        type: 3}
-      propertyPath: data.npcs.Array.data[0].randomQuestType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4771697490137980135, guid: 8a8ff792b528fb447bbadb16e89da18a,
-        type: 3}
-      propertyPath: data.npcs.Array.data[0].randomQuestAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4771697490137980135, guid: 8a8ff792b528fb447bbadb16e89da18a,
-        type: 3}
-      propertyPath: data.npcs.Array.data[0].randomQuest
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4771697490137980135, guid: 8a8ff792b528fb447bbadb16e89da18a,
-        type: 3}
-      propertyPath: loadFromFile
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8ff792b528fb447bbadb16e89da18a, type: 3}
 --- !u!1 &1547566222
@@ -3962,8 +3916,8 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 4a113de978b22e04cb2ae0bc3ede189e, type: 2}
   quest:
     red: 0
-    purple: 0
     green: 0
+    purple: 0
   state:
     characterName: 
     index: 0
