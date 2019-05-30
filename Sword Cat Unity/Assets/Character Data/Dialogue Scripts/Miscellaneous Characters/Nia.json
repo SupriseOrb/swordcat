@@ -5,7 +5,7 @@
 			["What a nice warm day!", "Just like yesterday!"],
 			["<i><color=#FF0000>Red Tumbleyarn</color></i> is my favorite!"],
 			["I love it when the Merchants come back from the City."],
-			["Did you see the stars the other night?", "It's so beautiful here."]
+			["Did you see the stars the other night?", "It's so beautiful here."],
 			["What's your favorite thing about the desert?",
 			"@ask",
 			"@yes",
