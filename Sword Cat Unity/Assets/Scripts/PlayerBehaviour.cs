@@ -37,6 +37,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     private RaycastHit hit;
 
+    //For checking to see if the footstep sounds are playing.
+    private bool footstepsPlaying = false;
+
     void Awake()
     {
         rb = this.transform.GetComponent<Rigidbody>();
@@ -106,7 +109,17 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(z != 0)
         {
+            if (!footstepsPlaying) //Trigger footstep sounds if player is moving
+            {
+                AkSoundEngine.PostEvent("Play_Footstep", gameObject);
+                footstepsPlaying = true;
+            }
             controller.SimpleMove(transform.forward * m_MoveSpeed * z);
+        }
+        else if (footstepsPlaying) //Stop footsteps if player is not moving
+        {
+            AkSoundEngine.PostEvent("Stop_Footsteps", gameObject);
+            footstepsPlaying = false;
         }
 
         //LookForward();
