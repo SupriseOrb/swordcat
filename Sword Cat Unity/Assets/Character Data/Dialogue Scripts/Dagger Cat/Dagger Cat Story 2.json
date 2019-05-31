@@ -10,12 +10,12 @@
 		"random": {
 			"chance": .5, 
 			"modifier": .1
+		},
+		"complete": {
+		"mode": "next"
 		}
 	},
-	
-	"options": {
-	
-	},
+
 	
 	"scripts": {
 		"quest": [
