@@ -31,7 +31,7 @@ public class Fader : MonoBehaviour
 
     public void FadeEffect(System.Func<YieldInstruction> func)
     {
-        AkSoundEngine.PostEvent("Stop_Footsteps", GameObject.Find("Player"));
+        AkSoundEngine.PostEvent("Stop_Footsteps", GameObject.Find("Player")); //Stop the footsteps from playing in between scenes
 
         IEnumerator Effect()
         {
