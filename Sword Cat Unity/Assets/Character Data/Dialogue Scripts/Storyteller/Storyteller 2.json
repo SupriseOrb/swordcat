@@ -1,10 +1,22 @@
 {
+	"options": {
+		"mode": "wait",
+		"wait"{
+			"name": "Tom",
+			"state": 2
+		}
+	}
 	"scripts": {
 		"idle": [
 			["Off you go, Sword Cat!"],
 			["Godspeed, Sword Cat!"],
 			["Oh, me? I don't need any Tumbleyarn, but thank you dear."],
-			["The people of this town are counting on you Sword Cat."]
+			["The people of this town are counting on you Sword Cat."],
+			[
+				"At night, the Oasis comes alive with light. It's quite beautiful.",
+				"The Oasis sustains life in more ways than one. Its energy collects, winding into fibers.",
+				"And those fibers, they wind into what we know as Tumbleyarn."
+			]
 		]
 
 	}
