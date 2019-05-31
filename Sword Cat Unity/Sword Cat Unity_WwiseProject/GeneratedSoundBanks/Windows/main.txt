@@ -2,11 +2,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	1358625432	Play_Oasis_Town			\Default Work Unit\Play_Oasis_Town	
 	1379445973	Play_Sword_Landing			\Default Work Unit\Play_Sword_Landing	
 	1602358412	Play_Footstep			\Default Work Unit\Play_Footstep	
+	1634619135	Play_Adventuring			\Default Work Unit\Play_Adventuring	
 	2072673020	Menu_scroll			\Default Work Unit\Menu_scroll	
 	2679606938	Stop_Oasis_Town			\Default Work Unit\Stop_Oasis_Town	
 	2963349357	Stop_Footsteps			\Default Work Unit\Stop_Footsteps	
 	3038207054	Shoot			\Default Work Unit\Shoot	
 	3157003241	test			\Default Work Unit\test	
+	3409206885	Stop_Adventuring			\Default Work Unit\Stop_Adventuring	
 	3613280333	Advance_text			\Default Work Unit\Advance_text	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
@@ -18,6 +20,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	462586578	test	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\grab_coin_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\test		121996
 	510224934	select-adv_ text	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\select-adv. text_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\select-adv_ text		81444
 	565948085	oasis_town	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\oasis_town_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\oasis_town		35247148
+	665556582	adventuring	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\adventuring_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\adventuring		18345728
 	863922940	landing_sand1	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\landing_sand1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword Landing (Sand)\landing_sand1		40164
 	1063062103	landing_sand4	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\landing_sand4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword Landing (Sand)\landing_sand4		24432
 

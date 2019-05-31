@@ -7,10 +7,12 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="Shoot" ID="{4FE84BB6-4036-41CE-B364-227C29CC624C}" WorkUnitID="{8E60532B-1344-4336-8FDE-F934A62C8743}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Menu_scroll" ID="{16B442D7-31DE-4348-8A4B-6BCACBCCB3F6}" WorkUnitID="{8E60532B-1344-4336-8FDE-F934A62C8743}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Stop_Adventuring" ID="{4CF5BC28-FDB8-475F-BC08-14D288D1E052}" WorkUnitID="{8E60532B-1344-4336-8FDE-F934A62C8743}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="test" ID="{6FF6FADB-5225-48EB-95F1-9BD5F2E0D6C6}" WorkUnitID="{8E60532B-1344-4336-8FDE-F934A62C8743}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Footstep" ID="{3441C494-D901-4945-BB12-599D9A43BA8F}" WorkUnitID="{8E60532B-1344-4336-8FDE-F934A62C8743}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Oasis_Town" ID="{538F2E24-FCB6-4AC3-B72E-B933E6515B02}" WorkUnitID="{8E60532B-1344-4336-8FDE-F934A62C8743}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Advance_text" ID="{D5FA4069-4341-4D7D-B7A1-546CD7E1E0FA}" WorkUnitID="{8E60532B-1344-4336-8FDE-F934A62C8743}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_Adventuring" ID="{7B370CA1-EF9A-4E16-AE86-C7E5BEC22FDB}" WorkUnitID="{8E60532B-1344-4336-8FDE-F934A62C8743}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Stop_Oasis_Town" ID="{28049135-320A-4E66-A4CC-15FDB7411250}" WorkUnitID="{8E60532B-1344-4336-8FDE-F934A62C8743}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Stop_Footsteps" ID="{8C830945-7B6C-4ED9-A012-1797662B6EF8}" WorkUnitID="{8E60532B-1344-4336-8FDE-F934A62C8743}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_Sword_Landing" ID="{260DA107-B287-4EF5-BAED-BF9AA66D4D1E}" WorkUnitID="{8E60532B-1344-4336-8FDE-F934A62C8743}" Filter="7" Origin="Manual"/>

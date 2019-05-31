@@ -498,6 +498,32 @@
 						<ActiveSource Name="oasis_town" ID="{89338B06-206C-4262-BAD4-DE5EA87781CB}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<Sound Name="adventuring" ID="{A2D8AF44-0073-4263-9380-40397316FC89}" ShortID="471756983">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>7</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B69AD01-F373-4CFB-8DA1-15A4746A289D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="adventuring" ID="{3F5C4DE5-B887-43D0-BA1B-548DB2BA1DA0}" ShortID="665556582">
+							<Language>SFX</Language>
+							<AudioFile>adventuring.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="adventuring" ID="{3F5C4DE5-B887-43D0-BA1B-548DB2BA1DA0}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
