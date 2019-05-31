@@ -2,9 +2,14 @@
 	"quest": {
 		"type": "fetch",
 		"fetch": {
-			"red": 1
-			"green": 1
+			"red": 1,
+			"green": 1,
 			"purple": 1
+		},
+		"chance": 0.8,
+		"random": {
+			"chance": .5, 
+			"modifier": .1
 		}
 	},
 	
@@ -43,14 +48,16 @@
 			"It's not like there was something special about the way you did it. There wasn't any technique or strategy that I wouldn't be able to do myself.",
 			"So what was it? What's holding me back?",
 			"...",
-			"I guess there's no real answer. Maybe it's just up to me to decide."
+			"I guess there's no real answer. Maybe it's just up to me to decide.",
 			"Stelle always says that I have a place here, that the town depends on us. I'll find my place.",
 			"Thank you, Sword Cat, I'm going to keep on trying.",
 			]
 		],
 		
 		"idle": [
-			["I'm feeling inspired, thanks Sword Cat!"]
+			["All I do is mess things up."],
+			["Accidentally gave Cleo the wrong Yarn the other day..."],
+			["I couldn't even get one ball of Yarn today."]
 		]
 
 	}

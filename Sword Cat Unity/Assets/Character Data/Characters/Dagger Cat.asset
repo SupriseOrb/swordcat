@@ -16,9 +16,7 @@ MonoBehaviour:
   dialogueScripts:
   - {fileID: 4900000, guid: 4cd27eca275606942a2b489b1de4f44e, type: 3}
   - {fileID: 4900000, guid: 35a9599506c7c9a42a139d8ec29a4fcf, type: 3}
-  - {fileID: 4900000, guid: 994792135dd10ae44a6a182ea35702b2, type: 3}
   - {fileID: 4900000, guid: 24eb5692e0ba95045a0605955b142688, type: 3}
   - {fileID: 4900000, guid: 4bec9483996bcca46a9745daf32e3335, type: 3}
   randomQuestScripts:
   - {fileID: 4900000, guid: 0f6570a0be8b6b44cb9dc2a3f97de4fb, type: 3}
-  - {fileID: 4900000, guid: 7603d75fd9faf4c4196b2a7effff3edb, type: 3}
