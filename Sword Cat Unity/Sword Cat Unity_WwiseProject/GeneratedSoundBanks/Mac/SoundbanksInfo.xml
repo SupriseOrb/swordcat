@@ -21,17 +21,50 @@
 			<ShortName>main</ShortName>
 			<Path>main.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3613280333" Name="Advance_text" ObjectPath="\Events\Default Work Unit\Advance_text"/>
+				<Event Id="2072673020" Name="Menu_scroll" ObjectPath="\Events\Default Work Unit\Menu_scroll"/>
+				<Event Id="1602358412" Name="Play_Footstep" ObjectPath="\Events\Default Work Unit\Play_Footstep"/>
+				<Event Id="1379445973" Name="Play_Sword_Landing" ObjectPath="\Events\Default Work Unit\Play_Sword_Landing"/>
 				<Event Id="3038207054" Name="Shoot" ObjectPath="\Events\Default Work Unit\Shoot"/>
+				<Event Id="2963349357" Name="Stop_Footsteps" ObjectPath="\Events\Default Work Unit\Stop_Footsteps" MaxAttenuation="0.000000"/>
 				<Event Id="3157003241" Name="test" ObjectPath="\Events\Default Work Unit\test"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
+				<File Id="110202920" Language="SFX">
+					<ShortName>footstep_sand2.wav</ShortName>
+					<Path>SFX\footstep_sand2_10C4C929.wem</Path>
+				</File>
+				<File Id="111309743" Language="SFX">
+					<ShortName>shoot_6.wav</ShortName>
+					<Path>SFX\shoot_6_10C4C929.wem</Path>
+				</File>
+				<File Id="252056934" Language="SFX">
+					<ShortName>menu_scroll.wav</ShortName>
+					<Path>SFX\menu_scroll_10C4C929.wem</Path>
+				</File>
+				<File Id="321274560" Language="SFX">
+					<ShortName>footstep_sand1.wav</ShortName>
+					<Path>SFX\footstep_sand1_10C4C929.wem</Path>
+				</File>
+				<File Id="340430374" Language="SFX">
+					<ShortName>footstep_sand3.wav</ShortName>
+					<Path>SFX\footstep_sand3_10C4C929.wem</Path>
+				</File>
 				<File Id="462586578" Language="SFX">
 					<ShortName>grab_coin.wav</ShortName>
 					<Path>SFX\grab_coin_10C4C929.wem</Path>
 				</File>
-				<File Id="608975910" Language="SFX">
-					<ShortName>shoot_3.wav</ShortName>
-					<Path>SFX\shoot_3_10C4C929.wem</Path>
+				<File Id="510224934" Language="SFX">
+					<ShortName>select-adv. text.wav</ShortName>
+					<Path>SFX\select-adv. text_10C4C929.wem</Path>
+				</File>
+				<File Id="863922940" Language="SFX">
+					<ShortName>landing_sand1.wav</ShortName>
+					<Path>SFX\landing_sand1_10C4C929.wem</Path>
+				</File>
+				<File Id="1063062103" Language="SFX">
+					<ShortName>landing_sand4.wav</ShortName>
+					<Path>SFX\landing_sand4_10C4C929.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

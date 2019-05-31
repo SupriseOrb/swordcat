@@ -1,8 +1,20 @@
 Event	ID	Name			Wwise Object Path	Notes
+	1379445973	Play_Sword_Landing			\Default Work Unit\Play_Sword_Landing	
+	1602358412	Play_Footstep			\Default Work Unit\Play_Footstep	
+	2072673020	Menu_scroll			\Default Work Unit\Menu_scroll	
+	2963349357	Stop_Footsteps			\Default Work Unit\Stop_Footsteps	
 	3038207054	Shoot			\Default Work Unit\Shoot	
 	3157003241	test			\Default Work Unit\test	
+	3613280333	Advance_text			\Default Work Unit\Advance_text	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	110202920	footstep_sand2	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\footstep_sand2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps (Sand)\footstep_sand2		36748
+	111309743	shoot	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\shoot_6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\shoot		103488
+	252056934	menu_scroll	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\menu_scroll_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\menu_scroll		162548
+	321274560	footstep_sand1	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\footstep_sand1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps (Sand)\footstep_sand1		57912
+	340430374	footstep_sand3	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\footstep_sand3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps (Sand)\footstep_sand3		53512
 	462586578	test	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\grab_coin_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\test		121996
-	608975910	shoot_3	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\shoot_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\shoot_3		488620
+	510224934	select-adv_ text	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\select-adv. text_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\select-adv_ text		81444
+	863922940	landing_sand1	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\landing_sand1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword Landing (Sand)\landing_sand1		40164
+	1063062103	landing_sand4	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Windows\SFX\landing_sand4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword Landing (Sand)\landing_sand4		24432
 

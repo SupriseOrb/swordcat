@@ -1,4 +1,5 @@
 {
+	"name": "Cain",
 	"scripts": {
 		"idle": [
 			["It's hard to get ingredients out here."],
