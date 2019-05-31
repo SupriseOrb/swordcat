@@ -357,6 +357,7 @@
 				</RandomSequenceContainer>
 				<RandomSequenceContainer Name="Footsteps (Sand)" ID="{9373CECA-15B4-44FA-932E-57A0F730D159}" ShortID="343499981">
 					<PropertyList>
+						<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
 						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 						<Property Name="MaxSoundPerInstance" Type="int16">
 							<ValueList>

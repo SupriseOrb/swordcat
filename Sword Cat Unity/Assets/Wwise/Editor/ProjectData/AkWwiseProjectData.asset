@@ -31,7 +31,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 6415a27ddb016a4785056812c6aaa227
     GuidInternal: 
-    m_lastTime: -8586423463838345893
+    m_lastTime: -8586423386020943787
     List:
     - name: main
       guid: ca6bc251cc2d5542a5b1000795a10922
@@ -47,7 +47,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 2b53608e441336438fdef934a62c8743
     GuidInternal: 
-    m_lastTime: -8586423426653473481
+    m_lastTime: -8586423387390819923
     List:
     - name: Advance_text
       guid: 6940fad541437d4db7a1546cd7e1e0fa

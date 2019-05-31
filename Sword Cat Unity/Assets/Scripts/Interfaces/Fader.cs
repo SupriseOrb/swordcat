@@ -31,6 +31,8 @@ public class Fader : MonoBehaviour
 
     public void FadeEffect(System.Func<YieldInstruction> func)
     {
+        AkSoundEngine.PostEvent("Stop_Footsteps", GameObject.Find("Player"));
+
         IEnumerator Effect()
         {
             image.fillClockwise = true;
