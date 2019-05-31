@@ -9,6 +9,9 @@ public class NPC : MonoBehaviour
     [SerializeField] CharacterDialogue dialogueManager;
     [SerializeField] NPCData characterData;
 
+    [SerializeField] GameObject exclamationMarkRed;
+    [SerializeField] GameObject exclamationMarkBlue;
+
     public Quest quest;
 
     bool interacted = false;
@@ -34,6 +37,10 @@ public class NPC : MonoBehaviour
     void Update()
     {
         interacted = inside && !runningDialogue && interactQueue[0] == this && (interacted || Input.GetButtonDown("Interact"));
+        if (exclamationMarkRed != null)
+            exclamationMarkRed.SetActive(state.quest == NPCState.QuestState.AVAILABLE);
+        if (exclamationMarkBlue != null)
+            exclamationMarkBlue.SetActive(state.quest == NPCState.QuestState.ACTIVE && quest.IsComplete());
     }
 
     void OnTriggerEnter(Collider other)
