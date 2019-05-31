@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 //[RequireComponent(typeof())]
 public class TumbleYarn : MonoBehaviour
 {
     public enum YarnType { RED, GREEN, PURPLE }
+
+    public UnityEvent collected;
 
     public YarnType yarnType;
     [SerializeField]private float tumbleSpeed = 1f;
@@ -52,6 +55,11 @@ public class TumbleYarn : MonoBehaviour
     {
         if (collision.gameObject.tag == groundTag)
             onGround = true;
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collected.Invoke();
+        }
     }
 
     //a bool to check if the yarn is on ground and not in air
