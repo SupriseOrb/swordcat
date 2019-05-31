@@ -5,6 +5,7 @@
 			<PropertyList>
 				<Property Name="AudioFilesImporter\Path" Type="string" Value="D:\Everything\Everything\Folders\Group Game Projects\Sword Cat - Spring 2019\SFX\WAV"/>
 				<Property Name="Event Action List\{16B442D7-31DE-4348-8A4B-6BCACBCCB3F6}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{260DA107-B287-4EF5-BAED-BF9AA66D4D1E}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{3441C494-D901-4945-BB12-599D9A43BA8F}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{4FE84BB6-4036-41CE-B364-227C29CC624C}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{6FF6FADB-5225-48EB-95F1-9BD5F2E0D6C6}\x64_Expand States" Type="string" Value=""/>
