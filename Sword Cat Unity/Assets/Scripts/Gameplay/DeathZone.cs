@@ -10,9 +10,17 @@ public class DeathZone : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        player = collider.gameObject;
-        player.SetActive(false);
-        StartCoroutine(WaitForRespawn(deathTime));
+        if(collider.CompareTag("Player"))
+        {
+            player = collider.gameObject;
+            player.SetActive(false);
+            StartCoroutine(WaitForRespawn(deathTime));
+        }
+
+        if(collider.CompareTag("yarn"))
+        {
+            Destroy(collider.gameObject);
+        }
     }
 
     IEnumerator WaitForRespawn(float spawnTime)

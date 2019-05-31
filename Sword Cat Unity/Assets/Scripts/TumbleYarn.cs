@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 //[RequireComponent(typeof())]
 public class TumbleYarn : MonoBehaviour
 {
     public enum YarnType { RED, GREEN, PURPLE }
+
+    public UnityEvent collected;
 
     public YarnType yarnType;
     [SerializeField]private float tumbleSpeed = 1f;
@@ -39,7 +42,28 @@ public class TumbleYarn : MonoBehaviour
             yarnSetCooldown(tumbleHopRate);
         }
 
-        rb.velocity += new Vector3(tumbleSpeed, 0, 0);
+        Vector3 vec;
+
+        var rand = Random.value;
+
+        if(rand < 0.25)
+        {
+            vec = new Vector3(tumbleSpeed, 0, 0);
+        }
+        else if (rand > 0.25 && rand <= 0.5)
+        {
+            vec = new Vector3(-tumbleSpeed, 0, 0);
+        }
+        else if (rand > 0.5 && rand <= 0.75)
+        {
+            vec = new Vector3(0, 0, tumbleSpeed);
+        }
+        else
+        {
+            vec = new Vector3(0, 0, -tumbleSpeed);
+        }
+
+        rb.velocity += vec;
 
         //checks for in air yarn
         if (yarnOnCooldown())
@@ -52,6 +76,11 @@ public class TumbleYarn : MonoBehaviour
     {
         if (collision.gameObject.tag == groundTag)
             onGround = true;
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collected.Invoke();
+        }
     }
 
     //a bool to check if the yarn is on ground and not in air

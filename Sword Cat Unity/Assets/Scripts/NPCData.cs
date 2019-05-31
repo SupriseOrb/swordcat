@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +15,29 @@ public class NPCData : ScriptableObject
 
     void OnEnable()
     {
+        foreach (TextAsset text in dialogueScripts)
+        {
+            try
+            {
+                JObject.Parse(text.text);
+            }
+            catch (JsonReaderException e)
+            {
+                Debug.LogError($"Error in json file {name}: {e.Message}" + e.Message, text);
+            }
+        }
+        foreach (TextAsset text in randomQuestScripts)
+        {
+            try
+            {
+                JObject.Parse(text.text);
+            }
+            catch (JsonReaderException e)
+            {
+                Debug.LogError($"Error in json file {name}: {e.Message}", text);
+            }
+        }
+
         if (!dats.Contains(this))
             dats.Add(this);
     }
