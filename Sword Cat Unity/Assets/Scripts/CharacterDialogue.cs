@@ -104,6 +104,7 @@ public class CharacterDialogue : MonoBehaviour
 
             if (readLine)
             {
+                AkSoundEngine.PostEvent("Advance_text", gameObject);
                 string readout = line;
                 switch (color)
                 {
