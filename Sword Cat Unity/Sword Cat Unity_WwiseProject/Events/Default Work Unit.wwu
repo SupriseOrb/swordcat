@@ -90,6 +90,10 @@
 				<Event Name="Play_Oasis_Town" ID="{538F2E24-FCB6-4AC3-B72E-B933E6515B02}">
 					<ChildrenList>
 						<Action Name="" ID="{D50DDCC4-5067-499B-87A9-D43B619772B4}" ShortID="373490788">
+							<PropertyList>
+								<Property Name="FadeInCurve" Type="int16" Value="0"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.2"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="oasis_town" ID="{74556EDB-D514-458B-9B50-104522BF81A8}" WorkUnitID="{D606D79B-ED34-44F3-9D7E-928EDBDD3E14}"/>
@@ -103,6 +107,7 @@
 						<Action Name="" ID="{2C12B828-3889-47C6-B7FA-A59F9F75C404}" ShortID="821128635">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.2"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -115,6 +120,10 @@
 				<Event Name="Play_Adventuring" ID="{7B370CA1-EF9A-4E16-AE86-C7E5BEC22FDB}">
 					<ChildrenList>
 						<Action Name="" ID="{C504EB71-EDA0-4937-ABE1-76792CD41A3D}" ShortID="927038141">
+							<PropertyList>
+								<Property Name="FadeInCurve" Type="int16" Value="0"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.2"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="adventuring" ID="{A2D8AF44-0073-4263-9380-40397316FC89}" WorkUnitID="{D606D79B-ED34-44F3-9D7E-928EDBDD3E14}"/>
@@ -128,6 +137,7 @@
 						<Action Name="" ID="{C617EBAC-3EBC-42E5-9ACB-0B4D8C2EFDC0}" ShortID="251733518">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.2"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">

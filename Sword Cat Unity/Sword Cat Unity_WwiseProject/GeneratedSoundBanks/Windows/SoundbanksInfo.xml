@@ -26,7 +26,7 @@
 				<Event Id="1634619135" Name="Play_Adventuring" ObjectPath="\Events\Default Work Unit\Play_Adventuring"/>
 				<Event Id="1602358412" Name="Play_Footstep" ObjectPath="\Events\Default Work Unit\Play_Footstep"/>
 				<Event Id="1358625432" Name="Play_Oasis_Town" ObjectPath="\Events\Default Work Unit\Play_Oasis_Town"/>
-				<Event Id="1379445973" Name="Play_Sword_Landing" ObjectPath="\Events\Default Work Unit\Play_Sword_Landing"/>
+				<Event Id="1379445973" Name="Play_Sword_Landing" ObjectPath="\Events\Default Work Unit\Play_Sword_Landing" MaxAttenuation="100.000000"/>
 				<Event Id="3038207054" Name="Shoot" ObjectPath="\Events\Default Work Unit\Shoot"/>
 				<Event Id="3409206885" Name="Stop_Adventuring" ObjectPath="\Events\Default Work Unit\Stop_Adventuring" MaxAttenuation="0.000000"/>
 				<Event Id="2963349357" Name="Stop_Footsteps" ObjectPath="\Events\Default Work Unit\Stop_Footsteps" MaxAttenuation="0.000000"/>
@@ -68,7 +68,7 @@
 				</File>
 				<File Id="665556582" Language="SFX">
 					<ShortName>adventuring.wav</ShortName>
-					<Path>SFX\adventuring_10C4C929.wem</Path>
+					<Path>SFX\adventuring_D79FB2B7.wem</Path>
 				</File>
 				<File Id="863922940" Language="SFX">
 					<ShortName>landing_sand1.wav</ShortName>
