@@ -42,7 +42,28 @@ public class TumbleYarn : MonoBehaviour
             yarnSetCooldown(tumbleHopRate);
         }
 
-        rb.velocity += new Vector3(tumbleSpeed, 0, 0);
+        Vector3 vec;
+
+        var rand = Random.value;
+
+        if(rand < 0.25)
+        {
+            vec = new Vector3(tumbleSpeed, 0, 0);
+        }
+        else if (rand > 0.25 && rand <= 0.5)
+        {
+            vec = new Vector3(-tumbleSpeed, 0, 0);
+        }
+        else if (rand > 0.5 && rand <= 0.75)
+        {
+            vec = new Vector3(0, 0, tumbleSpeed);
+        }
+        else
+        {
+            vec = new Vector3(0, 0, -tumbleSpeed);
+        }
+
+        rb.velocity += vec;
 
         //checks for in air yarn
         if (yarnOnCooldown())
