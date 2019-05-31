@@ -122,9 +122,15 @@
 				</RandomSequenceContainer>
 				<Sound Name="shoot" ID="{0E4C64F2-DE7F-4A52-9078-CC9B045DD448}" ShortID="1056221468">
 					<PropertyList>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 						<Property Name="Lowpass" Type="int16">
 							<ValueList>
 								<Value>37</Value>
+							</ValueList>
+						</Property>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Pitch" Type="int32">
@@ -139,6 +145,11 @@
 									</Modifier>
 								</ModifierInfo>
 							</ModifierList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>
@@ -346,6 +357,12 @@
 				</RandomSequenceContainer>
 				<RandomSequenceContainer Name="Footsteps (Sand)" ID="{9373CECA-15B4-44FA-932E-57A0F730D159}" ShortID="343499981">
 					<PropertyList>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
 						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 						<Property Name="Pitch" Type="int32">
 							<ModifierList>
@@ -365,6 +382,11 @@
 						<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
 						<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.1"/>
 						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -453,6 +475,28 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<Sound Name="oasis_town" ID="{74556EDB-D514-458B-9B50-104522BF81A8}" ShortID="889354275">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B69AD01-F373-4CFB-8DA1-15A4746A289D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="oasis_town" ID="{89338B06-206C-4262-BAD4-DE5EA87781CB}" ShortID="565948085">
+							<Language>SFX</Language>
+							<AudioFile>oasis_town.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="oasis_town" ID="{89338B06-206C-4262-BAD4-DE5EA87781CB}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
