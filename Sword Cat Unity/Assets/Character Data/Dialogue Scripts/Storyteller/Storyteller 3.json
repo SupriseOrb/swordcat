@@ -1,11 +1,11 @@
 {
 	"options": {
 		"mode": "wait",
-		"wait"{
+		"wait":{
 			"name": "Tom",
 			"state": 4
 		}
-	}
+	},
 	"scripts": {
 		"idle": [
 			[
