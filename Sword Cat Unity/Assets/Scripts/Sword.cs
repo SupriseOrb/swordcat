@@ -74,6 +74,7 @@ public class Sword : MonoBehaviour
                 attachComponent.attach(this.gameObject);
                 m_IsAttached = true;
                 parent.SetObjectHit(collision.gameObject);
+                AkSoundEngine.PostEvent("Play_Sword_Landing", gameObject);
             }
             else
             {

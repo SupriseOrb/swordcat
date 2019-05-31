@@ -16,6 +16,7 @@ namespace AK
         static const AkUniqueID ADVANCE_TEXT = 3613280333U;
         static const AkUniqueID MENU_SCROLL = 2072673020U;
         static const AkUniqueID PLAY_FOOTSTEP = 1602358412U;
+        static const AkUniqueID PLAY_SWORD_LANDING = 1379445973U;
         static const AkUniqueID SHOOT = 3038207054U;
         static const AkUniqueID STOP_FOOTSTEPS = 2963349357U;
         static const AkUniqueID TEST = 3157003241U;
