@@ -1,11 +1,11 @@
 {
 	"options": {
 		"mode": "wait",
-		"wait"{
+		"wait":{
 			"name": "Tom",
 			"state": 2
 		}
-	}
+	},
 	"scripts": {
 		"idle": [
 			["Off you go, Sword Cat!"],
