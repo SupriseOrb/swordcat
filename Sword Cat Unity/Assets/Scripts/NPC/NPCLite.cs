@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,9 +20,16 @@ public class NPCLite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        JObject jObj = JObject.Parse(dialogue.text);
-        characterName = jObj["name"] == null ? "Unnamed NPC" : jObj["name"].Value<string>();
-        idleDialogue = jObj["scripts"]["idle"].ToObject<string[][]>(); ;
+        try
+        {
+            JObject jObj = JObject.Parse(dialogue.text);
+            characterName = jObj["name"] == null ? "Unnamed NPC" : jObj["name"].Value<string>();
+            idleDialogue = jObj["scripts"]["idle"].ToObject<string[][]>();
+        }
+        catch(JsonReaderException e)
+        {
+            Debug.LogError($"Error in json file {dialogue.name}: {e.Message}", dialogue);
+        }
     }
 
     // Update is called once per frame
