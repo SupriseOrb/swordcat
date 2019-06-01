@@ -7,9 +7,8 @@ public class Fader : MonoBehaviour
 {
     public static Fader instance;
     Image image;
-
-    // Start is called before the first frame update
-    void Start()
+    
+    void Awake()
     {
         if (instance != null)
         {
