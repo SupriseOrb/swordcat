@@ -10,6 +10,7 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] Button newGameButton;
     [SerializeField] Button continueButton;
     [SerializeField] Button quitButton;
+    bool clicked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,17 +36,27 @@ public class MainMenuScript : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadSceneAsync("OasisTown");
+        if (clicked)
+            return;
+        clicked = true;
+        Fader.instance.FadeEffect(() => { return SceneManager.LoadSceneAsync("OasisTown"); });
+        
     }
 
     public void Continue()
     {
+        if (clicked)
+            return;
+        clicked = true;
         GameManager.instance.Load();
-        SceneManager.LoadSceneAsync("OasisTown");
+        Fader.instance.FadeEffect(() => { return SceneManager.LoadSceneAsync("OasisTown"); });
     }
 
     public void Quit()
     {
+        if (clicked)
+            return;
+        clicked = true;
         Application.Quit();
     }
 }
