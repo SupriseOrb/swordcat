@@ -127,7 +127,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   yarnType: 0
-  tumbleSpeed: 0.02
+  tumbleSpeed: 0.75
   tumbleHeight: 4
   tumbleHopRate: 1.5
   groundTag: ground
