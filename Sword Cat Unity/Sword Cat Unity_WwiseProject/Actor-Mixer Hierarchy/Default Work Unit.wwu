@@ -538,6 +538,11 @@
 				<Sound Name="oasis_town" ID="{74556EDB-D514-458B-9B50-104522BF81A8}" ShortID="889354275">
 					<PropertyList>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -548,13 +553,13 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="oasis_town" ID="{89338B06-206C-4262-BAD4-DE5EA87781CB}" ShortID="565948085">
+						<AudioFileSource Name="oasis_town" ID="{EF0DF319-127B-4B9C-9D8D-E29ACB4F670F}" ShortID="518203254">
 							<Language>SFX</Language>
 							<AudioFile>oasis_town.wav</AudioFile>
 						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
-						<ActiveSource Name="oasis_town" ID="{89338B06-206C-4262-BAD4-DE5EA87781CB}" Platform="Linked"/>
+						<ActiveSource Name="oasis_town" ID="{EF0DF319-127B-4B9C-9D8D-E29ACB4F670F}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="adventuring" ID="{A2D8AF44-0073-4263-9380-40397316FC89}" ShortID="471756983">
