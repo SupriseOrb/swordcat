@@ -1,0 +1,19 @@
+{
+	"options": {
+		"mode": "wait",
+		"wait":{
+			"name": "Tom",
+			"state": 4
+		}
+	},
+	"scripts": {
+		"idle": [
+			[
+				"Sword cats have chased after Tumbleyarn since before this town was founded.",
+				"It's an important task. My mother's mother always said that as long as the people of Oasis Town have sword cats, all will be well.",
+				"You and the other sword cats are the lifeblood of this town just as the Oasis sustains the desert."
+			]
+		]
+
+	}
+}
