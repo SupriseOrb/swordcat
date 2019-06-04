@@ -122,9 +122,15 @@
 				</RandomSequenceContainer>
 				<Sound Name="shoot" ID="{0E4C64F2-DE7F-4A52-9078-CC9B045DD448}" ShortID="1056221468">
 					<PropertyList>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 						<Property Name="Lowpass" Type="int16">
 							<ValueList>
 								<Value>37</Value>
+							</ValueList>
+						</Property>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Pitch" Type="int32">
@@ -139,6 +145,11 @@
 									</Modifier>
 								</ModifierInfo>
 							</ModifierList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>
@@ -202,6 +213,10 @@
 				</Sound>
 				<RandomSequenceContainer Name="Sword Landing (Sand)" ID="{46C37790-1342-470B-8664-565AF4638347}" ShortID="97755053">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
+						<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+						<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
+						<Property Name="HoldEmitterPositionOrientation" Type="bool" Value="True"/>
 						<Property Name="Pitch" Type="int32">
 							<ValueList>
 								<Value>-30</Value>
@@ -220,6 +235,53 @@
 						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<Custom>
+								<Attenuation Name="Attenuation (Custom)" ID="{5AB92A9C-133D-429D-8073-ABDECB5DABC1}" ShortID="909638642">
+									<CurveUsageInfoList>
+										<VolumeDryUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+												<Curve Name="VolumeDry" ID="{D0396A41-E17F-4166-887E-1BE36061107D}">
+													<PropertyList>
+														<Property Name="Flags" Type="int32" Value="3"/>
+													</PropertyList>
+													<PointList>
+														<Point>
+															<XPos>0</XPos>
+															<YPos>0</YPos>
+															<Flags>5</Flags>
+														</Point>
+														<Point>
+															<XPos>100</XPos>
+															<YPos>-200</YPos>
+															<Flags>37</Flags>
+														</Point>
+													</PointList>
+												</Curve>
+											</CurveUsageInfo>
+										</VolumeDryUsage>
+										<VolumeWetGameUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+										</VolumeWetGameUsage>
+										<VolumeWetUserUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="UseVolumeDry"/>
+										</VolumeWetUserUsage>
+										<LowPassFilterUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</LowPassFilterUsage>
+										<HighPassFilterUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</HighPassFilterUsage>
+										<SpreadUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</SpreadUsage>
+										<FocusUsage>
+											<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+										</FocusUsage>
+									</CurveUsageInfoList>
+								</Attenuation>
+							</Custom>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
 						</Reference>
@@ -343,9 +405,19 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<PositioningInfo>
+						<Position Name="" ID="{A008FE2A-5880-4260-ACA0-D320DBD8B56A}"/>
+					</PositioningInfo>
 				</RandomSequenceContainer>
 				<RandomSequenceContainer Name="Footsteps (Sand)" ID="{9373CECA-15B4-44FA-932E-57A0F730D159}" ShortID="343499981">
 					<PropertyList>
+						<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
 						<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
 						<Property Name="Pitch" Type="int32">
 							<ModifierList>
@@ -365,6 +437,16 @@
 						<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
 						<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.1"/>
 						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-17</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -453,6 +535,55 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<Sound Name="oasis_town" ID="{74556EDB-D514-458B-9B50-104522BF81A8}" ShortID="889354275">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B69AD01-F373-4CFB-8DA1-15A4746A289D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="oasis_town" ID="{89338B06-206C-4262-BAD4-DE5EA87781CB}" ShortID="565948085">
+							<Language>SFX</Language>
+							<AudioFile>oasis_town.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="oasis_town" ID="{89338B06-206C-4262-BAD4-DE5EA87781CB}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="adventuring" ID="{A2D8AF44-0073-4263-9380-40397316FC89}" ShortID="471756983">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>7</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{F5778BC9-9B5F-40CC-8D5C-3CCE850DEE91}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{5B69AD01-F373-4CFB-8DA1-15A4746A289D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="adventuring" ID="{3F5C4DE5-B887-43D0-BA1B-548DB2BA1DA0}" ShortID="665556582">
+							<Language>SFX</Language>
+							<AudioFile>adventuring.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="adventuring" ID="{3F5C4DE5-B887-43D0-BA1B-548DB2BA1DA0}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

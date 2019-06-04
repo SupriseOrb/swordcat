@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c2634f9705f3e44b05fb10da4f8484, type: 3}
+  m_Name: 7B370CA1-EF9A-4E16-AE86-C7E5BEC22FDB
+  m_EditorClassIdentifier: 
+  objectName: Play_Adventuring
+  id: 1634619135
+  guid: 7B370CA1-EF9A-4E16-AE86-C7E5BEC22FDB
