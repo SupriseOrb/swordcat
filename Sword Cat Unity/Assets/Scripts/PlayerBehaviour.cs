@@ -56,7 +56,7 @@ public class PlayerBehaviour : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-#if UNITY_EDITOR_WIN
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         leftTriggerName = "LeftTrigger";
         rightTriggerName = "RightTrigger";
         leftBumperName = "LeftBumper";
@@ -65,7 +65,7 @@ public class PlayerBehaviour : MonoBehaviour
         rightStickY = "WinRightStickY";
 #endif
 
-#if UNITY_EDITOR_OSX
+#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
         leftTriggerName = "MacLeftTrigger";
         rightTriggerName = "MacRightTrigger";
         leftBumperName = "MacLeftBumper";
