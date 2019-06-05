@@ -17,6 +17,21 @@ public class NPCLite : MonoBehaviour
     string characterName;
     string[][] idleDialogue;
 
+    public static string[][] getDialogueFromJson(JToken jToken)
+    {
+        List<string[]> id = new List<string[]>();
+        foreach (JToken a in jToken)
+        {
+            List<string> idd = new List<string>();
+            foreach (string i in a.Values<string>())
+            {
+                idd.Add(i);
+            }
+            id.Add(idd.ToArray());
+        }
+        return id.ToArray();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +39,7 @@ public class NPCLite : MonoBehaviour
         {
             JObject jObj = JObject.Parse(dialogue.text);
             characterName = jObj["name"] == null ? "Unnamed NPC" : jObj["name"].Value<string>();
-            idleDialogue = jObj["scripts"]["idle"].ToObject<string[][]>();
+            idleDialogue = getDialogueFromJson(jObj["scripts"]["idle"]);
         }
         catch(JsonReaderException e)
         {
