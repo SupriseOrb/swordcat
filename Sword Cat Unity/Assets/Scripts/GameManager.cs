@@ -147,7 +147,7 @@ public class GameData
 [System.Serializable]
 public class NPCState
 {
-    public enum QuestState { NONE, AVAILABLE, ACTIVE, COMPLETE };
+    public enum QuestState { NONE, AVAILABLE, ACTIVE, COMPLETE, NEXT };
     public string characterName;
     public NPCData data
     {

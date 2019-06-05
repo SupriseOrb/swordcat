@@ -19,7 +19,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	340430374	footstep_sand3	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Mac\SFX\footstep_sand3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps (Sand)\footstep_sand3		53512
 	462586578	test	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Mac\SFX\grab_coin_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\test		121996
 	510224934	select-adv_ text	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Mac\SFX\select-adv. text_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\select-adv_ text		81444
-	565948085	oasis_town	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Mac\SFX\oasis_town_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\oasis_town		35247148
+	518203254	oasis_town	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Mac\SFX\oasis_town_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\oasis_town		34737360
 	665556582	adventuring	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Mac\SFX\adventuring_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\adventuring		18345728
 	863922940	landing_sand1	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Mac\SFX\landing_sand1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword Landing (Sand)\landing_sand1		40164
 	1063062103	landing_sand4	D:\GitHub\swordcat\Sword Cat Unity\Sword Cat Unity_WwiseProject\.cache\Mac\SFX\landing_sand4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Sword Landing (Sand)\landing_sand4		24432
