@@ -69,10 +69,10 @@ public class NPC : MonoBehaviour
                 if (state.randomQuest)
                 {
                     rqDialogue = JObject.Parse(state.data.randomQuestScripts[state.randomQuestDialogue].text);
-                    string[][] dialogue = rqDialogue["quest"].ToObject<string[][]>();
+                    string[][] dialogue = NPCLite.getDialogueFromJson(rqDialogue["quest"]);
 
-                    string[][] accept = rqDialogue["accept"].ToObject<string[][]>();
-                    string[][] decline = rqDialogue["decline"].ToObject<string[][]>();
+                    string[][] accept = NPCLite.getDialogueFromJson(rqDialogue["accept"]);
+                    string[][] decline = NPCLite.getDialogueFromJson(rqDialogue["decline"]);
                     yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)],
                         accept[Random.Range(0, accept.Length)],
                         decline[Random.Range(0, decline.Length)], state.talked > 0, state.randomQuestType, state.randomQuestAmount);
@@ -98,10 +98,10 @@ public class NPC : MonoBehaviour
                 }
                 else
                 {
-                    string[][] dialogue = script["quest"].ToObject<string[][]>();
+                    string[][] dialogue = NPCLite.getDialogueFromJson(script["quest"]);
 
-                    string[][] accept = script["accept"].ToObject<string[][]>();
-                    string[][] decline = script["decline"].ToObject<string[][]>();
+                    string[][] accept = NPCLite.getDialogueFromJson(script["accept"]);
+                    string[][] decline = NPCLite.getDialogueFromJson(script["decline"]);
                     yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)],
                         accept[Random.Range(0, accept.Length)],
                         decline[Random.Range(0, decline.Length)], state.talked > 0);
@@ -123,11 +123,11 @@ public class NPC : MonoBehaviour
                     if (state.randomQuest)
                     {
                         rqDialogue = JObject.Parse(state.data.randomQuestScripts[state.randomQuestDialogue].text);
-                        dialogue = rqDialogue["complete"].ToObject<string[][]>();
+                        dialogue = NPCLite.getDialogueFromJson(rqDialogue["complete"]);
                     }
                     else
                     {
-                        dialogue = script["complete"].ToObject<string[][]>();
+                        dialogue = NPCLite.getDialogueFromJson(script["complete"]);
                     }
 
                     yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0, state.randomQuestType, state.randomQuestAmount);
@@ -158,11 +158,11 @@ public class NPC : MonoBehaviour
                     if (state.randomQuest)
                     {
                         rqDialogue = JObject.Parse(state.data.randomQuestScripts[state.randomQuestDialogue].text);
-                        dialogue = rqDialogue["incomplete"].ToObject<string[][]>();
+                        dialogue = NPCLite.getDialogueFromJson(rqDialogue["incomplete"]);
                     }
                     else
                     {
-                        dialogue = script["incomplete"].ToObject<string[][]>();
+                        dialogue = NPCLite.getDialogueFromJson(script["incomplete"]);
                     }
 
                     yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0, state.randomQuestType, state.randomQuestAmount);
@@ -171,7 +171,7 @@ public class NPC : MonoBehaviour
             }
             else
             {
-                string[][] dialogue = script["idle"].ToObject<string[][]>();
+                string[][] dialogue = NPCLite.getDialogueFromJson(script["idle"]);
                 yield return dialogueManager.Dialogue(state.data.characterName, dialogue[Random.Range(0, dialogue.Length)], state.talked > 0);
                 state.talked++;
             }
