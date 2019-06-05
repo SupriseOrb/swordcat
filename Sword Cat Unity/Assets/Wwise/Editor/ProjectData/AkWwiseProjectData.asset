@@ -31,7 +31,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 6415a27ddb016a4785056812c6aaa227
     GuidInternal: 
-    m_lastTime: -8586423463838345893
+    m_lastTime: -8586423386020943787
     List:
     - name: main
       guid: ca6bc251cc2d5542a5b1000795a10922
@@ -47,7 +47,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 2b53608e441336438fdef934a62c8743
     GuidInternal: 
-    m_lastTime: -8586423463838697160
+    m_lastTime: -8586423387390819923
     List:
     - name: Advance_text
       guid: 6940fad541437d4db7a1546cd7e1e0fa
@@ -85,6 +85,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: Play_Oasis_Town
+      guid: 242e8f53b6fcc34ab72eb933e6515b02
+      id: 1358625432
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Oasis_Town
+        ObjectType: 3
+      Path: Default Work Unit\Play_Oasis_Town
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Sword_Landing
       guid: 07a10d2687b2f54ebaedbf9aa66d4d1e
       id: 1379445973
@@ -118,6 +130,18 @@ MonoBehaviour:
       - ElementName: Stop_Footsteps
         ObjectType: 3
       Path: Default Work Unit\Stop_Footsteps
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_Oasis_Town
+      guid: 359104280a32664ea4cc15fdb7411250
+      id: 2679606938
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_Oasis_Town
+        ObjectType: 3
+      Path: Default Work Unit\Stop_Oasis_Town
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -163,5 +187,7 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /Sword Cat Unity_WwiseProject
+  - /Sword Cat Unity_WwiseProject/Events
+  - /Sword Cat Unity_WwiseProject/Events/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

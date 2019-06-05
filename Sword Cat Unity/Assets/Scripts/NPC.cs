@@ -31,28 +31,6 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (TextAsset text in state.data.dialogueScripts)
-        {
-            try
-            {
-                JObject.Parse(text.text);
-            }
-            catch (JsonReaderException e)
-            {
-                Debug.LogError($"Error in json file {text.name}: {e.Message}" + e.Message, text);
-            }
-        }
-        foreach (TextAsset text in state.data.randomQuestScripts)
-        {
-            try
-            {
-                JObject.Parse(text.text);
-            }
-            catch (JsonReaderException e)
-            {
-                Debug.LogError($"Error in json file {text.name}: {e.Message}", text);
-            }
-        }
     }
 
     // Update is called once per frame

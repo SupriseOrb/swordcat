@@ -23,10 +23,14 @@
 			<IncludedEvents>
 				<Event Id="3613280333" Name="Advance_text" ObjectPath="\Events\Default Work Unit\Advance_text"/>
 				<Event Id="2072673020" Name="Menu_scroll" ObjectPath="\Events\Default Work Unit\Menu_scroll"/>
+				<Event Id="1634619135" Name="Play_Adventuring" ObjectPath="\Events\Default Work Unit\Play_Adventuring"/>
 				<Event Id="1602358412" Name="Play_Footstep" ObjectPath="\Events\Default Work Unit\Play_Footstep"/>
-				<Event Id="1379445973" Name="Play_Sword_Landing" ObjectPath="\Events\Default Work Unit\Play_Sword_Landing"/>
+				<Event Id="1358625432" Name="Play_Oasis_Town" ObjectPath="\Events\Default Work Unit\Play_Oasis_Town"/>
+				<Event Id="1379445973" Name="Play_Sword_Landing" ObjectPath="\Events\Default Work Unit\Play_Sword_Landing" MaxAttenuation="100.000000"/>
 				<Event Id="3038207054" Name="Shoot" ObjectPath="\Events\Default Work Unit\Shoot"/>
+				<Event Id="3409206885" Name="Stop_Adventuring" ObjectPath="\Events\Default Work Unit\Stop_Adventuring" MaxAttenuation="0.000000"/>
 				<Event Id="2963349357" Name="Stop_Footsteps" ObjectPath="\Events\Default Work Unit\Stop_Footsteps" MaxAttenuation="0.000000"/>
+				<Event Id="2679606938" Name="Stop_Oasis_Town" ObjectPath="\Events\Default Work Unit\Stop_Oasis_Town" MaxAttenuation="0.000000"/>
 				<Event Id="3157003241" Name="test" ObjectPath="\Events\Default Work Unit\test"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
@@ -57,6 +61,14 @@
 				<File Id="510224934" Language="SFX">
 					<ShortName>select-adv. text.wav</ShortName>
 					<Path>SFX\select-adv. text_10C4C929.wem</Path>
+				</File>
+				<File Id="565948085" Language="SFX">
+					<ShortName>oasis_town.wav</ShortName>
+					<Path>SFX\oasis_town_D79FB2B7.wem</Path>
+				</File>
+				<File Id="665556582" Language="SFX">
+					<ShortName>adventuring.wav</ShortName>
+					<Path>SFX\adventuring_D79FB2B7.wem</Path>
 				</File>
 				<File Id="863922940" Language="SFX">
 					<ShortName>landing_sand1.wav</ShortName>

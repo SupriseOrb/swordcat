@@ -12,27 +12,35 @@ public class GameManager : MonoBehaviour
     public GameData data;
     [SerializeField] bool loadFromFile = false;
 
-    string saveDataPath;
+    public string saveDataPath;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         saveDataPath = Path.Combine(Application.persistentDataPath, "save.dat");
-
         if (instance != null)
         {
-            Destroy(gameObject);
-            instance.ReloadNPCs();
             return;
         }
 
+        instance = this;
         if (loadFromFile)
             Load();
         else
             data = data ?? new GameData();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        if (instance != this)
+        {
+            instance.ReloadNPCs();
+            Destroy(gameObject);
+            return;
+        }
 
         DontDestroyOnLoad(gameObject);
-        instance = this;
 
         ReloadNPCs();
     }

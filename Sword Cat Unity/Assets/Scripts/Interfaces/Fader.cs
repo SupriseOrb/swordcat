@@ -7,9 +7,8 @@ public class Fader : MonoBehaviour
 {
     public static Fader instance;
     Image image;
-
-    // Start is called before the first frame update
-    void Start()
+    
+    void Awake()
     {
         if (instance != null)
         {
@@ -31,6 +30,8 @@ public class Fader : MonoBehaviour
 
     public void FadeEffect(System.Func<YieldInstruction> func)
     {
+        AkSoundEngine.PostEvent("Stop_Footsteps", GameObject.Find("Player")); //Stop the footsteps from playing in between scenes
+
         IEnumerator Effect()
         {
             image.fillClockwise = true;

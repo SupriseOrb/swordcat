@@ -36,12 +36,12 @@ public class CameraJoystickControls : MonoBehaviour
 
     private void Start()
     {
-#if UNITY_EDITOR_OSX
+#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
         rightX = "MacRightStickX";
         rightY = "MacRightStickY";
 #endif
 
-#if UNITY_EDITOR_WIN
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         rightX = "WinRightStickX";
         rightY = "WinRightStickY";
 #endif

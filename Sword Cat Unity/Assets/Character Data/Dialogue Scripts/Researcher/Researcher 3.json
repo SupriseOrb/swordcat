@@ -3,11 +3,10 @@
 		"type": "fetch",
 		"fetch": {
 			"purple": 1
-		}
-	},
-	
-	"options": {
+		},
+		"complete": {
 		"mode": "next"
+		}
 	},
 	
 	"scripts": {
