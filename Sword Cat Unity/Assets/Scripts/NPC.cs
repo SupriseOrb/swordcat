@@ -144,8 +144,7 @@ public class NPC : MonoBehaviour
                     }
                     else if (token["complete"] != null && token["complete"]["mode"].Value<string>() == "next")
                     {
-                        state.state++;
-                        ReloadScripts();
+                        state.quest = NPCState.QuestState.NEXT;
                     }
                     else
                     {
@@ -222,6 +221,11 @@ public class NPC : MonoBehaviour
         {
             state = new NPCState() { characterName = characterData.characterName };
             GameManager.instance.data.npcs.Add(state);
+        }
+
+        if (state.quest == NPCState.QuestState.NEXT)
+        {
+            state.state++;
         }
 
         ReloadScripts();
